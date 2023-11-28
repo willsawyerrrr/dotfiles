@@ -1,0 +1,42 @@
+# Name of the theme to load.
+OSH_THEME="agnoster"
+
+# Hyphen-insensitive completion. _ and - will be interchangeable.
+OMB_HYPHEN_SENSITIVE="false"
+
+# Command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you don't want the repository to be considered dirty
+# if there are untracked files.
+# SCM_GIT_DISABLE_UNTRACKED_DIRTY="true"
+
+# Uncomment the following line if you want to completely ignore the presence
+# of untracked files in the repository.
+# SCM_GIT_IGNORE_UNTRACKED="true"
+
+# Display of Python virtualenv and condaenv
+OMB_PROMPT_SHOW_PYTHON_VENV=true
+
+# Completions, aliases and plugins to load.
+# Those available can be found in ~/.oh-my-bash/<type>/*
+# Custom ones may be added to ~/.oh-my-bash/custom/<type>
+completions=(git)
+aliases=()
+plugins=(bashmarks)
+
+# Completions, aliases and plugins to conditionally load.
+# Example format:
+#  if [ "$DISPLAY" ] || [ "$SSH" ]; then
+#      plugins+=(tmux-autoattach)
+#  fi
+
+source "$OSH/oh-my-bash.sh"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"

@@ -1,0 +1,19 @@
+# don't put duplicate lines or lines starting with space in the history.
+export HISTCONTROL=ignoreboth
+# restrict history length
+export HISTFILESIZE=1000
+
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH:$DOTNET_ROOT
+
+export EDITOR=vim
+
+export GPG_TTY=$(tty)
+
+export NVM_DIR="$HOME/.nvm"
+
+export OSH=$HOME/.oh-my-bash
+
+export PIP_REQUIRE_VIRTUALENV=true
+
+export PROMPT_DIRTRIM=1
