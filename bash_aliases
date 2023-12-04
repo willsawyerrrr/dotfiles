@@ -4,4 +4,4 @@ alias ps="ps -fu$USER"
 
 alias r="R --no-save"
 
-alias venv='source venv/bin/activate'
+alias venv="source venv/bin/activate"
