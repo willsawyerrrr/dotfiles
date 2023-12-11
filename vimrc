@@ -28,7 +28,7 @@ highlight ColorColumn ctermbg=8 guibg=lightgrey
 "--------------------------------------------------------------------
 "   MISCELLANEOUS
 "--------------------------------------------------------------------
-set number                      " Show line numbers
+set relativenumber              " Show line numbers
 set wildmenu                    " Turn on the autocomplete menu
 set mouse=a                     " Enable mouse support
 set ruler                       " Display the ruler in the bottom right corner
