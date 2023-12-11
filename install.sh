@@ -1,10 +1,14 @@
 #!/usr/bin/bash
 
 # Install Oh My Bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+if [[ ! -d $OSH ]]; then
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+fi
 
 # Clone dotfiles
-git clone https://github.com/willsawyerrrr/dotfiles.git ~/dotfiles
+if [[ ! -d ~/dotfiles ]]; then
+    git clone https://github.com/willsawyerrrr/dotfiles.git ~/dotfiles
+fi
 
 # Symbolically link config files
 ln --force --symbolic ~/dotfiles/bash_aliases    ~/.bash_aliases
