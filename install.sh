@@ -20,6 +20,7 @@ ln --force --symbolic ~/dotfiles/gitconfig       ~/.gitconfig
 ln --force --symbolic ~/dotfiles/hushlogin       ~/.hushlogin
 ln --force --symbolic ~/dotfiles/oshrc           ~/.oshrc
 ln --force --symbolic ~/dotfiles/profile         ~/.profile
+ln --force --symbolic ~/dotfiles/Rprofile        ~/.Rprofile
 ln --force --symbolic ~/dotfiles/ssh/config      ~/.ssh/config
 ln --force --symbolic ~/dotfiles/tmux.conf       ~/.tmux.conf
 ln --force --symbolic ~/dotfiles/vimrc           ~/.vimrc
