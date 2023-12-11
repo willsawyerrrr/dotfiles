@@ -2,7 +2,7 @@ alias py="python"
 
 alias ps="ps -fu$USER"
 
-alias r="R --no-save"
+alias r="R --no-save --quiet"
 
 alias cvenv="python -m venv venv"
 alias freeze="pip freeze > requirements.txt"
