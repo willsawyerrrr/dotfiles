@@ -1,4 +1,13 @@
-colorscheme desert
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+Plug 'tribela/vim-transparent'
+Plug 'wojciechkepka/vim-github-dark'
+call plug#end()
 
 "--------------------------------------------------------------------
 "   HIGHLIGHTING AND SYNTAX
@@ -7,7 +16,8 @@ set background=dark             " Use a dark background by default
 syntax on                       " Enable syntax highlighting
 set t_Co=256                    " Allow vim to display all colours
 set showmatch                   " Highlight matching parentheses
-colorscheme desert
+colorscheme ghdark
+let g:gh_color = "soft"
 
 "--------------------------------------------------------------------
 "   INDENTATION
