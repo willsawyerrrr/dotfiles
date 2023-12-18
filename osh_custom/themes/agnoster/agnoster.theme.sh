@@ -339,9 +339,10 @@ function prompt_condaenv {
 # Context: user@hostname (who am I and where am I)
 function prompt_context {
   local user=$(whoami)
+  local host=$(cat $OSH_CUSTOM/hostname 2>/dev/null || echo "hostname unset")
 
   if [[ $user != $DEFAULT_USER || -n $SSH_CLIENT ]]; then
-    prompt_segment black default "$user@WSL"
+    prompt_segment black default "$user@$host"
   fi
 }
 
