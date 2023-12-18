@@ -27,7 +27,7 @@ OMB_PROMPT_SHOW_PYTHON_VENV=true
 # Those available can be found in ~/.oh-my-bash/<type>/*
 # Custom ones may be added to ~/.oh-my-bash/custom/<type>
 completions=(git)
-aliases=()
+aliases=(grep ls)
 plugins=(bashmarks)
 
 # Completions, aliases and plugins to conditionally load.
