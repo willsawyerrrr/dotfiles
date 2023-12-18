@@ -18,6 +18,7 @@ ln --force --symbolic ~/dotfiles/gh/config.yaml  ~/.config/gh/config.yml
 ln --force --symbolic ~/dotfiles/ghci            ~/.ghci
 ln --force --symbolic ~/dotfiles/gitconfig       ~/.gitconfig
 ln --force --symbolic ~/dotfiles/hushlogin       ~/.hushlogin
+ln --force --symbolic ~/dotfiles/osh_custom      ~/.oh-my-bash/custom
 ln --force --symbolic ~/dotfiles/oshrc           ~/.oshrc
 ln --force --symbolic ~/dotfiles/profile         ~/.profile
 ln --force --symbolic ~/dotfiles/Rprofile        ~/.Rprofile
