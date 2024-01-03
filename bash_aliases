@@ -1,3 +1,5 @@
+alias clear-pycache="find -name __pycache__ -exec rm -rf {} +"
+
 alias py="python"
 
 alias ps="ps -fu$USER"
