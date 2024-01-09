@@ -277,7 +277,7 @@ function prompt_end {
     PR="$PR $(ansi codes[@])$SEGMENT_SEPARATOR"
   fi
   local -a reset=($(text_effect reset))
-  PR="$PR $(ansi reset[@])"
+  PR="$PR $(ansi reset[@])\n ➜ "
   CURRENT_BG=''
 }
 
