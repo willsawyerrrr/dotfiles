@@ -29,6 +29,7 @@ OMB_PROMPT_SHOW_PYTHON_VENV=true
 completions=(git)
 aliases=(grep ls)
 plugins=(bashmarks)
+[ ! "$SSH_TTY" ] && plugins+=(code)
 
 # Completions, aliases and plugins to conditionally load.
 # Example format:
