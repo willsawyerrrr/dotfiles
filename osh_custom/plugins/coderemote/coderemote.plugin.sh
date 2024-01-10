@@ -1,9 +1,9 @@
 #! bash oh-my-bash.module
-# code.plugin.sh
+# coderemote.plugin.sh
 # Author: William Sawyer <wmsawyer2609@gmail.com>
 #
 
-function code-remote () {
+function coderemote() {
     host="$1"
     path="$2"
 
