@@ -9,4 +9,3 @@ function coderemote() {
 
     code --folder-uri="vscode-remote://ssh-remote+${host}${path}"
 }
-
