@@ -9,3 +9,11 @@ function coderemote() {
 
     code --folder-uri="vscode-remote://ssh-remote+${host}${path}"
 }
+
+function codecontainer() {
+    # Convert to continuous hex string
+    container=$(echo $1 | xxd -ps -c0)
+    path="$2"
+
+    code --folder-uri="vscode-remote://attached-container+${container}${path}"
+}
