@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Install Oh My Bash
 if [[ ! -d $OSH ]]; then
