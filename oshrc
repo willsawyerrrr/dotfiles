@@ -29,13 +29,15 @@ OMB_PROMPT_SHOW_PYTHON_VENV=true
 completions=(git)
 aliases=(grep ls)
 plugins=(bashmarks)
-[ ! "$SSH_TTY" ] && plugins+=(coderemote)
 
 # Completions, aliases and plugins to conditionally load.
 # Example format:
 #  if [ "$DISPLAY" ] || [ "$SSH" ]; then
 #      plugins+=(tmux-autoattach)
 #  fi
+if [[ ! "$SSH_TTY" ]]; then
+    plugins+=(coderemote)
+fi
 
 source "$OSH/oh-my-bash.sh"
 
