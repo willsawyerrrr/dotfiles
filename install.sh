@@ -11,7 +11,7 @@ if [[ ! -d ~/dotfiles ]]; then
 fi
 
 # Create config directories
-mkdir --parents ~/.config/gh
+mkdir --parents ~/.config/gh ~/.ssh
 
 # Symbolically link config files
 ln --force --no-dereference --symbolic ~/dotfiles/bash_aliases    ~/.bash_aliases
