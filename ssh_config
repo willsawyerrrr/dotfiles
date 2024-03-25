@@ -18,4 +18,3 @@ Host situ
     IdentityFile ~/.ssh/situ_key
 
 AddKeysToAgent   yes
-
