@@ -10,8 +10,9 @@ if [[ ! -d ~/dotfiles ]]; then
     git clone https://github.com/willsawyerrrr/dotfiles.git ~/dotfiles
 fi
 
-# Create config directories
+# Prepare dotfile directories
 mkdir --parents ~/.config/gh ~/.ssh
+rm --force --recursive ~/.oh-my-bash/custom
 
 # Symbolically link config files
 ln --force --no-dereference --symbolic ~/dotfiles/bash_aliases    ~/.bash_aliases
