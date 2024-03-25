@@ -36,6 +36,7 @@ plugins=(bashmarks)
 #      plugins+=(tmux-autoattach)
 #  fi
 if [[ ! "$SSH_TTY" ]]; then
+    completions+=(ssh)
     plugins+=(coderemote)
 fi
 
