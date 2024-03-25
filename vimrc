@@ -32,13 +32,14 @@ filetype indent on              " Allow loading of language specific indentation
 "--------------------------------------------------------------------
 "   COLOUR COLUMN
 "--------------------------------------------------------------------
-set colorcolumn=80              " Create a column at the 80 character line
+set colorcolumn=100             " Create a column at the 100 character line
 highlight ColorColumn ctermbg=8 guibg=lightgrey
 
 "--------------------------------------------------------------------
 "   MISCELLANEOUS
 "--------------------------------------------------------------------
 set relativenumber              " Show relative line numbers
+set number                      " Show current line number
 set wildmenu                    " Turn on the autocomplete menu
 set mouse=a                     " Enable mouse support
 set ruler                       " Display the ruler in the bottom right corner
