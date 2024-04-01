@@ -39,3 +39,4 @@ fi
 [ -e "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -e "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 [ -e "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+[ -e "$HOME/.config/envman/load.sh" ] && . "$HOME/.config/envman/load.sh"
