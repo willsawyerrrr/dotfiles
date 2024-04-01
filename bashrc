@@ -35,7 +35,6 @@ fi
 [ -e ~/.bash_aliases ] && . ~/.bash_aliases
 [ -e ~/.bash_env ] && . ~/.bash_env
 [ -e ~/.cargo/env ] && . ~/.cargo/env
-[ -e ~/.config/envman/load.sh ] && . ~/.config/envman/load.sh
 [ -e "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 [ -e "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -e ~/.oshrc ] && . ~/.oshrc
