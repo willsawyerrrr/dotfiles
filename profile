@@ -36,6 +36,6 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
    eval `cat $HOME/.ssh/ssh-agent` &> /dev/null
 fi
 
-for host in github moss situ situ_integro; do
+for host in github git_signing moss situ situ_integro; do
     ssh-add ~/.ssh/${host}_key &> /dev/null
 done
