@@ -15,17 +15,19 @@ mkdir --parents ~/.config/gh ~/.ssh
 rm --force --recursive ~/.oh-my-bash/custom
 
 # Symbolically link config files
-ln --force --no-dereference --symbolic ~/dotfiles/bash_aliases    ~/.bash_aliases
-ln --force --no-dereference --symbolic ~/dotfiles/bash_env        ~/.bash_env
-ln --force --no-dereference --symbolic ~/dotfiles/bashrc          ~/.bashrc
-ln --force --no-dereference --symbolic ~/dotfiles/gh_config.yaml  ~/.config/gh/config.yml
-ln --force --no-dereference --symbolic ~/dotfiles/ghci            ~/.ghci
-ln --force --no-dereference --symbolic ~/dotfiles/gitconfig       ~/.gitconfig
-ln --force --no-dereference --symbolic ~/dotfiles/hushlogin       ~/.hushlogin
-ln --force --no-dereference --symbolic ~/dotfiles/osh_custom      ~/.oh-my-bash/custom
-ln --force --no-dereference --symbolic ~/dotfiles/oshrc           ~/.oshrc
-ln --force --no-dereference --symbolic ~/dotfiles/profile         ~/.profile
-ln --force --no-dereference --symbolic ~/dotfiles/Rprofile        ~/.Rprofile
-ln --force --no-dereference --symbolic ~/dotfiles/ssh_config      ~/.ssh/config
-ln --force --no-dereference --symbolic ~/dotfiles/tmux.conf       ~/.tmux.conf
-ln --force --no-dereference --symbolic ~/dotfiles/vimrc           ~/.vimrc
+ln --force --no-dereference --symbolic ~/dotfiles/bash_aliases          ~/.bash_aliases
+ln --force --no-dereference --symbolic ~/dotfiles/bash_env              ~/.bash_env
+ln --force --no-dereference --symbolic ~/dotfiles/bashrc                ~/.bashrc
+ln --force --no-dereference --symbolic ~/dotfiles/gh_config.yaml        ~/.config/gh/config.yml
+ln --force --no-dereference --symbolic ~/dotfiles/ghci                  ~/.ghci
+ln --force --no-dereference --symbolic ~/dotfiles/gitconfig             ~/.gitconfig
+ln --force --no-dereference --symbolic ~/dotfiles/gitconfig.situ        ~/.gitconfig.situ
+ln --force --no-dereference --symbolic ~/dotfiles/gitconfig.university  ~/.gitconfig.university
+ln --force --no-dereference --symbolic ~/dotfiles/hushlogin             ~/.hushlogin
+ln --force --no-dereference --symbolic ~/dotfiles/osh_custom            ~/.oh-my-bash/custom
+ln --force --no-dereference --symbolic ~/dotfiles/oshrc                 ~/.oshrc
+ln --force --no-dereference --symbolic ~/dotfiles/profile               ~/.profile
+ln --force --no-dereference --symbolic ~/dotfiles/Rprofile              ~/.Rprofile
+ln --force --no-dereference --symbolic ~/dotfiles/ssh_config            ~/.ssh/config
+ln --force --no-dereference --symbolic ~/dotfiles/tmux.conf             ~/.tmux.conf
+ln --force --no-dereference --symbolic ~/dotfiles/vimrc                 ~/.vimrc
