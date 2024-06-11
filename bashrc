@@ -34,6 +34,7 @@ fi
 
 [ -e ~/.bash_aliases ] && . ~/.bash_aliases
 [ -e ~/.bash_env ] && . ~/.bash_env
+[ -e ~/.bash_secrets ] && . ~/.bash_secrets
 [ -e ~/.cargo/env ] && . ~/.cargo/env
 [ -e "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 [ -e "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"

@@ -14,9 +14,13 @@ fi
 mkdir --parents ~/.config/gh ~/.ssh
 rm --force --recursive ~/.oh-my-bash/custom
 
+# Prepare secrets
+cp bash_secrets.example bash_secrets
+
 # Symbolically link config files
 ln --force --no-dereference --symbolic ~/dotfiles/bash_aliases          ~/.bash_aliases
 ln --force --no-dereference --symbolic ~/dotfiles/bash_env              ~/.bash_env
+ln --force --no-dereference --symbolic ~/dotfiles/bash_secrets          ~/.bash_secrets
 ln --force --no-dereference --symbolic ~/dotfiles/bashrc                ~/.bashrc
 ln --force --no-dereference --symbolic ~/dotfiles/gh_config.yaml        ~/.config/gh/config.yml
 ln --force --no-dereference --symbolic ~/dotfiles/ghci                  ~/.ghci
