@@ -15,7 +15,9 @@ mkdir --parents ~/.config/gh ~/.ssh
 rm --force --recursive ~/.oh-my-bash/custom
 
 # Prepare secrets
-cp bash_secrets.example bash_secrets
+if [[ ! ~/dotfiles/bash_secrets ]]; then
+    cp ~/dotfiles/bash_secrets.example ~/dotfiles/bash_secrets
+fi
 
 # Symbolically link config files
 ln --force --no-dereference --symbolic ~/dotfiles/bash_aliases          ~/.bash_aliases
