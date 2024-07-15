@@ -20,7 +20,7 @@
 [user]
 	name = William Sawyer
 	email = wmsawyer2609@gmail.com
-	signingkey = 29B772E19FCCE885
+	signingkey = 0A806AD3CE20F6A9
 
 # must come after global config to override
 [includeIf "gitdir:~/situ/"]
