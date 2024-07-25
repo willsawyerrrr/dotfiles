@@ -8,6 +8,8 @@ export PATH=$PATH:$DOTNET_ROOT
 
 export EDITOR=vim
 
+export GH_TOKEN=`gh auth token`
+
 export GPG_TTY=$(tty)
 
 export NVM_DIR="$HOME/.nvm"
