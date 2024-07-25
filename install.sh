@@ -15,7 +15,7 @@ mkdir --parents ~/.config/gh ~/.ssh
 rm --force --recursive ~/.oh-my-bash/custom
 
 # Prepare secrets
-if [[ ! ~/.dotfiles/bash_secrets ]]; then
+if [[ ! -f ~/.dotfiles/bash_secrets ]]; then
     cp ~/.dotfiles/bash_secrets.example ~/.dotfiles/bash_secrets
 fi
 
