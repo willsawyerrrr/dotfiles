@@ -1,6 +1,6 @@
 alias clear-pycache="find -name __pycache__ -exec rm -rf {} +"
 
-alias jq="jq --indent 4"
+alias jq="jq --color-output --indent 4"
 
 alias py="python"
 
