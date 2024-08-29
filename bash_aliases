@@ -4,7 +4,7 @@ alias jq="jq --color-output --indent 4"
 
 alias less="less --raw-control-chars"
 
-alias py="python"
+alias py="python3"
 
 alias ps="ps -fu$USER"
 
