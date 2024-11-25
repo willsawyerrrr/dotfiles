@@ -1,3 +1,7 @@
+Host bitbucket.org
+    HostName bitbucket.org
+    IdentityFile ~/.ssh/bitbucket_key
+
 Host github.com
     HostName github.com
     IdentityFile ~/.ssh/github_key
