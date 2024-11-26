@@ -8,6 +8,9 @@
 	helper = /usr/local/bin/git-credential-manager
 	credentialStore = gpg
 
+[gpg]
+	format = ssh
+
 [init]
 	defaultBranch = main
 
@@ -20,7 +23,6 @@
 [user]
 	name = William Sawyer
 	email = wmsawyer2609@gmail.com
-	signingkey = 0A806AD3CE20F6A9
 
 # must come after global config to override
 [includeIf "gitdir:~/situ/"]

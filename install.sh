@@ -34,6 +34,7 @@ ln --force --no-dereference --symbolic ~/dotfiles/osh_custom            ~/.oh-my
 ln --force --no-dereference --symbolic ~/dotfiles/oshrc                 ~/.oshrc
 ln --force --no-dereference --symbolic ~/dotfiles/profile               ~/.profile
 ln --force --no-dereference --symbolic ~/dotfiles/Rprofile              ~/.Rprofile
+ln --force --no-dereference --symbolic ~/dotfiles/ssh_allowed_signers   ~/.ssh/allowed_signers
 ln --force --no-dereference --symbolic ~/dotfiles/ssh_config            ~/.ssh/config
 ln --force --no-dereference --symbolic ~/dotfiles/tmux.conf             ~/.tmux.conf
 ln --force --no-dereference --symbolic ~/dotfiles/vimrc                 ~/.vimrc
