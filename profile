@@ -8,6 +8,8 @@
 # for ssh logins, install and configure the libpam-umask package.
 # umask 022
 
+[ -e ~/.bash_env ] && . ~/.bash_env
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
