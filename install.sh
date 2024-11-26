@@ -20,6 +20,7 @@ if [[ ! -f ~/dotfiles/bash_secrets ]]; then
 fi
 
 # Symbolically link config files
+ln --force --no-dereference --symbolic ~/dotfiles/background.jpg        ~/.background.jpg
 ln --force --no-dereference --symbolic ~/dotfiles/bash_aliases          ~/.bash_aliases
 ln --force --no-dereference --symbolic ~/dotfiles/bash_env              ~/.bash_env
 ln --force --no-dereference --symbolic ~/dotfiles/bash_secrets          ~/.bash_secrets

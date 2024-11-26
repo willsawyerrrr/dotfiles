@@ -42,3 +42,5 @@ for host in bitbucket github git_signing moss situ situ_integro; do
     ssh-add ~/.ssh/${host}_key &> /dev/null
 done
 . "$HOME/.cargo/env"
+
+feh --bg-scale --zoom fill ~/.background.jpg
