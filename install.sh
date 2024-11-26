@@ -11,7 +11,7 @@ if [[ ! -d ~/dotfiles ]]; then
 fi
 
 # Prepare dotfile directories
-mkdir --parents ~/.config/gh ~/.ssh
+mkdir --parents ~/.config/gh ~/.config/i3 ~/.ssh ~/Pictures
 rm --force --recursive ~/.oh-my-bash/custom
 
 # Prepare secrets
@@ -20,7 +20,8 @@ if [[ ! -f ~/dotfiles/bash_secrets ]]; then
 fi
 
 # Symbolically link config files
-ln --force --no-dereference --symbolic ~/dotfiles/background.jpg        ~/.background.jpg
+ln --force --no-dereference --symbolic ~/dotfiles/background.jpg        ~/Pictures/background.jpg
+ln --force --no-dereference --symbolic ~/dotfiles/background.png        ~/Pictures/background.png
 ln --force --no-dereference --symbolic ~/dotfiles/bash_aliases          ~/.bash_aliases
 ln --force --no-dereference --symbolic ~/dotfiles/bash_env              ~/.bash_env
 ln --force --no-dereference --symbolic ~/dotfiles/bash_secrets          ~/.bash_secrets
@@ -31,6 +32,7 @@ ln --force --no-dereference --symbolic ~/dotfiles/gitconfig             ~/.gitco
 ln --force --no-dereference --symbolic ~/dotfiles/gitconfig.situ        ~/.gitconfig.situ
 ln --force --no-dereference --symbolic ~/dotfiles/gitconfig.university  ~/.gitconfig.university
 ln --force --no-dereference --symbolic ~/dotfiles/hushlogin             ~/.hushlogin
+ln --force --no-dereference --symbolic ~/dotfiles/i3_config             ~/.config/i3/config
 ln --force --no-dereference --symbolic ~/dotfiles/osh_custom            ~/.oh-my-bash/custom
 ln --force --no-dereference --symbolic ~/dotfiles/oshrc                 ~/.oshrc
 ln --force --no-dereference --symbolic ~/dotfiles/profile               ~/.profile

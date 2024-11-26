@@ -43,4 +43,4 @@ for host in bitbucket github git_signing integro moss situ; do
 done
 . "$HOME/.cargo/env"
 
-feh --bg-scale --zoom fill ~/.background.jpg
+feh --bg-scale --zoom fill ~/Pictures/background.jpg
