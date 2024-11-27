@@ -23,6 +23,7 @@
 [user]
 	name = William Sawyer
 	email = wmsawyer2609@gmail.com
+	signingkey = ~/.ssh/git_signing_key.pub
 
 # must come after global config to override
 [includeIf "gitdir:~/situ/"]
