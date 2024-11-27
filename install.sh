@@ -31,6 +31,7 @@ ln --force --no-dereference --symbolic ~/dotfiles/ghci                  ~/.ghci
 ln --force --no-dereference --symbolic ~/dotfiles/gitconfig             ~/.gitconfig
 ln --force --no-dereference --symbolic ~/dotfiles/gitconfig.situ        ~/.gitconfig.situ
 ln --force --no-dereference --symbolic ~/dotfiles/gitconfig.university  ~/.gitconfig.university
+ln --force --no-dereference --symbolic ~/dotfiles/git_signing_key.pub   ~/.ssh/git_signing_key.pub
 ln --force --no-dereference --symbolic ~/dotfiles/hushlogin             ~/.hushlogin
 ln --force --no-dereference --symbolic ~/dotfiles/i3_config             ~/.config/i3/config
 ln --force --no-dereference --symbolic ~/dotfiles/osh_custom            ~/.oh-my-bash/custom
