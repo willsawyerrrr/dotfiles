@@ -1,3 +1,8 @@
+[alias]
+	amend = "commit --amend --no-edit"
+	personal = !git clone git@github.com:SituDevelopment/willsawyerrrr.git
+	situ = !git clone git@github.com:SituDevelopment/$1.git
+
 [commit]
 	gpgsign = true
 
