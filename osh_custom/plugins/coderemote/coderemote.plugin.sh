@@ -11,9 +11,14 @@ function coderemote() {
 }
 
 function codecontainer() {
-    # Convert to continuous hex string
-    container=$(echo $1 | xxd -ps -c0)
-    path="$2"
+    wslPath="$1"
 
-    code --folder-uri="vscode-remote://attached-container+${container}${path}"
+    windowsPath="$(wslpath -w ${wslPath})"
+
+    # Convert to continuous hex string
+    hexPath="$(echo ${windowsPath} | xxd -plain -c0)"
+
+    mountPoint="$(devcontainer read-configuration)"
+
+    code --folder-uri "vscode-remote://dev-container+${hexPath}${mountPoint}"
 }

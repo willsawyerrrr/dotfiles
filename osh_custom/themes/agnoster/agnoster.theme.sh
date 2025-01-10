@@ -565,7 +565,7 @@ function build_prompt {
     prompt_condaenv
   fi
   prompt_dir
-  prompt_git
+  [[ $(pwd | tr '[:upper:]' '[:lower:]') != /mnt/c/users/wmsaw/source/repos/samnextgen* ]] && prompt_git
   prompt_hg
   prompt_end
 }

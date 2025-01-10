@@ -4,7 +4,7 @@
 	situ = !git clone git@github.com:SituDevelopment/$1.git
 
 [commit]
-	gpgsign = true
+	#gpgsign = true
 
 [core]
 	editor = vim
@@ -32,7 +32,19 @@
 
 # must come after global config to override
 [includeIf "gitdir:~/situ/"]
-        path = ~/.gitconfig.situ
+	path = ~/.gitconfig.situ
 
 [includeIf "gitdir:~/university/"]
-        path = ~/.gitconfig.university
+	path = ~/.gitconfig.university
+
+[maintenance]
+	repo = /home/willsawyerrrr/situ/.github
+	repo = /home/willsawyerrrr/situ/automation
+	repo = /home/willsawyerrrr/situ/devcontainers
+	repo = /home/willsawyerrrr/situ/entegy-sdk-python
+	repo = /home/willsawyerrrr/situ/exhibitor-dashboard
+	repo = /home/willsawyerrrr/situ/integro-api
+	repo = /home/willsawyerrrr/situ/integro-backend
+	repo = /home/willsawyerrrr/situ/integro-dashboard
+	repo = /home/willsawyerrrr/situ/status-check-runner
+	repo = /home/willsawyerrrr/.dotfiles
