@@ -1,0 +1,30 @@
+[general]
+import = ["~/.config/alacritty/dracula/dracula.toml"]
+working_directory = "/home/willsawyerrrr"
+
+[window]
+padding = { x = 10, y = 10 }
+dynamic_padding = true
+opacity = 0.6
+startup_mode = "Maximized"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+bindings = [
+    { mouse = "Right", action = "Paste" },
+]
+
+[keyboard]
+bindings = [
+    { key = "F11", action = "ToggleFullscreen" },
+    { key = "V", mods = "Control", action = "Paste" },
+    { key = ",", mods = "Control", command = { program = "/usr/bin/vim" } },
+]
+
+[terminal]
+shell = "bash"
