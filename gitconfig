@@ -1,20 +1,9 @@
 [alias]
-	amend = "commit --amend --no-edit"
-	personal = !git clone git@github.com:SituDevelopment/willsawyerrrr.git
-	situ = !git clone git@github.com:SituDevelopment/$1.git
-
-[commit]
-	#gpgsign = true
+	amend = commit --amend --no-edit
+	personal = !git clone git@github.com:willsawyerrrr/$1.git
 
 [core]
 	editor = vim
-
-[credential]
-	helper = /usr/local/bin/git-credential-manager
-	credentialStore = gpg
-
-[gpg]
-	format = ssh
 
 [init]
 	defaultBranch = main
@@ -22,29 +11,10 @@
 [push]
 	autoSetupRemote = true
 
-[tag]
-	gpgsign = true
-
 [user]
 	name = William Sawyer
 	email = wmsawyer2609@gmail.com
-	signingkey = ~/.ssh/git_signing_key.pub
 
 # must come after global config to override
-[includeIf "gitdir:~/situ/"]
-	path = ~/.gitconfig.situ
-
 [includeIf "gitdir:~/university/"]
 	path = ~/.gitconfig.university
-
-[maintenance]
-	repo = /home/willsawyerrrr/situ/.github
-	repo = /home/willsawyerrrr/situ/automation
-	repo = /home/willsawyerrrr/situ/devcontainers
-	repo = /home/willsawyerrrr/situ/entegy-sdk-python
-	repo = /home/willsawyerrrr/situ/exhibitor-dashboard
-	repo = /home/willsawyerrrr/situ/integro-api
-	repo = /home/willsawyerrrr/situ/integro-backend
-	repo = /home/willsawyerrrr/situ/integro-dashboard
-	repo = /home/willsawyerrrr/situ/status-check-runner
-	repo = /home/willsawyerrrr/.dotfiles
