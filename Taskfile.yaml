@@ -11,6 +11,19 @@ tasks:
     cmd: brew bundle check || brew bundle install
     desc: Install from Brewfile
 
+  dracula:add:
+    vars:
+      REPO: "{{index .CLI_ARGS_LIST 0}}"
+    cmd: git submodule add https://github.com/dracula/{{.REPO}}.git dracula/{{.REPO}}
+
+  dracula:remove:
+    vars:
+      REPO: "{{index .CLI_ARGS_LIST 0}}"
+    cmds:
+      - git submodule deinit --force dracula/{{.REPO}}
+      - git rm --force dracula/{{.REPO}}
+      - rm -rf .git/modules/dracula/{{.REPO}}
+
   stow:install:
     cmd: stow --dotfiles .
     desc: Install dotfiles

@@ -1,0 +1,18 @@
+[submodule "dracula/git"]
+	path = dracula/git
+	url = https://github.com/dracula/git.git
+[submodule "dracula/iterm"]
+	path = dracula/iterm
+	url = https://github.com/dracula/iterm.git
+[submodule "dracula/kitty"]
+	path = dracula/kitty
+	url = https://github.com/dracula/kitty.git
+[submodule "dracula/new-tabs"]
+	path = dracula/new-tabs
+	url = https://github.com/dracula/new-tabs.git
+[submodule "dracula/terminal-app"]
+	path = dracula/terminal-app
+	url = https://github.com/dracula/terminal-app.git
+[submodule "dracula/zsh"]
+	path = dracula/zsh
+	url = https://github.com/dracula/zsh.git

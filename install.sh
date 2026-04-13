@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 if [[ ! -d ~/dotfiles ]]; then
-    git clone https://github.com/willsawyerrrr/dotfiles.git ~/dotfiles
+    git clone https://github.com/willsawyerrrr/dotfiles.git ~/dotfiles --recurse-submodules
 fi
 
 if ! ( which brew >/dev/null ); then
