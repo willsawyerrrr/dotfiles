@@ -39,8 +39,6 @@ brew "gh"
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
-# Tcl/Tk UI for the git revision control system
-brew "git-gui"
 # Task is a task runner/build tool that aims to be simpler and easier to use
 brew "go-task"
 # Easiest way to access your cloud
