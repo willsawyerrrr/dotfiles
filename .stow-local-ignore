@@ -6,6 +6,7 @@
 # - Use \. to match literal dots (e.g., "\.txt" not ".txt")
 # - Regex wildcards: .+ (one or more), .* (zero or more), ^ (start), $ (end)
 
+Brewfile
 install.sh
 
 dracula/
