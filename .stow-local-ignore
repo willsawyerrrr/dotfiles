@@ -12,6 +12,8 @@ Taskfile.yaml
 
 dracula/
 
+\.claude/settings\.local\.json
+
 ##################
 ### Defaults below
 ##################
