@@ -1,0 +1,44 @@
+[alias]
+	# Clone aliases
+	heidi = !git clone git@github.com:oscerai/$1.git
+	personal = !git clone git@github.com:willsawyerrrr/$1.git
+
+	# Commit aliases
+	amend = commit --amend --no-edit
+	empty = commit --allow-empty
+
+	# Log aliases
+	l = log --oneline
+
+[commit]
+	gpgsign = true
+
+[core]
+	editor = nvim
+	pager = delta
+
+[fetch]
+	prune = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+	required = true
+	smudge = git-lfs smudge -- %f
+
+[gpg]
+	format = ssh
+
+[init]
+	defaultBranch = main
+
+[push]
+	autoSetupRemote = true
+
+[tag]
+	gpgSign = true
+
+[user]
+	email = williamsawyer@heidihealth.com
+	name = William Sawyer
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBbwmV/ajwmOVeHcm/4Ww1cn2Czq9wzPE9MwYw8ZD6KK

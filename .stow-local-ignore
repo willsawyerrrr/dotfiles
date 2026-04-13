@@ -1,0 +1,37 @@
+# Comments and blank lines are allowed.
+
+# Pattern syntax:
+# - Plain pattern (e.g., "foo")       -> matches at ANY depth
+# - ^/pattern (e.g., "^/foo")         -> matches ONLY at root level
+# - Use \. to match literal dots (e.g., "\.txt" not ".txt")
+# - Regex wildcards: .+ (one or more), .* (zero or more), ^ (start), $ (end)
+
+install.sh
+
+dracula/
+
+##################
+### Defaults below
+##################
+
+RCS
+.+,v
+
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.gitignore
+\.gitmodules
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+^/README.*
+^/LICENSE.*
+^/COPYING

@@ -1,0 +1,9 @@
+# https://developer.1password.com/docs/ssh/agent/config
+
+[[ssh-keys]]
+account = "Heidi"
+vault = "Employee"
+
+[[ssh-keys]]
+account = "Bronte & Will"
+vault = "Personal"

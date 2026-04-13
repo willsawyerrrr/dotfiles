@@ -1,0 +1,11 @@
+# This file exists only to set the `XDG_*` and `ZDOTDIR` environment
+# variables, then delegate to the `.zshenv` file at `ZDOTDIR`. This
+# enables the `zsh` configuration files to exist away from the home 
+# directory.
+
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_CONFIG_HOME="${HOME}/.config"
+
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+
+. "${ZDOTDIR}/.zshenv"
