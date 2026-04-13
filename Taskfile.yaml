@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: "3"
+
+tasks:
+  brew:lock:
+    cmd: brew bundle dump --no-vscode --force --describe
+    desc: Dump Brewfile
+
+  brew:install:
+    cmd: brew bundle check || brew bundle install
+    desc: Install from Brewfile
+
+  stow:install:
+    cmd: stow --dotfiles .
+    desc: Install dotfiles

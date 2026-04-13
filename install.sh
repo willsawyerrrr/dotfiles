@@ -14,4 +14,4 @@ fi
 
 brew bundle install
 
-stow --dotfiles .
+task stow:install

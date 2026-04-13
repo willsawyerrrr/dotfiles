@@ -8,6 +8,7 @@
 
 Brewfile
 install.sh
+Taskfile.yaml
 
 dracula/
 
