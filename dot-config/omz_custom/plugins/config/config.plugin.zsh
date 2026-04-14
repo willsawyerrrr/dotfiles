@@ -1,7 +1,11 @@
 function config() {
     config_path="${XDG_CONFIG_HOME}/$1"
-    if [[ ! -e ${config_path} ]]; then
+    if [[ ! -e "${config_path}" ]]; then
         echo "App config not found at ${config_path}"
+    fi
+
+    if [[ -L "${config_path}"  ]]; then
+        config_path=$(realpath "${config_path}")
     fi
 
     cd "${config_path}"
