@@ -40,6 +40,34 @@ return {
           vim.opt_local.relativenumber = true
         end,
       },
+      {
+        event = 'file_added',
+        handler = function(filepath)
+          if vim.fn.isdirectory(filepath) == 0 then
+            return
+          end
+
+          local cwd = vim.fn.getcwd()
+          local python_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt' }
+          local is_python = false
+          for _, marker in ipairs(python_markers) do
+            if vim.fn.filereadable(cwd .. '/' .. marker) == 1 then
+              is_python = true
+              break
+            end
+          end
+
+          if not is_python then
+            return
+          end
+
+          local init_path = filepath .. '/__init__.py'
+          local f = io.open(init_path, 'w')
+          if f then
+            f:close()
+          end
+        end,
+      },
     },
 
     filesystem = {
