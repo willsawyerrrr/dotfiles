@@ -5,6 +5,7 @@ return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
   dependencies = {
+    -- 'folke/snacks.nvim',
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
@@ -40,6 +41,18 @@ return {
           vim.opt_local.relativenumber = true
         end,
       },
+      -- {
+      --   event = 'file_moved',
+      --   handler = function(data)
+      --     Snacks.rename.on_rename_file(data.source, data.destination)
+      --   end,
+      -- },
+      -- {
+      --   event = 'file_renamed',
+      --   handler = function(data)
+      --     Snacks.rename.on_rename_file(data.source, data.destination)
+      --   end,
+      -- },
       {
         event = 'file_added',
         handler = function(filepath)
