@@ -49,8 +49,6 @@ return {
         hide_ignored = false,
       },
 
-      hijack_netrw_behavior = 'open_current',
-
       commands = {
         ---@module 'neo-tree.sources.common.node_expander'
         ---@module 'nui.tree'
