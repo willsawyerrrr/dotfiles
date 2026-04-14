@@ -42,7 +42,7 @@ local aerospace_workspace_changed_event = sbar.add("event", "aerospace_workspace
 local dummy_open_spaces = sbar.add("item", "dummy.open_left", properties.dummy_left)
 
 local focused_workspace_id = aerospace_utils.get_focused_workspace()
-for workspace_id in pairs(aerospace_utils.list_workspace_ids()) do
+for _, workspace_id in ipairs(aerospace_utils.list_workspace_ids()) do
 	workspace_items[workspace_id] = sbar.add(
 		"item",
 		"workspace " .. workspace_id,
@@ -60,10 +60,10 @@ local bracket = sbar.add("bracket", "bracket.left", { dummy_open_spaces.name, du
 	},
 })
 bracket:subscribe(aerospace_workspace_changed_event.name, function(env)
-	local previous_workspace_id = tonumber(env.PREV_WORKSPACE)
+	local previous_workspace_id = env.PREV_WORKSPACE
 	workspace_items[previous_workspace_id]:set(properties_for_workspace(previous_workspace_id, false))
 
 	---@diagnostic disable-next-line: redefined-local
-	local focused_workspace_id = tonumber(env.FOCUSED_WORKSPACE)
+	local focused_workspace_id = env.FOCUSED_WORKSPACE
 	workspace_items[focused_workspace_id]:set(properties_for_workspace(focused_workspace_id, true))
 end)

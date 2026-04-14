@@ -22,7 +22,7 @@ end
 function M.get_focused_workspace()
 	local output_file = aerospace_command("list-workspaces --focused")
 
-	return output_file:read("*n")
+	return output_file:read("*l")
 end
 
 --- List the IDs of all workspaces.
@@ -33,7 +33,7 @@ function M.list_workspace_ids()
 
 	local workspaces = {}
 	for workspace_id in output_file:lines() do
-		table.insert(workspaces, tonumber(workspace_id))
+		table.insert(workspaces, workspace_id)
 	end
 	output_file:close()
 
