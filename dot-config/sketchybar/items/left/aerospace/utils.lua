@@ -29,7 +29,7 @@ end
 ---
 ---@return table List of workspace IDs.
 function M.list_workspace_ids()
-	local output_file = aerospace_command("list-workspaces --all")
+	local output_file = aerospace_command("list-workspaces --monitor all")
 
 	local workspaces = {}
 	for workspace_id in output_file:lines() do
