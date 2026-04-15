@@ -11,16 +11,17 @@ local function properties_for_workspace(workspace_id, focused)
 		align = "center",
 		background = {
 			color = colours.pink,
+			corner_radius = 16,
 			drawing = drawing,
-			height = 31,
+			height = 24,
 		},
 		label = {
 			string = workspace_id,
-			padding_left = 10,
-			padding_right = 11,
+			padding_left = 8,
+			padding_right = 10,
 		},
-		padding_left = 0,
-		padding_right = 0,
+		padding_left = 1,
+		padding_right = 1,
 		click_script = "aerospace workspace " .. workspace_id,
 	}
 
