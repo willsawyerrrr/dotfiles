@@ -164,6 +164,8 @@ cask "superhuman"
 cask "virtualbox"
 # Open-source code editor
 cask "visual-studio-code"
+# Voice to text app
+cask "voiceink"
 # VPN client for secure internet access and private browsing
 cask "windscribe"
 # Video communication and virtual meeting platform
