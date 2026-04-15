@@ -1,5 +1,6 @@
 tap "common-fate/granted"
 tap "felixkratz/formulae"
+tap "hashicorp/tap"
 tap "lihaoyun6/tap"
 tap "nikitabobko/tap"
 tap "pls-rs/pls"
@@ -83,8 +84,6 @@ brew "ripgrep"
 brew "stow"
 # User interface to the TELNET protocol
 brew "telnet"
-# Tool to build, change, and version infrastructure
-brew "terraform"
 # OCR (Optical Character Recognition) engine
 brew "tesseract"
 # TOML formatter, linter and language server
@@ -107,6 +106,10 @@ brew "yq"
 brew "zellij"
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar"
+# Terraform
+brew "hashicorp/tap/terraform"
+# Terraform Language Server
+brew "hashicorp/tap/terraform-ls"
 # Ookla Speedtest
 brew "teamookla/speedtest/speedtest"
 # Allows you to manage your stacked changes and submit them for review on GitHub

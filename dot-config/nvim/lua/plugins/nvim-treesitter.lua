@@ -33,6 +33,7 @@ return {
       'diff',
       'dockerfile',
       'git_config',
+      'hcl',
       'html',
       'javascript',
       'jq',
