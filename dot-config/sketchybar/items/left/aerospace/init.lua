@@ -5,14 +5,12 @@ local properties = require("properties")
 local workspace_items = {}
 
 local function properties_for_workspace(workspace_id, focused)
-	local drawing = focused and "on" or "off"
-
 	local workspace_properties = {
 		align = "center",
 		background = {
-			color = colours.pink,
+			color = focused and colours.pink or colours.transparent,
 			corner_radius = 16,
-			drawing = drawing,
+			drawing = "on",
 			height = 24,
 		},
 		label = {
@@ -39,13 +37,15 @@ local aerospace_window_moved_event = sbar.add("event", "aerospace_window_moved")
 
 local dummy_open_spaces = sbar.add("item", "dummy.open_left", properties.dummy_left)
 
-local focused_workspace_id = aerospace_utils.get_focused_workspace()
-for _, workspace_id in ipairs(aerospace_utils.list_workspace_ids()) do
-	workspace_items[workspace_id] = sbar.add(
-		"item",
-		"workspace " .. workspace_id,
-		properties_for_workspace(workspace_id, workspace_id == focused_workspace_id)
-	)
+do
+	local focused_workspace_id = aerospace_utils.get_focused_workspace()
+	for _, workspace_id in ipairs(aerospace_utils.list_workspace_ids()) do
+		workspace_items[workspace_id] = sbar.add(
+			"item",
+			"workspace " .. workspace_id,
+			properties_for_workspace(workspace_id, workspace_id == focused_workspace_id)
+		)
+	end
 end
 
 local dummy_close_spaces = sbar.add("item", "dummy.close_left", properties.dummy_left)
@@ -59,11 +59,12 @@ local bracket = sbar.add("bracket", "bracket.left", { dummy_open_spaces.name, du
 })
 bracket:subscribe(aerospace_workspace_changed_event.name, function(env)
 	local previous_workspace_id = env.PREV_WORKSPACE
-	workspace_items[previous_workspace_id]:set(properties_for_workspace(previous_workspace_id, false))
-
-	---@diagnostic disable-next-line: redefined-local
 	local focused_workspace_id = env.FOCUSED_WORKSPACE
-	workspace_items[focused_workspace_id]:set(properties_for_workspace(focused_workspace_id, true))
+
+	sbar.animate("sin", 15, function()
+		workspace_items[previous_workspace_id]:set(properties_for_workspace(previous_workspace_id, false))
+		workspace_items[focused_workspace_id]:set(properties_for_workspace(focused_workspace_id, true))
+	end)
 end)
 bracket:subscribe(aerospace_window_moved_event.name, function(env)
 	--- Only need to update the destination workspace, since we want the currently
@@ -72,5 +73,8 @@ bracket:subscribe(aerospace_window_moved_event.name, function(env)
 	--- If we have just moved the last window out of the focused workspace, it'll
 	--- be hidden when we next change focus.
 	local destination_workspace_id = env.DESTINATION_WORKSPACE
-	workspace_items[destination_workspace_id]:set(properties_for_workspace(destination_workspace_id, false))
+
+	sbar.animate("sin", 15, function()
+		workspace_items[destination_workspace_id]:set(properties_for_workspace(destination_workspace_id, false))
+	end)
 end)
