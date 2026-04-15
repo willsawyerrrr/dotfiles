@@ -1,6 +1,8 @@
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+require 'config.autocmds.config-reloaders'
+
 vim.api.nvim_create_autocmd('VimEnter', {
   desc = 'Set kitty tab title',
   group = vim.api.nvim_create_augroup('set-kitty-tab-title', { clear = true }),
