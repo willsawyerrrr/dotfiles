@@ -24,20 +24,17 @@ local function properties_for_workspace(workspace_id, focused)
 		click_script = "aerospace workspace " .. workspace_id,
 	}
 
-	-- TODO: Show an inactive status to differentiate between "no windows" and "no active windows"
-	--
-	-- sbar.exec("aerospace list-windows --workspace " .. workspace_id .. " 2>/dev/null | wc -l", function(window_count)
-	-- 	if window_count == 0 then
-	-- 		workspace:set({ background = { drawing = "off" } })
-	-- 	else
-	-- 		workspace:set({ background = { drawing = "on" } })
-	-- 	end
-	-- end)
+	if not focused and aerospace_utils.is_workspace_empty(workspace_id) then
+		workspace_properties["drawing"] = "off"
+	else
+		workspace_properties["drawing"] = "on"
+	end
 
 	return workspace_properties
 end
 
 local aerospace_workspace_changed_event = sbar.add("event", "aerospace_workspace_change")
+local aerospace_window_moved_event = sbar.add("event", "aerospace_window_moved")
 
 local dummy_open_spaces = sbar.add("item", "dummy.open_left", properties.dummy_left)
 
@@ -66,4 +63,13 @@ bracket:subscribe(aerospace_workspace_changed_event.name, function(env)
 	---@diagnostic disable-next-line: redefined-local
 	local focused_workspace_id = env.FOCUSED_WORKSPACE
 	workspace_items[focused_workspace_id]:set(properties_for_workspace(focused_workspace_id, true))
+end)
+bracket:subscribe(aerospace_window_moved_event.name, function(env)
+	--- Only need to update the destination workspace, since we want the currently
+	--- focused workspace to remain drawn regardless of whether we've just moved
+	--- the last window out of it.
+	--- If we have just moved the last window out of the focused workspace, it'll
+	--- be hidden when we next change focus.
+	local destination_workspace_id = env.DESTINATION_WORKSPACE
+	workspace_items[destination_workspace_id]:set(properties_for_workspace(destination_workspace_id, false))
 end)

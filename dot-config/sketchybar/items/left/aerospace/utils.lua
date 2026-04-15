@@ -40,4 +40,14 @@ function M.list_workspace_ids()
 	return workspaces
 end
 
+--- Determine whether the given workspace is empty.
+---
+---@param workspace_id string The ID of the workspace to check.
+---@return boolean Whether the workspace is empty.
+function M.is_workspace_empty(workspace_id)
+	local output_file = aerospace_command("list-windows --workspace " .. workspace_id .. " 2>/dev/null | wc -l")
+
+	return output_file:read("*n") == 0
+end
+
 return M
