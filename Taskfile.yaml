@@ -16,6 +16,7 @@ tasks:
     vars:
       REPO: "{{index .CLI_ARGS_LIST 0}}"
     cmd: git submodule add https://github.com/dracula/{{.REPO}}.git dracula/{{.REPO}}
+    desc: Add git submodule for Dracula repo
 
   dracula:remove:
     vars:
@@ -24,6 +25,7 @@ tasks:
       - git submodule deinit --force dracula/{{.REPO}}
       - git rm --force dracula/{{.REPO}}
       - rm -rf .git/modules/dracula/{{.REPO}}
+    desc: Remove git submodule for Dracula repo
 
   stow:install:
     cmd: stow --dotfiles .
