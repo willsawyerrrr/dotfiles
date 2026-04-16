@@ -8,7 +8,8 @@ tasks:
     desc: Dump Brewfile
 
   brew:install:
-    cmd: brew bundle check || brew bundle install
+    if: "! brew bundle check"
+    cmd: brew bundle install
     desc: Install from Brewfile
 
   dracula:add:
