@@ -130,7 +130,7 @@ cask "cursor"
 cask "docker-desktop"
 # Utility for customizing which browser to start
 cask "finicky"
-cask "font-hack-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
 # Git client focusing on productivity
 cask "gitkraken"
 # Web browser
