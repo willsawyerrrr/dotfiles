@@ -9,6 +9,7 @@ end
 ---@field label string
 ---@field icon_image string
 ---@field should_draw boolean
+---@field icon_scale number
 
 ---@return DisplayDetails
 local function get_display_details(app_name)
@@ -17,6 +18,7 @@ local function get_display_details(app_name)
 			label = "Touch ID",
 			icon_image = get_absolute_path("./icons/touch_id.png"),
 			should_draw = true,
+			icon_scale = 0.08,
 		}
 	elseif app_name == "loginwindow" then
 		return {
@@ -35,12 +37,17 @@ local front_app = sbar.add("item", "front_app", properties.for_left_pill(colours
 front_app:subscribe("front_app_switched", function(env)
 	local display_details = get_display_details(env.INFO)
 
+	local scale = display_details.icon_scale or 0.8
+
 	front_app:set({
 		drawing = display_details.should_draw and "on" or "off",
 		label = display_details.label,
 		icon = {
 			background = {
-				image = display_details.icon_image,
+				image = {
+					string = display_details.icon_image,
+					scale = scale,
+				},
 			},
 		},
 	})
