@@ -33,6 +33,7 @@ plugins=(
 	mongo-tunnel
 	pipx
 	poetry
+	task
 	terraform
 	uv
 )
