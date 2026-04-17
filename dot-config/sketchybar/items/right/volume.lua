@@ -8,7 +8,7 @@ local icons = {
 	muted = "󰝟",
 }
 
-local volume_item = sbar.add("item", "volume", properties.for_right_pill(colours.red))
+local volume_item = sbar.add("item", "volume", properties.for_right_pill(colours.purple))
 volume_item:subscribe("volume_change", function(env)
 	local volume = tonumber(env.INFO)
 
