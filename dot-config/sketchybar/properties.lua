@@ -15,11 +15,6 @@ M.dummy_left = {
 		padding_left = 0,
 		padding_right = 0,
 	},
-	label = {
-		color = colours.selection,
-		padding_left = 0,
-		padding_right = 0,
-	},
 	width = 7,
 }
 
