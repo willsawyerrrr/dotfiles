@@ -66,6 +66,8 @@ brew "tree-sitter"
 brew "neovim"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node@22"
+# Spec-driven development (SDD) for AI coding assistants
+brew "openspec"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
 # Fast, disk space efficient package manager
