@@ -15,6 +15,12 @@ M.dummy_left = {
 		padding_left = 0,
 		padding_right = 0,
 	},
+	label = {
+		padding_left = 0,
+		padding_right = 0,
+	},
+	padding_left = 0,
+	padding_right = 0,
 	width = 7,
 }
 
