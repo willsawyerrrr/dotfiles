@@ -32,7 +32,6 @@ function M.for_left_pill(colour)
 				drawing = "on",
 				image = {
 					border_color = colour,
-					-- border_width = 1, -- A border looks okay-ish
 					corner_radius = 7,
 					drawing = "on",
 					padding_left = 12,
