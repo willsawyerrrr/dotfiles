@@ -19,7 +19,6 @@ return {
   ---@type neotree.Config
   opts = {
     auto_clean_after_session_restore = true,
-    close_if_last_window = true,
     enable_cursor_hijack = true,
     popup_border_style = '',
     sort_case_insensitive = true,
