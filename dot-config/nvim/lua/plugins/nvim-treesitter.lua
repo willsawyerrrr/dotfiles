@@ -57,20 +57,5 @@ return {
       end,
       desc = 'Enable treesitter-based indentation',
     })
-
-    local custom_textobjects = {
-      c = 'class',
-      f = 'function',
-    }
-
-    for key, object in pairs(custom_textobjects) do
-      vim.keymap.set({ 'x', 'o' }, 'a' .. key, function()
-        require('nvim-treesitter-textobjects.select').select_textobject('@' .. object .. '.outer', 'textobjects')
-      end, { desc = object })
-
-      vim.keymap.set({ 'x', 'o' }, 'i' .. key, function()
-        require('nvim-treesitter-textobjects.select').select_textobject('@' .. object .. '.inner', 'textobjects')
-      end, { desc = 'inner ' .. object })
-    end
   end,
 }

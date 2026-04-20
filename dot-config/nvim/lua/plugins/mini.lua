@@ -8,7 +8,13 @@ return {
     --  - va)  - [V]isually select [A]round [)]paren
     --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
     --  - ci'  - [C]hange [I]nside [']quote
-    require('mini.ai').setup { n_lines = 500 }
+    require('mini.ai').setup {
+      n_lines = 500,
+      custom_textobjects = {
+        c = require('mini.ai').gen_spec.treesitter { a = '@class.outer', i = '@class.inner' },
+        f = require('mini.ai').gen_spec.treesitter { a = '@function.outer', i = '@function.inner' },
+      },
+    }
 
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
     --
