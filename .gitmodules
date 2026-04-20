@@ -16,3 +16,6 @@
 [submodule "dracula/zsh"]
 	path = dracula/zsh
 	url = https://github.com/dracula/zsh.git
+[submodule "dracula/lazygit"]
+	path = dracula/lazygit
+	url = https://github.com/dracula/lazygit.git

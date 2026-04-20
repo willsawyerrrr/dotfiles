@@ -14,7 +14,9 @@ export AUTOENV_VIEWER="${PAGER}"
 export LOCAL_ENV=1
 
 export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
+export DOTFILES_DIR="${HOME}/dotfiles"
 export HOMEBREW_NO_ENV_HINTS=1
+export LG_CONFIG_FILE="${XDG_CONFIG_HOME}/lazygit/config.yaml,${XDG_CONFIG_HOME}/lazygit/dracula.yaml"
 
 export PYTHONDONTWRITEBYTECODE=1
 export DYLD_FALLBACK_LIBRARY_PATH="/opt/homebrew/lib:${DYLD_FALLBACK_LIBRARY_PATH}"
