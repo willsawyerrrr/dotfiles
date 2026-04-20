@@ -8,25 +8,6 @@ return {
     { 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main' },
   },
   -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-  opts = {
-    textobjects = {
-      lsp_interop = {
-        enable = true,
-        peek_definition_code = {
-          ['<leader>df'] = '@function.outer',
-        },
-      },
-      select = {
-        enable = true,
-        keymaps = {
-          ['ac'] = '@class.outer',
-          ['ic'] = '@class.inner',
-          ['af'] = '@function.outer',
-          ['if'] = '@function.inner',
-        },
-      },
-    },
-  },
   init = function()
     local ensure_installed = {
       'bash',
@@ -76,12 +57,20 @@ return {
       end,
       desc = 'Enable treesitter-based indentation',
     })
-  end,
 
-  -- There are additional nvim-treesitter modules that you can use to interact
-  -- with nvim-treesitter. You should go explore a few and see what interests you:
-  --
-  --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-  --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-  --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    local custom_textobjects = {
+      c = 'class',
+      f = 'function',
+    }
+
+    for key, object in pairs(custom_textobjects) do
+      vim.keymap.set({ 'x', 'o' }, 'a' .. key, function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@' .. object .. '.outer', 'textobjects')
+      end, { desc = object })
+
+      vim.keymap.set({ 'x', 'o' }, 'i' .. key, function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@' .. object .. '.inner', 'textobjects')
+      end, { desc = 'inner ' .. object })
+    end
+  end,
 }
