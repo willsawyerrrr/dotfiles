@@ -48,8 +48,8 @@ HISTFILE="${ZSH_CACHE_DIR}/history"
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt SHARE_HISTORY          # Share history between sessions
-setopt HIST_IGNORE_ALL_DUPS   # Don't record duplicates
-setopt HIST_REDUCE_BLANKS     # Remove redundant spaces
-setopt HIST_IGNORE_SPACE      # Don't record commands starting with a space
 setopt EXTENDED_HISTORY       # Save timestamps
+setopt HIST_IGNORE_ALL_DUPS   # Don't record duplicates
+setopt HIST_IGNORE_SPACE      # Don't record commands starting with a space
+setopt HIST_REDUCE_BLANKS     # Remove redundant spaces
+setopt INC_APPEND_HISTORY     # Append to history file immediately
