@@ -88,8 +88,6 @@ brew "stow"
 brew "telnet"
 # OCR (Optical Character Recognition) engine
 brew "tesseract"
-# TOML formatter, linter and language server
-brew "tombi"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Parser generator tool
@@ -126,15 +124,11 @@ cask "nikitabobko/tap/aerospace@0.19.2"
 cask "claude"
 # Terminal-based AI coding assistant
 cask "claude-code"
-# Write, edit, and chat about your code with AI
-cask "cursor"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
 # Utility for customizing which browser to start
 cask "finicky"
 cask "font-jetbrains-mono-nerd-font"
-# Git client focusing on productivity
-cask "gitkraken"
 # Web browser
 cask "google-chrome"
 # GPU-based terminal emulator
@@ -163,14 +157,6 @@ cask "redis-insight"
 cask "slack"
 # Music streaming service
 cask "spotify"
-# Email client
-cask "superhuman"
-# Virtualiser for arm64 hardware
-cask "virtualbox"
-# Open-source code editor
-cask "visual-studio-code"
-# Voice to text app
-cask "voiceink"
 # VPN client for secure internet access and private browsing
 cask "windscribe"
 # Video communication and virtual meeting platform
