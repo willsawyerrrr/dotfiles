@@ -162,3 +162,4 @@ cask "windscribe"
 # Video communication and virtual meeting platform
 cask "zoom"
 cargo "pytest-language-server"
+uv "uv-sort"

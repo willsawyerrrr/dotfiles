@@ -4,7 +4,7 @@ version: "3"
 
 tasks:
   brew:lock:
-    cmd: brew bundle dump --no-vscode --force --describe
+    cmd: brew bundle dump --force --describe
     desc: Dump Brewfile
 
   brew:install:
