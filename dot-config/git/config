@@ -1,7 +1,7 @@
 [alias]
 	# Clone aliases
-	heidi = !git clone git@github.com:oscerai/$1.git
-	personal = !git clone git@github.com:willsawyerrrr/$1.git
+	heidi = "!function c(){ git clone git@github.com:oscerai/$1.git ${@:2} ; }; c"
+	personal = !function c(){ git clone git@github.com:willsawyerrrr/$1.git ${@:2} ; }; c
 
 	# Commit aliases
 	amend = commit --amend --no-edit
