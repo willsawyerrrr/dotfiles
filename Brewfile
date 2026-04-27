@@ -44,6 +44,8 @@ brew "git-delta"
 brew "go-task"
 # Easiest way to access your cloud
 brew "granted"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Implementation of the file(1) command
@@ -56,6 +58,8 @@ brew "luarocks"
 brew "mcat"
 # Terminal markdown viewer
 brew "mdfried"
+# CLI for Mermaid library
+brew "mermaid-cli"
 # MongoDB Shell to connect, configure, query, and work with your MongoDB database
 brew "mongosh"
 # Message broker implementing the MQTT protocol
