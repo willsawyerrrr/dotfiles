@@ -36,7 +36,7 @@ return {
       {
         event = 'neo_tree_buffer_enter',
         handler = function()
-          vim.opt_local.number = true -- Optional: ensure absolute numbers are also shown
+          vim.opt_local.number = true
           vim.opt_local.relativenumber = true
         end,
       },
