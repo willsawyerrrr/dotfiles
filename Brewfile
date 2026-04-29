@@ -1,3 +1,4 @@
+tap "bellini666/tap", "https://github.com/bellini666/pytest-language-server"
 tap "common-fate/granted"
 tap "felixkratz/formulae"
 tap "hashicorp/tap"
@@ -108,6 +109,8 @@ brew "wget"
 brew "yq"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
+# Blazingly fast Language Server Protocol implementation for pytest
+brew "bellini666/tap/pytest-language-server"
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar"
 # Terraform
@@ -165,5 +168,4 @@ cask "spotify"
 cask "windscribe"
 # Video communication and virtual meeting platform
 cask "zoom"
-cargo "pytest-language-server"
 uv "uv-sort"
