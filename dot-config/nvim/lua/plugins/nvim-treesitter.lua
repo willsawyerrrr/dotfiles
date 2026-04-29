@@ -1,5 +1,4 @@
 return {
-  -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   lazy = false,
   build = ':TSUpdate',
@@ -7,7 +6,7 @@ return {
   dependencies = {
     { 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main' },
   },
-  -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+
   init = function()
     local ensure_installed = {
       'bash',

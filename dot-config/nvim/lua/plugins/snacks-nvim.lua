@@ -7,7 +7,8 @@ return {
   opts = {
     gitbrowse = { enabled = true },
     image = { enabled = true },
-    indent = { -- Pretty indent lines
+    indent = {
+      -- Pretty indent lines
       enabled = true,
       indent = {
         char = '┊',
@@ -18,7 +19,8 @@ return {
       scope = {
         hl = 'Comment',
       },
-      chunk = { -- Code chunk. e.g Functions
+      chunk = {
+        -- Code chunk. e.g Functions
         enabled = true,
         hl = 'Comment',
         char = {

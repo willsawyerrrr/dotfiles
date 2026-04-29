@@ -9,6 +9,8 @@ return {
       topdelete = { text = '‾' },
       changedelete = { text = '~' },
     },
+    current_line_blame = true,
+
     on_attach = function(bufnr)
       local gitsigns = require 'gitsigns'
 
@@ -60,7 +62,4 @@ return {
       map('n', '<leader>tD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted' })
     end,
   },
-  config = function()
-    require('gitsigns').setup { current_line_blame = true }
-  end,
 }

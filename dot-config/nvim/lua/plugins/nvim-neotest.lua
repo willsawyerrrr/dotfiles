@@ -5,13 +5,6 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
   },
-  opts = {
-    adapters = {
-      ['neotest-python'] = {
-        runner = 'pytest',
-      },
-    },
-  },
   config = function()
     local neotest = require 'neotest'
 
@@ -22,6 +15,7 @@ return {
           dap = { justMyCode = false },
           args = { '--log-level', 'DEBUG' },
           python = '.venv/bin/python',
+          runner = 'pytest',
         },
       },
     }
