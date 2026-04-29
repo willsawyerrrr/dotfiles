@@ -138,7 +138,7 @@ cask "google-chrome"
 # GPU-based terminal emulator
 cask "kitty"
 # App to manage software development and track bugs
-cask "linear-linear"
+cask "linear"
 # Customise mouse behavior
 cask "linearmouse"
 # Support for Logitech G gear
