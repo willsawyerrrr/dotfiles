@@ -27,6 +27,7 @@ return {
     }
 
     vim.keymap.set('n', '<leader>ts', neotest.summary.open, { desc = 'NeoTest: Open test summary' })
+    vim.keymap.set('n', '<leader>to', neotest.output_panel.open, { desc = 'NeoTest: Open test output panel' })
     vim.keymap.set('n', '<leader>tt', neotest.run.run, { desc = 'NeoTest: Run single test' })
     vim.keymap.set('n', '<leader>tf', function()
       neotest.run.run(vim.fn.expand '%')
