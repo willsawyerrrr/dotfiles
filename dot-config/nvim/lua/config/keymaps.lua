@@ -10,6 +10,7 @@ vim.keymap.set('n', '<Esc>', function()
 end)
 
 vim.keymap.set('n', '<leader>w', '<cmd>write<CR>', { desc = 'Write file' })
+vim.keymap.set('n', '<leader>q', '<cmd>quit<CR>', { desc = 'Quit' })
 
 vim.keymap.set('n', 'gh', 'viWK', { desc = 'Get help for word' })
 
@@ -24,7 +25,7 @@ vim.keymap.set('n', 'gG', function()
 end, { desc = 'Open GitHub repo under cursor' })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>f', vim.diagnostic.setloclist, { desc = 'Open diagnostic quick[F]ix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
