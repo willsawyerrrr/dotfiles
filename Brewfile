@@ -41,6 +41,8 @@ brew "gh"
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # Task is a task runner/build tool that aims to be simpler and easier to use
 brew "go-task"
 # Easiest way to access your cloud
@@ -168,4 +170,5 @@ cask "spotify"
 cask "windscribe"
 # Video communication and virtual meeting platform
 cask "zoom"
+go "github.com/nitintf/claudewatch"
 uv "uv-sort"
