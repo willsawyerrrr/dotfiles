@@ -1,0 +1,69 @@
+{
+  "defaultShell": "bash",
+  "enableAllProjectMcpServers": false,
+  "enabledPlugins": {
+    "claudewatch@claudewatch": true,
+    "lua-lsp@claude-plugins-official": true,
+    "mongodb@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claudewatch": {
+      "source": {
+        "repo": "nitintf/claudewatch",
+        "source": "github"
+      }
+    }
+  },
+  "model": "opus[1m]",
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Read",
+      "Skill",
+      "WebFetch",
+      "WebSearch",
+      "Write",
+      "mcp__claude_ai_Granola__*",
+      "mcp__datadog-mcp",
+      "mcp__linear",
+      "mcp__notion",
+      "mcp__slack__slack_read_*",
+      "mcp__slack__slack_search_*",
+      "mcp__slack__slack_send_message_draft"
+    ],
+    "ask": [
+      "Bash(gh pr create *)",
+      "Bash(gh pr edit *)",
+      "Bash(gh pr merge *)",
+      "Bash(git push *)",
+      "Bash(rm -f*)",
+      "Bash(rm -r*)",
+      "mcp__datadog-mcp__create_datadog_notebook",
+      "mcp__datadog-mcp__edit_datadog_notebook",
+      "mcp__datadog-mcp__upsert_datadog_dashboard",
+      "mcp__linear__create_*",
+      "mcp__linear__delete_*",
+      "mcp__linear__save_*",
+      "mcp__notion__notion-create-*",
+      "mcp__notion__notion-duplicate-*",
+      "mcp__notion__notion-move-*",
+      "mcp__notion__notion-update-*",
+      "mcp__plugin_mongodb_mongodb",
+      "mcp__slack__slack_*"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "statusLine": {
+    "command": "/Users/willsawyerrrr/go/bin/claudewatch",
+    "type": "command"
+  },
+  "syntaxHighlightingDisabled": false,
+  "tui": "fullscreen"
+}
