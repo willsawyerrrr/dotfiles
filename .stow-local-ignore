@@ -11,6 +11,7 @@ install.sh
 Taskfile.yaml
 
 dracula/
+scripts/
 
 \.claude/settings\.local\.json
 
