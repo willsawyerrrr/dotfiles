@@ -28,5 +28,5 @@ tasks:
     desc: Remove git submodule for Dracula repo
 
   stow:install:
-    cmd: stow --dotfiles .
+    cmd: stow --adopt --dotfiles .
     desc: Install dotfiles
