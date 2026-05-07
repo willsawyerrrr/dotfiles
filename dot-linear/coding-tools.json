@@ -1,0 +1,6 @@
+{
+  "openIssue": {
+    "path": "~/dotfiles/scripts/open-linear-issue-in-nvim.sh",
+    "args": ["{{issue.identifier}}", "{{issue.branchName}}"]
+  }
+}
