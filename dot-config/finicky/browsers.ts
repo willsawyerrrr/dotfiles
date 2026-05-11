@@ -6,10 +6,10 @@ export enum Browser {
 
 export const heidiChromeProfile: BrowserSpecification = {
   name: Browser.GoogleChrome,
-  profile: "Heidi Health",
+  profile: "Heidi",
 };
 
 export const personalChromeProfile: BrowserSpecification = {
   name: Browser.GoogleChrome,
-  profile: "William",
+  profile: "Personal",
 };
