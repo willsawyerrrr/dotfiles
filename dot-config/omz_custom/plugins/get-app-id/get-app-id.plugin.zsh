@@ -4,6 +4,14 @@ function get-app-id() {
 }
 
 function _get-app-id() {
-    compadd $(ls /Applications/ ~/Applications/)
+    local -a apps
+    # Glob qualifier (N) = NULL_GLOB: silently skip a dir if it has no matches.
+    apps=( /Applications/*.app(N) ~/Applications/*.app(N) )
+    # -M passes match specifications that loosen how the typed text matches candidates:
+    #   l:|=*              any chars may appear to the LEFT of the typed text
+    #                      (so `Slack` matches `/Applications/Slack.app`)
+    #   m:{a-zA-Z}={A-Za-z}  case-insensitive letter matching
+    # -a apps   take completions from the `apps` array (preserves spaces in names)
+    compadd -M 'l:|=* m:{a-zA-Z}={A-Za-z}' -a apps
 }
 compdef _get-app-id get-app-id
