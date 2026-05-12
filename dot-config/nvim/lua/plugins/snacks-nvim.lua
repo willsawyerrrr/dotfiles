@@ -2,11 +2,23 @@ return {
   'folke/snacks.nvim',
   priority = 1000,
   lazy = false,
+  init = function()
+    -- Homebrew's mermaid-cli doesn't ship a bundled Chromium, so point
+    -- puppeteer at the system Chrome for snacks.image mermaid rendering.
+    vim.env.PUPPETEER_EXECUTABLE_PATH = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+  end,
   ---@module "snacks"
   ---@type snacks.Config
   opts = {
     gitbrowse = { enabled = true },
-    image = { enabled = true },
+    image = {
+      enabled = true,
+      doc = {
+        conceal = function(_, type)
+          return type == 'math' or type == 'chart'
+        end,
+      },
+    },
     indent = {
       -- Pretty indent lines
       enabled = true,
