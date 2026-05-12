@@ -1,0 +1,8 @@
+theme = 'dracula'
+show_plan = false
+show_5h = true
+show_7d = true
+show_extra = true
+show_cost = true
+show_cwd = true
+show_branch = true
