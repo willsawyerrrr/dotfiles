@@ -4,4 +4,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     'nvim-mini/mini.nvim',
   },
+  opts = {
+    code = { disable = { 'mermaid' } },
+  },
 }
