@@ -64,5 +64,10 @@
     }
   },
   "syntaxHighlightingDisabled": false,
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "voiceEnabled": true
 }
