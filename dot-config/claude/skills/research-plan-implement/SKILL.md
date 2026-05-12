@@ -5,7 +5,7 @@ description: Three-phase workflow for non-trivial tasks — research with an age
 
 # Research → Plan → Implement
 
-Three sequential phases, each backed by a **fresh agent**. Do not skip phases, merge them, or reuse an agent across phases. Each phase ends with an explicit user confirmation before the next begins.
+Three sequential phases, each backed by a **fresh agent**. Do not skip phases, merge them, or reuse an agent across phases. The plan phase ends with explicit user approval (via Notion) before implementation begins; the research phase transitions to planning once grilling has resolved all open questions — no separate sign-off on the research doc.
 
 Pick a short kebab-case `<task-directory>` from the task statement (e.g. `auth-token-refresh`). All durable artifacts live under `docs/<task-directory>/`. Create that directory at the start of Phase 1.
 
@@ -16,9 +16,9 @@ Pick a short kebab-case `<task-directory>` from the task statement (e.g. `auth-t
    - external docs / APIs / services the task depends on
    - constraints, prior art, related tickets or commits
    - open questions and assumptions
-2. **Write the agent's findings to `docs/<task-directory>/research.md`.** Sections: _Task statement_, _Findings_, _Open questions_, _Assumptions_. This is the durable record — keep it current as understanding evolves.
+2. **Write the agent's findings to `docs/<task-directory>/research.md`.** Sections: _Task statement_, _Findings_, _Open questions_, _Assumptions_. This is the durable record — keep it current as understanding evolves. The research doc is yours to maintain; do not ask the user to review or sign off on it.
 3. **Grill the user.** Walk each branch of the decision tree one question at a time. For every question, give your recommended answer with reasoning. If a question can be answered by reading the codebase, read it instead of asking. Continue until no open questions remain.
-4. **Update `research.md` after each round** so it reflects the current shared understanding.
+4. **Update `research.md` after each round** so it reflects the current shared understanding. Once all open questions are resolved and you're aligned with the user, move directly to Phase 2 — no further confirmation step.
 
 ## Phase 2 — Plan
 
@@ -36,7 +36,7 @@ Pick a short kebab-case `<task-directory>` from the task statement (e.g. `auth-t
 ## Rules
 
 - Each phase uses a **new** agent. No carry-over.
-- Do not start Phase 2 until the user confirms Phase 1, or Phase 3 until the user approves the plan in Notion.
+- Transition from Phase 1 to Phase 2 once grilling is complete and you're aligned with the user — no explicit sign-off on `research.md`. Do not start Phase 3 until the user approves the plan in Notion.
 - `research.md` and `plan.md` are the durable record. Keep both current; they outlive the conversation.
 - If the task turns out to be trivial mid-research, surface that and offer to skip the remaining phases rather than going through the motions.
 - If Notion MCP tools are unavailable, stop and ask the user how to handle the review step before continuing — do not silently fall back to inline review.
