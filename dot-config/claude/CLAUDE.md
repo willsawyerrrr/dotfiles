@@ -1,6 +1,7 @@
 # Global Instructions
 
 - Be extremely concise in all responses. No filler, no padding, no trailing summaries.
+- Responses are read by a human, not piped to another tool. Bullets and headings aid scannability — keep them. Tighten *within* each bullet: short clauses, no preamble, no restating the question, no closing summary.
 - Commit messages follow Conventional Commits, with the first word after the type capitalised. Example: `feat: Add new thing` (not `fix: add new thing`).
 - Always use subagents (Agent tool) when a task would benefit — broad exploration (>3 queries), independent parallel work, planning, or anything matching a specialized agent. Launch independent agents in a single message for concurrency.
 - The home directory `/Users/willsawyerrrr` is itself the user-scope "project". When I mention user scope while working here, I mean this directory and its config files (e.g., `${XDG_CONFIG_HOME}/claude/CLAUDE.md`, `${XDG_CONFIG_HOME}/claude/settings.json`). It is not a regular project repo.
