@@ -181,6 +181,8 @@ return {
         filetypes = { 'bash', 'sh', 'zsh' },
       },
 
+      gh_actions_ls = {},
+
       lua_ls = {
         settings = {
           Lua = {
