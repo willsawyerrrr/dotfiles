@@ -1,0 +1,4 @@
+export AUTOENV_ASSUME_YES=1
+export AUTOENV_ENABLE_LEAVE=1
+export AUTOENV_ENV_FILENAME=".env.enter"
+export AUTOENV_VIEWER="${PAGER}"
