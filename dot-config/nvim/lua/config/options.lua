@@ -3,6 +3,12 @@
 -- replacing 'nonu' with 'nu' and 'nornu' with 'rnu'
 vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro rnu'
 
+-- Disable unused providers
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+
 vim.o.autoread = true
 vim.o.breakindent = true
 vim.o.clipboard = 'unnamedplus'
