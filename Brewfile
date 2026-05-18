@@ -148,6 +148,8 @@ cask "linear"
 cask "linearmouse"
 # Support for Logitech G gear
 cask "logitech-g-hub"
+# Spreadsheet software
+cask "microsoft-excel"
 # Interactive tool for analyzing MongoDB data
 cask "mongodb-compass"
 # App to write, plan, collaborate, and get organised
