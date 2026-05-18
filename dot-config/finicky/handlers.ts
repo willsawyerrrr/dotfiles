@@ -21,7 +21,7 @@ const heidiUrls = [
   "us3.datadoghq.com",
   "vercel.com/heidi-health",
   "www.airwallex.com",
-  "www.notion.so/heidihealth",
+  "www.notion.so",
 ];
 const personalUrls = [
   "github.com/willsawyerrrr",
