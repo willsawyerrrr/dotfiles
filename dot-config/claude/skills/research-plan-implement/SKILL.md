@@ -7,7 +7,7 @@ description: Three-phase workflow for non-trivial tasks — research with an age
 
 Three sequential phases, each backed by a **fresh agent**. Do not skip phases, merge them, or reuse an agent across phases. The plan phase ends with explicit user approval (via Notion) before implementation begins; the research phase transitions to planning once grilling has resolved all open questions — no separate sign-off on the research doc.
 
-Pick a short kebab-case `<task-directory>` from the task statement (e.g. `auth-token-refresh`). All durable artifacts live under `docs/<task-directory>/`. Create that directory at the start of Phase 1.
+Pick a short kebab-case `<task-directory>` for the work. If the user has given you a branch name, use it verbatim as `<task-directory>` so the docs and branch stay in sync; otherwise derive one from the task statement (e.g. `auth-token-refresh`). All durable artifacts live under `docs/<task-directory>/`. Create that directory at the start of Phase 1.
 
 ## Phase 1 — Research
 
@@ -30,8 +30,9 @@ Pick a short kebab-case `<task-directory>` from the task statement (e.g. `auth-t
 
 ## Phase 3 — Implement
 
-1. **Spawn a fresh implementation agent.** Brief it with the task statement, `docs/<task-directory>/research.md`, and `docs/<task-directory>/plan.md`. Tell it to implement the plan as written — not to redesign it. If it discovers the plan is wrong, it should stop and surface the conflict, not silently deviate.
-2. **Verify before reporting done.** Read the actual diff. If the agent deviated from the plan, decide whether to accept the deviation, ask the agent to revise, or escalate to the user. The agent's summary describes intent, not what shipped.
+1. **Create a new branch off `main`** before any code changes (e.g. `git switch -c <branch> main`). Use the branch name the user gave you if any; otherwise default to `<task-directory>`. Always branch from `main` unless the user has specified a different base. Fetch first if the local `main` may be stale.
+2. **Spawn a fresh implementation agent.** Brief it with the task statement, `docs/<task-directory>/research.md`, and `docs/<task-directory>/plan.md`. Tell it to implement the plan as written — not to redesign it. If it discovers the plan is wrong, it should stop and surface the conflict, not silently deviate.
+3. **Verify before reporting done.** Read the actual diff. If the agent deviated from the plan, decide whether to accept the deviation, ask the agent to revise, or escalate to the user. The agent's summary describes intent, not what shipped.
 
 ## Rules
 
