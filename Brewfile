@@ -47,6 +47,10 @@ brew "go"
 brew "go-task"
 # Easiest way to access your cloud
 brew "granted"
+# Kubernetes package manager
+brew "helm"
+# Deploy Kubernetes Helm Charts
+brew "helmfile"
 # Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Simple terminal UI for git commands
