@@ -3,7 +3,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
-  cmd = { 'ClaudeCode', 'ClaudeCodeContinue', 'ResearchPlanImplement' },
+  cmd = { 'ClaudeCode', 'ClaudeCodeContinue', 'ClaudeCodePrompt' },
   opts = {
     window = {
       position = 'float',
@@ -19,12 +19,12 @@ return {
   config = function(_, opts)
     require('claude-code').setup(opts)
 
-    vim.api.nvim_create_user_command('ResearchPlanImplement', function(o)
-      if #o.fargs < 2 then
-        vim.notify('ResearchPlanImplement requires 2 arguments: <issue> <branch>', vim.log.levels.ERROR)
+    vim.api.nvim_create_user_command('ClaudeCodePrompt', function(o)
+      if o.args == '' then
+        vim.notify('ClaudeCodePrompt requires a prompt argument', vim.log.levels.ERROR)
         return
       end
-      local prompt = string.format('/research-plan-implement %s on %s', o.fargs[1], o.fargs[2])
+      local prompt = o.args
 
       vim.cmd 'ClaudeCode'
       local bufnr = vim.api.nvim_get_current_buf()
@@ -42,7 +42,7 @@ return {
       end, 500)
     end, {
       nargs = '+',
-      desc = 'Open Claude Code and run /research-plan-implement <issue> on <branch>',
+      desc = 'Open Claude Code and run the given prompt',
     })
   end,
 }
