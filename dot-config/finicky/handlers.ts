@@ -5,6 +5,7 @@ import type {
 } from "/Applications/Finicky.app/Contents/Resources/finicky.d.ts";
 
 const heidiUrls = [
+  "amazonaws.com",
   "app.aus.vanta.com",
   "app.flagsmith.com",
   "app.incident.io",
