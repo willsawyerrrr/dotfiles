@@ -38,7 +38,7 @@ return {
         vim.api.nvim_chan_send(chan, prompt)
         vim.defer_fn(function()
           vim.api.nvim_chan_send(chan, '\r')
-        end, 100)
+        end, 200)
       end, 500)
     end, {
       nargs = '+',
