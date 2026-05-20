@@ -31,8 +31,8 @@ Pick a short kebab-case `<task-directory>` for the work. If the user has given y
 ## Phase 3 — Implement
 
 1. **Create a new branch off `main`** before any code changes (e.g. `git switch -c <branch> main`). Use the branch name the user gave you if any; otherwise default to `<task-directory>`. Always branch from `main` unless the user has specified a different base. Fetch first if the local `main` may be stale.
-2. **Spawn a fresh implementation agent.** Brief it with the task statement, `docs/<task-directory>/research.md`, and `docs/<task-directory>/plan.md`. Tell it to implement the plan as written — not to redesign it. If it discovers the plan is wrong, it should stop and surface the conflict, not silently deviate.
-3. **Verify before reporting done.** Read the actual diff. If the agent deviated from the plan, decide whether to accept the deviation, ask the agent to revise, or escalate to the user. The agent's summary describes intent, not what shipped.
+2. **Spawn a fresh implementation agent.** Brief it with the task statement, `docs/<task-directory>/research.md`, and `docs/<task-directory>/plan.md`. Tell it to implement the plan as written — not to redesign it. If it discovers the plan is wrong, it should stop and surface the conflict, not silently deviate. Explicitly instruct it to **commit its changes in multiple meaningful commits** so the user can review commit-by-commit — each commit a logical unit (e.g. one refactor, one feature step, one batch of tests), not a single mega-commit and not one commit per file. Commit messages must follow Conventional Commits with the first word after the type capitalised (e.g. `feat: Add token refresh`). The agent must **not push** — leave the branch local for the user to review and push themselves.
+3. **Verify before reporting done.** Read the commit log and the diff of each commit. If the agent deviated from the plan, or if the commit breakdown is unhelpful (mega-commit, per-file noise, mixed concerns), decide whether to accept it, ask the agent to revise (including re-doing the commits), or escalate to the user. The agent's summary describes intent, not what shipped.
 
 ## Rules
 
