@@ -9,6 +9,8 @@ Three sequential phases, each backed by a **fresh agent**. Do not skip phases, m
 
 Pick a short kebab-case `<task-directory>` for the work. If the user has given you a branch name, use it verbatim as `<task-directory>` so the docs and branch stay in sync; otherwise derive one from the task statement (e.g. `auth-token-refresh`). All durable artifacts live under `docs/<task-directory>/`. Create that directory at the start of Phase 1.
 
+**Rename the Claude Code session** as soon as `<task-directory>` is chosen, so the session is easy to find later. If the work is tied to a Linear issue, use `<ISSUE-ID>: <Issue title>` (e.g. `SCR-1234: Add some new feature`); otherwise use the `<task-directory>` value verbatim. Do this without asking.
+
 ## Phase 1 — Research
 
 1. **Spawn a research agent** (Explore for codebase-heavy questions, general-purpose otherwise). Brief it with the full task statement and ask for a self-contained report covering:
