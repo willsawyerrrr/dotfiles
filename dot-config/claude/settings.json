@@ -69,6 +69,8 @@
     "enabled": true,
     "mode": "hold"
   },
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
   "voiceEnabled": true,
   "remoteControlAtStartup": true
 }
