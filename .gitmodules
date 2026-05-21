@@ -7,9 +7,6 @@
 [submodule "dracula/kitty"]
 	path = dracula/kitty
 	url = https://github.com/dracula/kitty.git
-[submodule "dracula/new-tabs"]
-	path = dracula/new-tabs
-	url = https://github.com/dracula/new-tabs.git
 [submodule "dracula/terminal-app"]
 	path = dracula/terminal-app
 	url = https://github.com/dracula/terminal-app.git
