@@ -145,9 +145,7 @@ return {
     --  blink.cmp adds support for more capabilities; configure all servers to utilise them.
     vim.lsp.config('*', { capabilities = require('blink.cmp').get_lsp_capabilities() })
 
-    -- Each enabled language server has its overrides defined in
-    -- `after/lsp/<server_name>.lua`. Neovim auto-discovers those files via the
-    -- runtime path and deep-merges them on top of nvim-lspconfig's defaults.
+    -- Language servers are configured in `after/lsp/<server_name>.lua`.
     -- A file may set `mason = false` to opt out of `mason-tool-installer`'s
     -- `ensure_installed` (e.g. for servers installed outside Mason).
     local server_names = {}
