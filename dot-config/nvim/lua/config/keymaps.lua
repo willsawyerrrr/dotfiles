@@ -12,8 +12,6 @@ end)
 vim.keymap.set('n', '<leader>w', '<cmd>write<CR>', { desc = 'Write file' })
 vim.keymap.set('n', '<leader>q', '<cmd>quit<CR>', { desc = 'Quit' })
 
-vim.keymap.set('n', 'gh', 'viWK', { desc = 'Get help for word' })
-
 vim.keymap.set('n', 'gG', function()
   local word = vim.fn.expand '<cWORD>'
   local repo = word:match '[%w%-%.]+/[%w%-%.]+'
