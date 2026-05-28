@@ -9,5 +9,4 @@ return {
     'pytest.ini',
     '.git',
   },
-  settings = {},
 }
