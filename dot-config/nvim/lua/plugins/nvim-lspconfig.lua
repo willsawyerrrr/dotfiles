@@ -3,8 +3,15 @@ return {
   dependencies = {
     -- Mason must be loaded before its dependents so we need to set it up here.
     { 'mason-org/mason.nvim', opts = {} },
-    'mason-org/mason-lspconfig.nvim',
-    'WhoIsSethDaniel/mason-tool-installer.nvim',
+
+    {
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      dependencies = {
+        -- Provides lspconfig <-> Mason package name mappings, which
+        -- mason-tool-installer relies on to resolve `ensure_installed` entries.
+        'mason-org/mason-lspconfig.nvim',
+      },
+    },
 
     -- Useful status updates for LSP.
     { 'j-hui/fidget.nvim', opts = {} },
@@ -120,21 +127,6 @@ return {
       end,
     })
 
-    -- Organise imports using Ruff when writing Python files
-    vim.api.nvim_create_autocmd('BufWritePost', {
-      callback = function()
-        if vim.bo.ft == 'python' then
-          vim.lsp.buf.code_action {
-            context = {
-              only = { 'source.organizeImports' },
-              diagnostics = {},
-            },
-            apply = true,
-          }
-        end
-      end,
-    })
-
     -- Diagnostic Config
     -- See :help vim.diagnostic.Opts
     vim.diagnostic.config {
@@ -161,86 +153,26 @@ return {
       },
     }
 
-    -- LSP servers and clients are able to communicate to each other what features they support.
-    --  By default, Neovim doesn't support everything that is in the LSP specification.
-    --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
-    --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
-    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    -- By default, Neovim doesn't support everything that is in the LSP specification.
+    --  blink.cmp adds support for more capabilities; configure all servers to utilise them.
+    vim.lsp.config('*', { capabilities = require('blink.cmp').get_lsp_capabilities() })
 
-    -- Enable the following language servers
-    --
-    --  Add any additional override configuration in the following tables. Available keys are:
-    --  - cmd (table): Override the default command used to start the server
-    --  - filetypes (table): Override the default list of associated filetypes for the server
-    --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-    --  - settings (table): Override the default settings passed when initializing the server.
-    --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-    local servers = {
-      -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
-      bashls = {
-        filetypes = { 'bash', 'sh', 'zsh' },
-      },
+    -- Each enabled language server has its overrides defined in
+    -- `after/lsp/<server_name>.lua`. Neovim auto-discovers those files via the
+    -- runtime path and deep-merges them on top of nvim-lspconfig's defaults.
+    -- A file may set `mason = false` to opt out of `mason-tool-installer`'s
+    -- `ensure_installed` (e.g. for servers installed outside Mason).
+    local server_names = {}
+    local mason_managed = {}
+    for _, path in ipairs(vim.fn.glob(vim.fn.stdpath 'config' .. '/after/lsp/*.lua', false, true)) do
+      local name = vim.fn.fnamemodify(path, ':t:r')
+      table.insert(server_names, name)
+      if dofile(path).mason ~= false then
+        table.insert(mason_managed, name)
+      end
+    end
 
-      gh_actions_ls = {},
-
-      lua_ls = {
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
-            },
-            workspace = {
-              checkThirdParty = true,
-              library = {
-                vim.env.VIMRUNTIME,
-                '~/.local/share/nvim/lazy/dracula.nvim',
-              },
-            },
-          },
-        },
-      },
-
-      prettier = {},
-
-      pyright = {
-        settings = {
-          disableOrganizeImports = true,
-          python = {
-            analysis = {
-              ignore = '*',
-            },
-          },
-        },
-      },
-
-      ruff = {},
-
-      stylua = {},
-
-      terraformls = {},
-
-      ts_ls = {},
-
-      yamlls = {},
-    }
-
-    local ensure_installed = vim.tbl_keys(servers or {})
-
-    require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
-    require('mason-lspconfig').setup {
-      ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-      automatic_installation = false,
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for ts_ls)
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          vim.lsp.config(server_name, server)
-        end,
-      },
-    }
+    require('mason-tool-installer').setup { ensure_installed = mason_managed }
+    vim.lsp.enable(server_names)
   end,
 }

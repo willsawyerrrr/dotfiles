@@ -1,5 +1,5 @@
-local pytest_lsp_name = 'pytest_lsp'
-vim.lsp.config(pytest_lsp_name, {
+return {
+  mason = false,
   cmd = { 'pytest-language-server' },
   filetypes = { 'python' },
   root_markers = {
@@ -10,5 +10,4 @@ vim.lsp.config(pytest_lsp_name, {
     '.git',
   },
   settings = {},
-})
-vim.lsp.enable(pytest_lsp_name)
+}
