@@ -1,7 +1,8 @@
-# [generator]
-# workspaces = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-# directions = [["h", "left"], ["j", "down"], ["k", "up"], ["l", "right"]]
+[generator]
+workspaces = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+directions = [["h", "left"], ["j", "down"], ["k", "up"], ["l", "right"]]
 
+[aerospace]
 start-at-login = true
 
 # https://nikitabobko.github.io/AeroSpace/commands

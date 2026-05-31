@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """Post-process aerospace.source.toml into aerospace.toml, expanding placeholders.
 
-Expansion config is defined at the top of aerospace.source.toml in a commented-out
-TOML block (so the source file remains valid TOML throughout):
-
-  # [generator]
-  # workspaces = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  # directions = [["h", "left"], ["j", "down"], ["k", "up"], ["l", "right"]]
+Expansion config is read from the [generator] table at the top of
+aerospace.source.toml. Root-level aerospace keys live under [aerospace] to
+keep the source file valid TOML throughout. Both sections are stripped from
+the generated output: [generator] is removed entirely and [aerospace] has
+its header dropped so its keys become root-level.
 
 Placeholders:
   {ws}       — expanded once per workspace
@@ -31,27 +30,32 @@ HEADER = """\
 """
 
 
-def parse_generator_block(lines: list[str]) -> tuple[dict, int]:
-    """Parse the leading commented-out [generator] TOML block.
-
-    Returns the parsed config dict and the number of lines consumed
-    (including the trailing blank line, if present).
-    """
-    block = []
-    i = 0
-    while i < len(lines) and lines[i].startswith("#"):
-        block.append(lines[i][2:] if lines[i].startswith("# ") else lines[i][1:])
-        i += 1
-    if i < len(lines) and lines[i].strip() == "":
-        i += 1  # consume the blank line separating block from config
-    return tomllib.loads("".join(block)), i
-
-
-def expand(lines: list[str], workspaces: list, directions: list) -> str:
+def process(src: str, workspaces: list, directions: list) -> str:
+    lines = src.splitlines(keepends=True)
     result = []
+    in_generator = False
     i = 0
     while i < len(lines):
         line = lines[i]
+        stripped = line.strip()
+
+        if stripped == "[generator]":
+            in_generator = True
+            i += 1
+            continue
+
+        if in_generator:
+            if stripped.startswith("["):
+                in_generator = False
+                # fall through to process this line
+            else:
+                i += 1
+                continue
+
+        if stripped == "[aerospace]":
+            i += 1
+            continue
+
         if "{ws}" in line:
             for ws in workspaces:
                 result.append(line.replace("{ws}", str(ws)))
@@ -77,16 +81,34 @@ def expand(lines: list[str], workspaces: list, directions: list) -> str:
         else:
             result.append(line)
             i += 1
+
     return "".join(result)
+
+
+def parse_generator(src: str) -> dict:
+    """Extract and parse only the [generator] block, avoiding placeholder lines."""
+    lines = src.splitlines(keepends=True)
+    block = []
+    in_generator = False
+    for line in lines:
+        if line.strip() == "[generator]":
+            in_generator = True
+            block.append(line)
+            continue
+        if in_generator:
+            if line.strip().startswith("["):
+                break
+            block.append(line)
+    return tomllib.loads("".join(block))["generator"]
 
 
 def main() -> None:
     output_path = Path(sys.argv[1]) if len(sys.argv) > 1 else OUT_PATH
-    lines = SRC_PATH.read_text().splitlines(keepends=True)
-    config, body_start = parse_generator_block(lines)
-    workspaces = config["generator"]["workspaces"]
-    directions = [tuple(pair) for pair in config["generator"]["directions"]]
-    result = HEADER + "\n" + expand(lines[body_start:], workspaces, directions)
+    src = SRC_PATH.read_text()
+    config = parse_generator(src)
+    workspaces = config["workspaces"]
+    directions = [tuple(pair) for pair in config["directions"]]
+    result = HEADER + "\n" + process(src, workspaces, directions)
     output_path.write_text(result)
     print(f"Written to {output_path}")
 
