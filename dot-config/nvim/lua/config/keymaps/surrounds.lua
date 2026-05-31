@@ -1,0 +1,5 @@
+vim.keymap.set('x', '(', 'sa)', { remap = true, desc = 'Surround selection with (parentheses)' })
+vim.keymap.set('x', '[', 'sa]', { remap = true, desc = 'Surround selection with [brackets]' })
+vim.keymap.set('x', '{', 'sa}', { remap = true, desc = 'Surround selection with {braces}' })
+vim.keymap.set('x', '"', 'sa"', { remap = true, desc = 'Surround selection with "double quotes"' })
+vim.keymap.set('x', "'", "sa'", { remap = true, desc = "Surround selection with 'single quotes'" })
