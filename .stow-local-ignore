@@ -15,7 +15,6 @@ scripts/
 
 \.claude/settings\.local\.json
 aerospace\.source\.toml
-aerospace\.source\.schema\.json
 
 ##################
 ### Defaults below
