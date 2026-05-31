@@ -70,8 +70,15 @@ def is_table_array(value: Any) -> bool:
 
 
 def quote_str(s: str) -> str:
-    """Wrap a string in TOML basic-string quotes with minimal escaping."""
-    return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
+    """Wrap a string in TOML basic-string quotes with full escaping."""
+    s = s.replace("\\", "\\\\")
+    s = s.replace('"', '\\"')
+    s = s.replace("\b", "\\b")
+    s = s.replace("\f", "\\f")
+    s = s.replace("\n", "\\n")
+    s = s.replace("\r", "\\r")
+    s = s.replace("\t", "\\t")
+    return '"' + s + '"'
 
 
 def flatten_dict(key: str, value: Any) -> list[tuple[str, Any]]:
@@ -116,34 +123,38 @@ def serialize(data: dict, path: str = "") -> list[str]:
     arrays of tables as [[section]] blocks with dotted keys for any nested
     dicts within each item.
     """
-    lines = []
-
-    for key, value in data.items():
-        if not isinstance(value, dict) and not is_table_array(value):
-            lines.append(f"{key} = {serialize_inline(value)}")
+    scalars: list[tuple[str, Any]] = []
+    subtables: list[tuple[str, dict]] = []
+    table_arrays: list[tuple[str, list]] = []
 
     for key, value in data.items():
         if isinstance(value, dict):
-            subpath = f"{path}.{key}" if path else key
-            sub_lines = serialize(value, subpath)
-            # Only emit a section header if this level has direct key-value pairs;
-            # otherwise the sub-section headers are sufficient.
-            has_direct_values = any(
-                not isinstance(v, dict) and not is_table_array(v)
-                for v in value.values()
-            )
-            if has_direct_values:
-                lines.append(f"\n[{subpath}]")
-            lines.extend(sub_lines)
+            subtables.append((key, value))
+        elif is_table_array(value):
+            table_arrays.append((key, value))
+        else:
+            scalars.append((key, value))
 
-    for key, value in data.items():
-        if is_table_array(value):
-            subpath = f"{path}.{key}" if path else key
-            for item in value:
-                lines.append(f"\n[[{subpath}]]")
-                for item_key, item_val in item.items():
-                    for flat_key, flat_val in flatten_dict(item_key, item_val):
-                        lines.append(f"{flat_key} = {serialize_inline(flat_val)}")
+    lines = [f"{key} = {serialize_inline(value)}" for key, value in scalars]
+
+    for key, value in subtables:
+        subpath = f"{path}.{key}" if path else key
+        sub_lines = serialize(value, subpath)
+        has_direct_values = any(
+            not isinstance(v, dict) and not is_table_array(v)
+            for v in value.values()
+        )
+        if has_direct_values:
+            lines.append(f"\n[{subpath}]")
+        lines.extend(sub_lines)
+
+    for key, value in table_arrays:
+        subpath = f"{path}.{key}" if path else key
+        for item in value:
+            lines.append(f"\n[[{subpath}]]")
+            for item_key, item_val in item.items():
+                for flat_key, flat_val in flatten_dict(item_key, item_val):
+                    lines.append(f"{flat_key} = {serialize_inline(flat_val)}")
 
     return lines
 
@@ -161,6 +172,16 @@ def main() -> None:
 
     data.update(data.pop("aerospace"))
     data["workspace-to-monitor-force-assignment"] = workspace_monitors
+
+    invalid = {
+        app_id: ws
+        for app_id, ws in generator["workspace-apps"].items()
+        if str(ws) not in workspace_monitors
+    }
+    if invalid:
+        entries = ", ".join(f"{app!r} → {ws!r}" for app, ws in invalid.items())
+        raise ValueError(f"workspace-apps references unknown workspace(s): {entries}")
+
     data["on-window-detected"] = [
         {"if": {"app-id": app_id}, "run": f"move-node-to-workspace {ws}"}
         for app_id, ws in generator["workspace-apps"].items()

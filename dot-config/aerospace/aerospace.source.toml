@@ -1,5 +1,3 @@
-[generator]
-
 [generator.directions]
 h = "left"
 j = "down"
