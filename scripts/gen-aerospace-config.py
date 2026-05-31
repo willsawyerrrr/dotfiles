@@ -107,7 +107,7 @@ def main() -> None:
     src = SRC_PATH.read_text()
     config = parse_generator(src)
     workspaces = config["workspaces"]
-    directions = [tuple(pair) for pair in config["directions"]]
+    directions = list(config["directions"].items())
     result = HEADER + "\n" + process(src, workspaces, directions)
     output_path.write_text(result)
     print(f"Written to {output_path}")
