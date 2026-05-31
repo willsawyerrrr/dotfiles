@@ -1,3 +1,5 @@
+#:schema ./aerospace.source.schema.json
+
 [generator.directions]
 h = "left"
 j = "down"
