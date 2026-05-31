@@ -1,4 +1,4 @@
-# This file is auto-generated from aerospace.source.toml by scripts/gen-workspace-bindings.py.
+# This file is auto-generated from aerospace.source.toml by scripts/gen-aerospace-config.py.
 # Do not edit directly — make changes in aerospace.source.toml instead.
 
 start-at-login = true
