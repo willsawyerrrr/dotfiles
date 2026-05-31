@@ -46,6 +46,8 @@ tasks:
     silent: true
 
   stow:install:
-    deps: [stow:preflight]
+    deps:
+      - stow:preflight
+      - aerospace:gen
     cmd: stow --dotfiles --restow .
     desc: Install dotfiles
