@@ -3,6 +3,10 @@
 version: "3"
 
 tasks:
+  aerospace:gen:
+    cmd: python3 scripts/gen-aerospace-config.py
+    desc: Regenerate aerospace.toml from aerospace.source.toml
+
   brew:lock:
     cmd: brew bundle dump --force --describe
     desc: Dump Brewfile
