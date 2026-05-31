@@ -73,10 +73,10 @@ alt-slash = "layout tiles horizontal vertical"
 alt-comma = "layout accordion horizontal vertical"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-{dir_key} = "focus {dir}"
+"alt-{dir_key}" = "focus {dir}"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-alt-shift-{dir_key} = "move {dir}"
+"alt-shift-{dir_key}" = "move {dir}"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = "resize smart -50"
@@ -84,10 +84,10 @@ alt-shift-equal = "resize smart +50"
 alt-shift-0 = "balance-sizes"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-{ws} = "workspace {ws}"
+"alt-{ws}" = "workspace {ws}"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-{ws} = ["move-node-to-workspace {ws}", "exec-and-forget sketchybar --trigger aerospace_window_moved DESTINATION_WORKSPACE={ws}"]
+"alt-shift-{ws}" = ["move-node-to-workspace {ws}", "exec-and-forget sketchybar --trigger aerospace_window_moved DESTINATION_WORKSPACE={ws}"]
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 cmd-tab = "workspace-back-and-forth"
@@ -134,7 +134,7 @@ backspace = [
   "mode main",
   "exec-and-forget sketchybar --trigger aerospace_status_change MODE=main",
 ]
-alt-shift-{dir_key} = [
+"alt-shift-{dir_key}" = [
   "join-with {dir}",
   "mode main",
   "exec-and-forget sketchybar --trigger aerospace_status_change MODE=main",

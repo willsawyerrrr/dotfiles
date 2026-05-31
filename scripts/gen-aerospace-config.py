@@ -17,9 +17,12 @@ Multi-line TOML arrays whose opening line contains a direction placeholder
 are expanded as a complete block rather than line-by-line.
 """
 
+import re
 import sys
 import tomllib
 from pathlib import Path
+
+_QUOTED_KEY_RE = re.compile(r'^"([^"]+)"(\s*=)')
 
 SRC_PATH = Path(__file__).parent.parent / "dot-config" / "aerospace" / "aerospace.source.toml"
 OUT_PATH = Path(__file__).parent.parent / "dot-config" / "aerospace" / "aerospace.toml"
@@ -28,6 +31,10 @@ HEADER = """\
 # This file is auto-generated from aerospace.source.toml by scripts/gen-aerospace-config.py.
 # Do not edit directly — make changes in aerospace.source.toml instead.
 """
+
+
+def unquote_key(line: str) -> str:
+    return _QUOTED_KEY_RE.sub(r'\1\2', line)
 
 
 def process(src: str, workspaces: list, directions: list) -> str:
@@ -58,7 +65,7 @@ def process(src: str, workspaces: list, directions: list) -> str:
 
         if "{ws}" in line:
             for ws in workspaces:
-                result.append(line.replace("{ws}", str(ws)))
+                result.append(unquote_key(line.replace("{ws}", str(ws))))
             i += 1
         elif "{dir" in line:
             if line.rstrip().endswith("["):
@@ -71,12 +78,13 @@ def process(src: str, workspaces: list, directions: list) -> str:
                 if i < len(lines):
                     block.append(lines[i])
                     i += 1
-                block_str = "".join(block)
                 for key, direction in directions:
-                    result.append(block_str.replace("{dir_key}", key).replace("{dir}", direction))
+                    exp = [l.replace("{dir_key}", key).replace("{dir}", direction) for l in block]
+                    exp[0] = unquote_key(exp[0])
+                    result.extend(exp)
             else:
                 for key, direction in directions:
-                    result.append(line.replace("{dir_key}", key).replace("{dir}", direction))
+                    result.append(unquote_key(line.replace("{dir_key}", key).replace("{dir}", direction)))
                 i += 1
         else:
             result.append(line)
