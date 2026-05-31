@@ -14,7 +14,7 @@ dracula/
 scripts/
 
 \.claude/settings\.local\.json
-\.src$
+aerospace\.source\.toml
 
 ##################
 ### Defaults below

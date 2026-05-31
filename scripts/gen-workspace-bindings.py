@@ -6,12 +6,12 @@ from pathlib import Path
 
 WORKSPACES = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-SRC_PATH = Path(__file__).parent.parent / "dot-config" / "aerospace" / "aerospace.toml.src"
+SRC_PATH = Path(__file__).parent.parent / "dot-config" / "aerospace" / "aerospace.source.toml"
 OUT_PATH = Path(__file__).parent.parent / "dot-config" / "aerospace" / "aerospace.toml"
 
 HEADER = f"""\
-# This file is auto-generated from aerospace.toml.src by scripts/gen-workspace-bindings.py.
-# Do not edit directly — make changes in aerospace.toml.src instead.
+# This file is auto-generated from aerospace.source.toml by scripts/gen-workspace-bindings.py.
+# Do not edit directly — make changes in aerospace.source.toml instead.
 """
 
 
