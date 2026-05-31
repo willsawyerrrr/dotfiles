@@ -159,6 +159,11 @@ def main() -> None:
     directions = dict(generator["directions"])
 
     data.update(data.pop("aerospace"))
+
+    data["on-window-detected"] = [
+        {"if": {"app-id": app_id}, "run": f"move-node-to-workspace {ws}"}
+        for app_id, ws in generator["workspace-apps"].items()
+    ]
     data = expand_templates(data, workspaces, directions)
 
     output_path.write_text(HEADER + "\n" + "\n".join(serialize(data)) + "\n")
