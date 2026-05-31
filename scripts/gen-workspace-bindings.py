@@ -21,7 +21,13 @@ def generate(workspaces: list) -> str:
         f'"exec-and-forget sketchybar --trigger aerospace_window_moved DESTINATION_WORKSPACE={ws}"]'
         for ws in workspaces
     ]
-    return "\n".join(switch) + "\n\n" + "\n".join(move)
+    return (
+        "# See: https://nikitabobko.github.io/AeroSpace/commands#workspace\n"
+        + "\n".join(switch)
+        + "\n\n"
+        + "# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace\n"
+        + "\n".join(move)
+    )
 
 
 def inject(content: str, generated: str) -> str:
