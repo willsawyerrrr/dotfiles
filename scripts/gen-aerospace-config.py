@@ -1,24 +1,16 @@
 #!/usr/bin/env python3
 """Post-process aerospace.source.toml into aerospace.toml.
 
-The source file is valid TOML throughout. Template lines use quoted keys
-containing placeholders, e.g. "alt-{ws}" = "workspace {ws}". Placeholders:
-  {ws}      — expanded once per workspace
-  {dir_key} — expanded once per direction key (h, j, k, l)
-  {dir}     — expanded once per direction name (left, down, up, right)
-
-{dir_key} and {dir} are always expanded together as a pair. Multi-line
-TOML arrays are collected and expanded as a complete block. Quoted keys are
-unquoted after expansion since the results are valid bare TOML keys.
-
-The [generator] section is stripped from the output and the [aerospace]
-header is dropped so its keys become root-level in the generated file.
+Parses the source file as TOML, expands template keys using the [generator]
+config, removes the [generator] and [aerospace] wrapper sections, and
+serialises the result. Comments are not preserved in the output — they live
+in the source file.
 """
 
-import re
 import sys
 import tomllib
 from pathlib import Path
+from typing import Any
 
 SRC_PATH = Path(__file__).parent.parent / "dot-config" / "aerospace" / "aerospace.source.toml"
 OUT_PATH = Path(__file__).parent.parent / "dot-config" / "aerospace" / "aerospace.toml"
@@ -28,74 +20,119 @@ HEADER = """\
 # Do not edit directly — make changes in aerospace.source.toml instead.
 """
 
-_QUOTED_KEY_RE = re.compile(r'^"([^"]+)"(\s*=)')
+
+def expand_value(value: Any, replacements: dict[str, str]) -> Any:
+    if isinstance(value, str):
+        for old, new in replacements.items():
+            value = value.replace(old, new)
+        return value
+    if isinstance(value, list):
+        return [expand_value(v, replacements) for v in value]
+    return value
 
 
-def unquote_key(line: str) -> str:
-    return _QUOTED_KEY_RE.sub(r'\1\2', line)
-
-
-def process(src: str, workspaces: list, directions: list) -> str:
-    lines = src.splitlines(keepends=True)
-    result = []
-    in_generator = False
-    i = 0
-    while i < len(lines):
-        line = lines[i]
-        stripped = line.strip()
-
-        if stripped == "[generator]":
-            in_generator = True
-            i += 1
-            continue
-        if in_generator:
-            if stripped.startswith("["):
-                in_generator = False  # fall through to process this line
-            else:
-                i += 1
-                continue
-
-        if stripped == "[aerospace]":
-            i += 1
-            continue
-
-        if "{ws}" in line:
+def expand_templates(data: dict, workspaces: list, directions: dict) -> dict:
+    result = {}
+    for key, value in data.items():
+        if isinstance(value, dict):
+            result[key] = expand_templates(value, workspaces, directions)
+        elif is_table_array(value):
+            result[key] = [expand_templates(item, workspaces, directions) for item in value]
+        elif "{ws}" in key:
             for ws in workspaces:
-                result.append(unquote_key(line.replace("{ws}", str(ws))))
-            i += 1
-        elif "{dir" in line:
-            if line.rstrip().endswith("["):
-                block = [line]
-                i += 1
-                while i < len(lines) and lines[i].strip() != "]":
-                    block.append(lines[i])
-                    i += 1
-                if i < len(lines):
-                    block.append(lines[i])
-                    i += 1
-                for key, direction in directions:
-                    exp = [l.replace("{dir_key}", key).replace("{dir}", direction) for l in block]
-                    exp[0] = unquote_key(exp[0])
-                    result.extend(exp)
-            else:
-                for key, direction in directions:
-                    result.append(unquote_key(line.replace("{dir_key}", key).replace("{dir}", direction)))
-                i += 1
+                result[key.replace("{ws}", str(ws))] = expand_value(value, {"{ws}": str(ws)})
+        elif "{dir_key}" in key:
+            for dir_key, dir_name in directions.items():
+                repl = {"{dir_key}": dir_key, "{dir}": dir_name}
+                result[key.replace("{dir_key}", dir_key)] = expand_value(value, repl)
         else:
-            result.append(line)
-            i += 1
+            result[key] = value
+    return result
 
-    return "".join(result)
+
+def is_table_array(value: Any) -> bool:
+    return isinstance(value, list) and bool(value) and all(isinstance(v, dict) for v in value)
+
+
+def quote_str(s: str) -> str:
+    return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+def flatten_dict(key: str, value: Any) -> list[tuple[str, Any]]:
+    """Flatten nested dicts into dotted-key pairs for inline table serialisation."""
+    if isinstance(value, dict):
+        result = []
+        for k, v in value.items():
+            result.extend(flatten_dict(f"{key}.{k}", v))
+        return result
+    return [(key, value)]
+
+
+def serialize_inline(value: Any) -> str:
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, int):
+        return str(value)
+    if isinstance(value, str):
+        return quote_str(value)
+    if isinstance(value, list):
+        return "[" + ", ".join(serialize_inline(v) for v in value) + "]"
+    if isinstance(value, dict):
+        parts = []
+        for k, v in value.items():
+            for fk, fv in flatten_dict(k, v):
+                parts.append(f"{fk} = {serialize_inline(fv)}")
+        return "{" + ", ".join(parts) + "}"
+    return str(value)
+
+
+def serialize(data: dict, path: str = "") -> list[str]:
+    lines = []
+
+    for key, value in data.items():
+        if not isinstance(value, dict) and not is_table_array(value):
+            lines.append(f"{key} = {serialize_inline(value)}")
+
+    for key, value in data.items():
+        if isinstance(value, dict):
+            subpath = f"{path}.{key}" if path else key
+            sub_lines = serialize(value, subpath)
+            # Only emit a section header if this level has direct key-value pairs;
+            # otherwise the sub-section headers are sufficient.
+            has_direct_values = any(
+                not isinstance(v, dict) and not is_table_array(v)
+                for v in value.values()
+            )
+            if has_direct_values:
+                lines.append(f"\n[{subpath}]")
+            lines.extend(sub_lines)
+
+    for key, value in data.items():
+        if is_table_array(value):
+            subpath = f"{path}.{key}" if path else key
+            for item in value:
+                lines.append(f"\n[[{subpath}]]")
+                for item_key, item_val in item.items():
+                    for flat_key, flat_val in flatten_dict(item_key, item_val):
+                        lines.append(f"{flat_key} = {serialize_inline(flat_val)}")
+
+    return lines
 
 
 def main() -> None:
     output_path = Path(sys.argv[1]) if len(sys.argv) > 1 else OUT_PATH
+
     src = SRC_PATH.read_text()
-    generator = tomllib.loads(src)["generator"]
+    data = tomllib.loads(src)
+
+    generator = data.pop("generator")
     workspaces = generator["workspaces"]
-    directions = list(generator["directions"].items())
-    result = HEADER + "\n" + process(src, workspaces, directions)
-    output_path.write_text(result)
+    directions = dict(generator["directions"])
+
+    data.update(data.pop("aerospace"))
+    data = expand_templates(data, workspaces, directions)
+
+    output_path.write_text(HEADER + "\n" + "\n".join(serialize(data)) + "\n")
     print(f"Written to {output_path}")
 
 
