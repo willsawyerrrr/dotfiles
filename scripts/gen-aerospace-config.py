@@ -22,6 +22,10 @@ HEADER = """\
 
 
 def expand_value(value: Any, replacements: dict[str, str]) -> Any:
+    """Recursively apply string replacements to a value.
+
+    Traverses strings and lists; anything else is returned unchanged.
+    """
     if isinstance(value, str):
         for old, new in replacements.items():
             value = value.replace(old, new)
@@ -32,6 +36,13 @@ def expand_value(value: Any, replacements: dict[str, str]) -> Any:
 
 
 def expand_templates(data: dict, workspaces: list, directions: dict) -> dict:
+    """Recursively expand template keys throughout a parsed TOML dict.
+
+    Keys containing {ws} are expanded once per workspace; keys containing
+    {dir_key} are expanded once per direction, with {dir} also replaced in
+    the corresponding value. All other keys and values are passed through
+    unchanged. Sub-tables and arrays of tables are recursed into.
+    """
     result = {}
     for key, value in data.items():
         if isinstance(value, dict):
@@ -51,10 +62,15 @@ def expand_templates(data: dict, workspaces: list, directions: dict) -> dict:
 
 
 def is_table_array(value: Any) -> bool:
+    """Return True if value is a non-empty list whose every element is a dict.
+
+    This corresponds to a TOML array of tables ([[section]]).
+    """
     return isinstance(value, list) and bool(value) and all(isinstance(v, dict) for v in value)
 
 
 def quote_str(s: str) -> str:
+    """Wrap a string in TOML basic-string quotes with minimal escaping."""
     return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
@@ -69,6 +85,11 @@ def flatten_dict(key: str, value: Any) -> list[tuple[str, Any]]:
 
 
 def serialize_inline(value: Any) -> str:
+    """Serialise a value as a TOML inline expression.
+
+    Dicts are written as inline tables using dotted-key notation for any
+    nested dicts, matching the source file's per-monitor gap syntax.
+    """
     if isinstance(value, bool):
         return "true" if value else "false"
     if isinstance(value, int):
@@ -87,6 +108,14 @@ def serialize_inline(value: Any) -> str:
 
 
 def serialize(data: dict, path: str = "") -> list[str]:
+    """Serialise a dict to TOML lines, recursing into sub-tables.
+
+    Scalars and arrays are emitted first as bare key-value pairs, then
+    sub-tables as [section] blocks (omitting the header when the table has
+    no direct values, letting the deeper sub-section headers suffice), then
+    arrays of tables as [[section]] blocks with dotted keys for any nested
+    dicts within each item.
+    """
     lines = []
 
     for key, value in data.items():
