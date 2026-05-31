@@ -1,11 +1,21 @@
 [generator]
-workspaces = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 [generator.directions]
 h = "left"
 j = "down"
 k = "up"
 l = "right"
+
+[generator.workspace-monitors]
+1 = "main"
+2 = "main"
+3 = "main"
+4 = "secondary"
+5 = "secondary"
+6 = "secondary"
+7 = "main"
+8 = "main"
+9 = "main"
 
 [generator.workspace-apps]
 "net.kovidgoyal.kitty" = 1
@@ -161,15 +171,4 @@ shift-down = [
   "mode main",
   "exec-and-forget sketchybar --trigger aerospace_status_change MODE=main",
 ]
-
-[workspace-to-monitor-force-assignment]
-1 = "main"
-2 = "main"
-3 = "main"
-4 = "secondary"
-5 = "secondary"
-6 = "secondary"
-7 = "main"
-8 = "main"
-9 = "main"
 

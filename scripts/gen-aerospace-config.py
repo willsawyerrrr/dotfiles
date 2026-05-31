@@ -155,11 +155,12 @@ def main() -> None:
     data = tomllib.loads(src)
 
     generator = data.pop("generator")
-    workspaces = generator["workspaces"]
+    workspace_monitors = dict(generator["workspace-monitors"])
+    workspaces = list(workspace_monitors.keys())
     directions = dict(generator["directions"])
 
     data.update(data.pop("aerospace"))
-
+    data["workspace-to-monitor-force-assignment"] = workspace_monitors
     data["on-window-detected"] = [
         {"if": {"app-id": app_id}, "run": f"move-node-to-workspace {ws}"}
         for app_id, ws in generator["workspace-apps"].items()
