@@ -84,7 +84,10 @@ alt-shift-minus = "resize smart -50"
 alt-shift-equal = "resize smart +50"
 alt-shift-0 = "balance-sizes"
 
+########################################
 # BEGIN GENERATED: workspace-bindings
+########################################
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = "workspace 1"
 alt-2 = "workspace 2"
@@ -106,7 +109,10 @@ alt-shift-6 = ["move-node-to-workspace 6", "exec-and-forget sketchybar --trigger
 alt-shift-7 = ["move-node-to-workspace 7", "exec-and-forget sketchybar --trigger aerospace_window_moved DESTINATION_WORKSPACE=7"]
 alt-shift-8 = ["move-node-to-workspace 8", "exec-and-forget sketchybar --trigger aerospace_window_moved DESTINATION_WORKSPACE=8"]
 alt-shift-9 = ["move-node-to-workspace 9", "exec-and-forget sketchybar --trigger aerospace_window_moved DESTINATION_WORKSPACE=9"]
+
+########################################
 # END GENERATED: workspace-bindings
+########################################
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 cmd-tab = "workspace-back-and-forth"

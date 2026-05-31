@@ -10,8 +10,9 @@ TOML_PATH = (
     Path(__file__).parent.parent / "dot-config" / "aerospace" / "aerospace.toml"
 )
 
-BEGIN = "# BEGIN GENERATED: workspace-bindings"
-END = "# END GENERATED: workspace-bindings"
+_HASHES = "#" * 40
+BEGIN = f"{_HASHES}\n# BEGIN GENERATED: workspace-bindings\n{_HASHES}"
+END = f"{_HASHES}\n# END GENERATED: workspace-bindings\n{_HASHES}"
 
 
 def generate(workspaces: list) -> str:
@@ -35,7 +36,7 @@ def inject(content: str, generated: str) -> str:
     end_idx = content.find(END)
     if begin_idx == -1 or end_idx == -1:
         raise ValueError(f"Markers not found in config — expected '{BEGIN}' and '{END}'")
-    return content[: begin_idx] + BEGIN + "\n" + generated + "\n" + END + content[end_idx + len(END) :]
+    return content[: begin_idx] + BEGIN + "\n\n" + generated + "\n\n" + END + content[end_idx + len(END) :]
 
 
 def main() -> None:
