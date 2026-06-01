@@ -2,6 +2,7 @@ tap "bellini666/tap", "https://github.com/bellini666/pytest-language-server"
 tap "common-fate/granted"
 tap "felixkratz/formulae"
 tap "hashicorp/tap"
+tap "k1low/tap"
 tap "lihaoyun6/tap"
 tap "nikitabobko/tap"
 tap "pls-rs/pls"
@@ -125,6 +126,8 @@ brew "felixkratz/formulae/sketchybar"
 brew "hashicorp/tap/terraform"
 # Terraform Language Server
 brew "hashicorp/tap/terraform-ls"
+# A Git subcommand that makes `git worktree` simple
+brew "k1low/tap/git-wt"
 # Ookla Speedtest
 brew "teamookla/speedtest/speedtest"
 # Allows you to manage your stacked changes and submit them for review on GitHub
