@@ -108,7 +108,12 @@ return {
           if node:get_depth() == 1 then
             return
           end
-          require('neo-tree.sources.filesystem.lib.fs_actions').delete_node(node.path, callback, true)
+          require('neo-tree.sources.filesystem.lib.fs_actions').delete_node(node.path, function(path)
+            require('neo-tree.sources.manager').refresh(state.name)
+            if callback then
+              callback(path)
+            end
+          end, true)
         end,
       },
 
