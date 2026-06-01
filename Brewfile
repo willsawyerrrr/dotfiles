@@ -95,6 +95,8 @@ brew "redis"
 brew "ripgrep"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Opinionated Lua code formatter
+brew "stylua"
 # User interface to the TELNET protocol
 brew "telnet"
 # OCR (Optical Character Recognition) engine
