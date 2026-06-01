@@ -38,6 +38,3 @@ vim.o.splitright = true
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
--- Ensure that floating windows are transparent too
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE', ctermbg = 'NONE' })
