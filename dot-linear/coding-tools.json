@@ -1,6 +1,6 @@
 {
   "openIssue": {
-    "path": "~/dotfiles/scripts/open-linear-issue-in-nvim.sh",
+    "path": "~/.local/bin/open-linear-issue-in-nvim",
     "args": ["{{prompt}}"]
   }
 }
