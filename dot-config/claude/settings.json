@@ -35,7 +35,10 @@
       "mcp__claude_ai_Notion__notion-duplicate-*",
       "mcp__claude_ai_Notion__notion-move-*",
       "mcp__claude_ai_Notion__notion-update-*",
-      "mcp__claude_ai_Slack__slack_*"
+      "mcp__claude_ai_Slack__slack_create_canvas",
+      "mcp__claude_ai_Slack__slack_schedule_message",
+      "mcp__claude_ai_Slack__slack_send_message",
+      "mcp__claude_ai_Slack__slack_update_canvas"
     ],
     "defaultMode": "acceptEdits"
   },
