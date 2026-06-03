@@ -44,4 +44,4 @@
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBbwmV/ajwmOVeHcm/4Ww1cn2Czq9wzPE9MwYw8ZD6KK
 
 [wt]
-	basedir = .
+	basedir = ..

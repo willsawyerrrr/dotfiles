@@ -19,7 +19,6 @@ cd "${dir}"
 
 print "gitdir: ./.bare" > .git
 git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
-git config wt.basedir '..'
 git fetch origin
 
 # `git clone --bare` mirrored every remote branch into refs/heads/*; keep
