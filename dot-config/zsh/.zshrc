@@ -30,7 +30,6 @@ plugins=(
 	get-app-id
 	git
 	kubectl
-	mongo-tunnel
 	pipx
 	poetry
 	task
