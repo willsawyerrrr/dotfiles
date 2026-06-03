@@ -10,8 +10,12 @@
 
 set -e
 
-dir="${@[-1]}"
-url="${@[-2]}"
+dir="${@[-1]:-}"
+url="${@[-2]:-}"
+if [[ -z "$url" ]] || [[ -z "$dir" ]] || [[ "$url" == -* ]] || [[ "$dir" == -* ]]; then
+  print -u2 "usage: git wt-clone [<git-clone-option> ...] <url> <dir>"
+  exit 2
+fi
 set -- "${@[1,-3]}"
 
 git clone --bare "$@" "${url}" "${dir}/.bare"
