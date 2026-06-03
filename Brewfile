@@ -5,7 +5,6 @@ tap "hashicorp/tap"
 tap "k1low/tap"
 tap "nikitabobko/tap"
 tap "teamookla/speedtest"
-tap "withgraphite/tap"
 # Code searching, linting, rewriting
 brew "ast-grep"
 # Per-project, per-directory shell environments
@@ -128,8 +127,6 @@ brew "hashicorp/tap/terraform-ls"
 brew "k1low/tap/git-wt"
 # Ookla Speedtest
 brew "teamookla/speedtest/speedtest"
-# Allows you to manage your stacked changes and submit them for review on GitHub
-brew "withgraphite/tap/graphite"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
