@@ -10,3 +10,13 @@ gui:
 
 os:
   editPreset: nvim-remote
+
+customCommands:
+  - key: w
+    context: localBranches
+    prompts:
+      - type: input
+        title: New worktree branch name (branch is off of '{{.SelectedLocalBranch.Name}}')
+        key: BranchName
+    command: git wt {{.Form.BranchName}} {{.SelectedLocalBranch.Name}}
+    description: New worktree
