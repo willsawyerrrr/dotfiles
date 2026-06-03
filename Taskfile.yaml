@@ -27,6 +27,17 @@ tasks:
       - rm -rf .git/modules/dracula/{{.REPO}}
     desc: Remove git submodule for Dracula repo
 
+  stow:preflight:
+    desc: Pre-create target dirs that must stay unfolded (apps that write runtime state alongside config)
+    vars:
+      UNFOLD_DIRS:
+        - ~/.config/claude
+    cmds:
+      - for: { var: UNFOLD_DIRS }
+        cmd: mkdir -p {{.ITEM}} && touch {{.ITEM}}/.stow-keep
+    silent: true
+
   stow:install:
+    deps: [stow:preflight]
     cmd: stow --dotfiles --restow .
     desc: Install dotfiles
