@@ -24,18 +24,15 @@ plugins=(
 	1password
 	autoenv
 	aws
-	config
 	docker
 	fzf
-	get-app-id
 	git
 	kubectl
-	pipx
-	poetry
 	task
 	terraform
-	uv
 )
+# Auto-include every plugin under ${ZSH_CUSTOM}/plugins
+plugins+=(${ZSH_CUSTOM}/plugins/*(N/:t))
 
 source "${ZSH}/oh-my-zsh.sh"
 
