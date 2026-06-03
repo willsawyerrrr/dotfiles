@@ -39,6 +39,7 @@ tasks:
     desc: Pre-create target dirs that must stay unfolded (apps that write runtime state alongside config)
     vars:
       UNFOLD_DIRS:
+        - ~/.config/aerospace
         - ~/.config/claude
     cmds:
       - for: { var: UNFOLD_DIRS }
