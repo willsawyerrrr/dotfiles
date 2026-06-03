@@ -1,31 +1,8 @@
 #!/usr/bin/env zsh
 #
 # git heidi [<git-clone-option> ...] <repo>
-#
-# Clones <repo> bare into <repo>/.bare and sets up <repo>/.git so the directory
-# behaves like a normal clone — ready for worktrees (e.g. git-wt) to live
-# under <repo>/. All remote branches are tracked under refs/remotes/origin/*;
-# local branches (refs/heads/*) only exist for the worktrees you create.
-
-set -e
 
 repo="${@[-1]}"
 set -- "${@[1,-2]}"
 
-git clone --bare "$@" "git@github.com:oscerai/${repo}.git" "${repo}/.bare"
-cd "${repo}"
-
-print "gitdir: ./.bare" > .git
-git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
-git config wt.basedir '..'
-git fetch origin
-
-# `git clone --bare` mirrored every remote branch into refs/heads/*; keep
-# only the default (which the initial worktree will use) and drop the rest.
-default=$(git symbolic-ref --short HEAD)
-git for-each-ref --format='%(refname)' refs/heads/ \
-  | grep -vxF "refs/heads/${default}" \
-  | sed 's/^/delete /' \
-  | git update-ref --stdin
-
-git wt "${default}"
+exec git wt-clone "$@" "git@github.com:oscerai/${repo}.git" "${repo}"
