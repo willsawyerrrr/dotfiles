@@ -14,9 +14,7 @@
       "mcp__claude_ai_Datadog",
       "mcp__claude_ai_Linear",
       "mcp__claude_ai_Notion",
-      "mcp__claude_ai_Slack__slack_read_*",
-      "mcp__claude_ai_Slack__slack_search_*",
-      "mcp__claude_ai_Slack__slack_send_message_draft",
+      "mcp__claude_ai_Slack",
       "mcp__plugin_posthog_posthog__exec"
     ],
     "ask": [
