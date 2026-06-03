@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Ensure staged files under dot-local/bin/ have the executable bit set.
+# Anything still mode 100644 is chmod'd +x in both the working tree and the
+# index, then included in this commit.
+
+set -euo pipefail
+
+bin_dir='dot-local/bin/'
+
+fixed=()
+while IFS= read -r -d '' file; do
+    mode=$(git ls-files --stage -- "$file" | awk '{print $1}')
+    # Regular file (mode 100xxx) that isn't already executable (100755).
+    # Skip symlinks (120000) and gitlinks (160000).
+    if [[ "${mode:0:3}" == '100' && "$mode" != '100755' ]]; then
+        chmod +x "$file"
+        git update-index --chmod=+x -- "$file"
+        fixed+=("$file")
+    fi
+done < <(git diff --cached --name-only -z --diff-filter=ACMR -- "$bin_dir")
+
+if (( ${#fixed[@]} > 0 )); then
+    printf 'pre-commit: marked executable and re-staged:\n'
+    printf '  %s\n' "${fixed[@]}"
+fi

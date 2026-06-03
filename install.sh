@@ -17,3 +17,4 @@ fi
 brew bundle install
 
 task stow:install
+task hooks:install

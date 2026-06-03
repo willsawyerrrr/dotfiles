@@ -27,6 +27,10 @@ tasks:
       - rm -rf .git/modules/dracula/{{.REPO}}
     desc: Remove git submodule for Dracula repo
 
+  hooks:install:
+    cmd: git config core.hooksPath scripts/git-hooks
+    desc: Point this repo's git hooks at scripts/git-hooks
+
   stow:preflight:
     desc: Pre-create target dirs that must stay unfolded (apps that write runtime state alongside config)
     vars:
