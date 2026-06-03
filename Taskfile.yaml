@@ -3,6 +3,10 @@
 version: "3"
 
 tasks:
+  aerospace:gen:
+    cmd: python3 scripts/gen-aerospace-config.py
+    desc: Regenerate aerospace.toml from aerospace.source.toml
+
   brew:lock:
     cmd: brew bundle dump --force --describe
     desc: Dump Brewfile
@@ -35,6 +39,7 @@ tasks:
     desc: Pre-create target dirs that must stay unfolded (apps that write runtime state alongside config)
     vars:
       UNFOLD_DIRS:
+        - ~/.config/aerospace
         - ~/.config/claude
     cmds:
       - for: { var: UNFOLD_DIRS }
@@ -42,6 +47,8 @@ tasks:
     silent: true
 
   stow:install:
-    deps: [stow:preflight]
+    deps:
+      - stow:preflight
+      - aerospace:gen
     cmd: stow --dotfiles --restow .
     desc: Install dotfiles
