@@ -42,6 +42,28 @@
     ],
     "defaultMode": "acceptEdits"
   },
+  "hooks": {
+    "WorktreeCreate": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "NAME=$(jq -r .name); git wt --nocd $NAME"
+          }
+        ]
+      }
+    ],
+    "WorktreeRemove": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "WORKTREE_PATH=$(jq -r .worktree_path); git wt -d $WORKTREE_PATH"
+          }
+        ]
+      }
+    ]
+  },
   "model": "opus[1m]",
   "enableAllProjectMcpServers": false,
   "defaultShell": "bash",
