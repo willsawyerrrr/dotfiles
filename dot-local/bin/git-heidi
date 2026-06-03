@@ -20,6 +20,12 @@ git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 git config wt.basedir '..'
 git fetch origin
 
-# `git clone --bare` mirrored every remote branch into refs/heads/*; drop
-# them so local branches only exist for worktrees.
-git for-each-ref --format='delete %(refname)' refs/heads/ | git update-ref --stdin
+# `git clone --bare` mirrored every remote branch into refs/heads/*; keep
+# only the default (which the initial worktree will use) and drop the rest.
+default=$(git symbolic-ref --short HEAD)
+git for-each-ref --format='%(refname)' refs/heads/ \
+  | grep -vxF "refs/heads/${default}" \
+  | sed 's/^/delete /' \
+  | git update-ref --stdin
+
+git wt "${default}"
