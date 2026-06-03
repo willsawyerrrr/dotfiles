@@ -1,0 +1,25 @@
+#!/usr/bin/env zsh
+#
+# git wt-init [<git-init-option> ...] <dir>
+#
+# Initialises an empty bare repo at <dir>/.bare and sets up <dir>/.git so the
+# directory behaves like a normal repo — ready for worktrees (e.g. git-wt) to
+# live under <dir>/. An initial (unborn) worktree is created for the default
+# branch.
+
+set -e
+
+dir="${@[-1]:-}"
+if [[ -z "$dir" ]] || [[ "$dir" == -* ]]; then
+  print -u2 "usage: git wt-init [<git-init-option> ...] <dir>"
+  exit 2
+fi
+set -- "${@[1,-2]}"
+
+git init --bare "$@" "${dir}/.bare"
+cd "${dir}"
+
+print "gitdir: ./.bare" > .git
+
+default=$(git symbolic-ref --short HEAD)
+git worktree add --orphan -b "${default}" "${default}"
