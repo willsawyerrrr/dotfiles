@@ -4,19 +4,22 @@
 #
 # Clones <repo> bare into <repo>/.bare and sets up <repo>/.git so the directory
 # behaves like a normal clone — ready for worktrees (e.g. git-wt) to live
-# under <repo>/. Only the default branch is tracked; fetch others on demand
-# with `git fetch origin <branch>:refs/remotes/origin/<branch>`.
+# under <repo>/. All remote branches are tracked under refs/remotes/origin/*;
+# local branches (refs/heads/*) only exist for the worktrees you create.
 
 set -e
 
 repo="${@[-1]}"
 set -- "${@[1,-2]}"
 
-git clone --bare --single-branch "$@" "git@github.com:oscerai/${repo}.git" "${repo}/.bare"
+git clone --bare "$@" "git@github.com:oscerai/${repo}.git" "${repo}/.bare"
 cd "${repo}"
 
 print "gitdir: ./.bare" > .git
-default=$(git symbolic-ref --short HEAD)
-git config remote.origin.fetch "+refs/heads/${default}:refs/remotes/origin/${default}"
+git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 git config wt.basedir '..'
 git fetch origin
+
+# `git clone --bare` mirrored every remote branch into refs/heads/*; drop
+# them so local branches only exist for worktrees.
+git for-each-ref --format='delete %(refname)' refs/heads/ | git update-ref --stdin
