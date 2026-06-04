@@ -11,3 +11,23 @@
 - After making code changes, run the project's pre-commit hooks (e.g. `pre-commit run --files <changed>` or the project's equivalent) to verify formatting and linting before reporting the task complete.
 - Pushing branches and managing PRs are auto-allowed in settings, but treat them as requiring explicit confirmation in conversation — only push or open a PR after we have discussed and agreed to it in the current turn. The permission removal is for friction, not blanket authorisation.
 - When creating a Notion document, always put the session UUID, project name, and (if set) session name in the header so I can navigate back to the originating Claude session when reviewing the doc later.
+
+## Workflows
+
+### Requesting PR review
+
+When I ask to "request PR review" (or similar), post a Slack message to `#eng-scribe` via the Slack MCP (`slack_send_message`) with this format:
+
+```
+<PR URL>
+PR title
+[Linear issue title hyperlinked to issue]   (only if a Linear issue exists)
+@reviewer ...
+```
+
+Lines, in order:
+
+1. Bare PR URL (so Slack unfurls it).
+2. PR title as plain text.
+3. (Optional) Linear issue title hyperlinked to the issue — only if one is linked.
+4. Reviewer mentions.
