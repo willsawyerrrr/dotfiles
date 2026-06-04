@@ -33,4 +33,5 @@ git for-each-ref --format='%(refname)' refs/heads/ \
   | sed 's/^/delete /' \
   | git update-ref --stdin
 
+git branch --set-upstream-to="origin/${default}" "${default}"
 git wt "${default}"
