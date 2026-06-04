@@ -182,7 +182,6 @@ def main() -> None:
     data = expand_templates(data, workspaces, directions)
 
     output_path.write_text(HEADER + "\n" + "\n".join(serialize(data)) + "\n")
-    print(f"Written to {output_path}")
 
 
 if __name__ == "__main__":
