@@ -94,6 +94,11 @@ alt-enter = "exec-and-forget open -n /Applications/kitty.app"
 alt-slash = "layout tiles horizontal vertical"
 alt-comma = "layout accordion horizontal vertical"
 
+# See: https://nikitabobko.github.io/AeroSpace/commands#macos-native-fullscreen
+alt-f = "macos-native-fullscreen"
+# See: https://nikitabobko.github.io/AeroSpace/commands#macos-native-minimize
+alt-m = "macos-native-minimize"
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 "alt-{dir_key}" = "focus {dir}"
 
