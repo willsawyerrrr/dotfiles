@@ -18,10 +18,7 @@
       "mcp__plugin_posthog_posthog__exec"
     ],
     "ask": [
-      "Bash(gh pr create *)",
-      "Bash(gh pr edit *)",
       "Bash(gh pr merge *)",
-      "Bash(git push *)",
       "Bash(rm -f*)",
       "Bash(rm -r*)",
       "mcp__claude_ai_Datadog__create_datadog_notebook",
