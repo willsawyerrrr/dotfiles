@@ -8,11 +8,14 @@ in the source file.
 """
 
 import sys
-import tomllib
 from pathlib import Path
 from typing import Any
 
-SRC_PATH = Path(__file__).parent.parent / "dot-config" / "aerospace" / "aerospace.source.toml"
+import tomllib
+
+SRC_PATH = (
+    Path(__file__).parent.parent / "dot-config" / "aerospace" / "aerospace.source.toml"
+)
 OUT_PATH = Path(__file__).parent.parent / "dot-config" / "aerospace" / "aerospace.toml"
 
 HEADER = """\
@@ -48,10 +51,14 @@ def expand_templates(data: dict, workspaces: list, directions: dict) -> dict:
         if isinstance(value, dict):
             result[key] = expand_templates(value, workspaces, directions)
         elif is_table_array(value):
-            result[key] = [expand_templates(item, workspaces, directions) for item in value]
+            result[key] = [
+                expand_templates(item, workspaces, directions) for item in value
+            ]
         elif "{ws}" in key:
             for ws in workspaces:
-                result[key.replace("{ws}", str(ws))] = expand_value(value, {"{ws}": str(ws)})
+                result[key.replace("{ws}", str(ws))] = expand_value(
+                    value, {"{ws}": str(ws)}
+                )
         elif "{dir_key}" in key:
             for dir_key, dir_name in directions.items():
                 repl = {"{dir_key}": dir_key, "{dir}": dir_name}
@@ -66,7 +73,11 @@ def is_table_array(value: Any) -> bool:
 
     This corresponds to a TOML array of tables ([[section]]).
     """
-    return isinstance(value, list) and bool(value) and all(isinstance(v, dict) for v in value)
+    return (
+        isinstance(value, list)
+        and bool(value)
+        and all(isinstance(v, dict) for v in value)
+    )
 
 
 def quote_str(s: str) -> str:
@@ -134,8 +145,7 @@ def serialize(data: dict, path: str = "") -> list[str]:
         subpath = f"{path}.{key}" if path else key
         sub_lines = serialize(value, subpath)
         has_direct_values = any(
-            not isinstance(v, dict) and not is_table_array(v)
-            for v in value.values()
+            not isinstance(v, dict) and not is_table_array(v) for v in value.values()
         )
         if has_direct_values:
             lines.append(f"\n[{subpath}]")
