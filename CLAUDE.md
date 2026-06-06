@@ -17,4 +17,4 @@ Workflows are wrapped in `Taskfile.yaml` — run `task --list` to see them.
 
 ## Conventions
 
-- Commit messages follow Conventional Commits with the first word after the type capitalised (e.g. `feat(nvim): Add keymap`).
+- Commit messages are scoped to the application whose configuration is being edited (e.g. `feat(nvim): Add keymap`).
