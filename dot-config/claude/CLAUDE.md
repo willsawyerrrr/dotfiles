@@ -15,11 +15,11 @@
 - Pushing branches and managing PRs are auto-allowed in settings, but treat them as requiring explicit confirmation in conversation — only push or open a PR after we have discussed and agreed to it in the current turn. The permission removal is for friction, not blanket authorisation.
 - When creating a Notion document, always put the session UUID, project name, and (if set) session name in the header so I can navigate back to the originating Claude session when reviewing the doc later.
 
-## User scope
+## Global config
 
-The home directory `~` and the dotfiles repo `~/dotfiles` are both the user-scope "project". When I mention user scope while working in either, I mean global config that applies to me as a user, not to a specific repo (e.g., `${XDG_CONFIG_HOME}/claude/CLAUDE.md`, `${XDG_CONFIG_HOME}/claude/settings.json`, or their dotfiles sources under `dot-config/`). Treat anything global-sounding in the dotfiles repo as user scope, even though the working directory looks like a regular project. Neither is a regular project repo for the purposes of "user scope".
+Anything global (preferences, conventions, workflows that apply across all projects) goes in `${XDG_CONFIG_HOME}/claude/CLAUDE.md`, not auto-memory — it is tracked in dotfiles and syncs across machines.
 
-Prefer `${XDG_CONFIG_HOME}/claude/CLAUDE.md` over auto-memory for global configuration and persistent preferences — it is tracked in dotfiles.
+Working directory `~` is a strong signal that a request is about global config. `~/dotfiles` is a weaker signal — it's a real project with its own `CLAUDE.md` covering repo-management concerns, so requests there are often project-scoped.
 
 ## Workflows
 
