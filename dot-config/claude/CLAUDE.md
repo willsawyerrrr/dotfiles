@@ -3,6 +3,8 @@
 ## Communication & conventions
 
 - Be extremely concise in all responses. No filler, no padding, no trailing summaries.
+- Never ask me to run a command you have the tools to run yourself. Only ask when it genuinely requires my hands (interactive auth flows, TTY input the harness can't provide, actions outside the sandbox).
+- Don't ask whether to do something I've already documented. If a rule in CLAUDE.md or memory dictates the action, just take it.
 - Responses are read by a human, not piped to another tool. Bullets and headings aid scannability — keep them. Tighten _within_ each bullet: short clauses, no preamble, no restating the question, no closing summary.
 - Commit messages follow Conventional Commits, with the first word after the type capitalised. Example: `feat: Add new thing` (not `fix: add new thing`).
 - Branch names use a Conventional Commits type as a prefix followed by `/` (e.g. `feat/add-new-thing`).
