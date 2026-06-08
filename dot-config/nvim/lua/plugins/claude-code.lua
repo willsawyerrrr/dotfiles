@@ -14,7 +14,7 @@ return {
     },
   },
   keys = {
-    { '<leader>cc', '<cmd>ClaudeCodeContinue<cr>', desc = 'Claude Code' },
+    { '<leader>cc', '<cmd>ClaudeCode<cr>', desc = 'Claude Code' },
   },
   config = function(_, opts)
     require('claude-code').setup(opts)
