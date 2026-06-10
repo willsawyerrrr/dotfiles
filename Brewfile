@@ -127,10 +127,10 @@ brew "hashicorp/tap/terraform-ls", trusted: true
 brew "k1low/tap/git-wt", trusted: true
 # Ookla Speedtest
 brew "teamookla/speedtest/speedtest", trusted: true
-# Password manager that keeps all passwords secure behind one password
-cask "1password"
-# Command-line interface for 1Password
-cask "1password-cli"
+# Command-line helper for the 1Password password manager
+cask "1password-cli@beta"
+# Password manager
+cask "1password@beta"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace@0.19.2", trusted: true
 # Anthropic's official Claude AI desktop app
