@@ -136,7 +136,7 @@ cask "nikitabobko/tap/aerospace@0.19.2", trusted: true
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
-cask "claude-code"
+cask "claude-code@latest"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
 # Utility for customizing which browser to start
