@@ -1,8 +1,6 @@
 return {
   'saghen/blink.pairs',
   version = '*',
-
-  dependencies = 'saghen/blink.lib',
-
+  build = 'cargo build --release',
   opts = {},
 }
