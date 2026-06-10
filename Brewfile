@@ -1,4 +1,4 @@
-tap "bellini666/tap", "https://github.com/bellini666/pytest-language-server"
+tap "bellini666/tap", "https://github.com/bellini666/pytest-language-server", trusted: true
 tap "common-fate/granted"
 tap "felixkratz/formulae"
 tap "hashicorp/tap"
@@ -118,21 +118,21 @@ brew "zellij"
 # Blazingly fast Language Server Protocol implementation for pytest
 brew "bellini666/tap/pytest-language-server"
 # Custom macOS statusbar with shell plugin, interaction and graph support
-brew "felixkratz/formulae/sketchybar"
+brew "felixkratz/formulae/sketchybar", trusted: true
 # Terraform
-brew "hashicorp/tap/terraform"
+brew "hashicorp/tap/terraform", trusted: true
 # Terraform Language Server
-brew "hashicorp/tap/terraform-ls"
+brew "hashicorp/tap/terraform-ls", trusted: true
 # A Git subcommand that makes `git worktree` simple
-brew "k1low/tap/git-wt"
+brew "k1low/tap/git-wt", trusted: true
 # Ookla Speedtest
-brew "teamookla/speedtest/speedtest"
+brew "teamookla/speedtest/speedtest", trusted: true
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
 cask "1password-cli"
 # AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace@0.19.2"
+cask "nikitabobko/tap/aerospace@0.19.2", trusted: true
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
