@@ -6,5 +6,6 @@ return {
   },
   opts = {
     code = { disable = { 'mermaid' } },
+    latex = { enabled = false },
   },
 }
