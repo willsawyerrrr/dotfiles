@@ -8,7 +8,7 @@ tasks:
     desc: Regenerate aerospace.toml from aerospace.source.toml
 
   brew:lock:
-    cmd: brew bundle dump --force --describe
+    cmd: brew bundle dump --force
     desc: Dump Brewfile
 
   brew:install:
