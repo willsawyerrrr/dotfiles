@@ -1,6 +1,6 @@
 {
   "openIssue": {
     "path": "~/.local/bin/open-linear-issue-in-nvim",
-    "args": ["{{prompt}}"]
+    "args": ["{{issue.branchName}}", "{{prompt}}"]
   }
 }

@@ -1,19 +1,13 @@
 #!/usr/bin/env zsh
 #
-# open-linear-issue-in-nvim <prompt>
+# open-linear-issue-in-nvim <branch> <prompt>
 
-prompt="$1"
+branch="$1"
+prompt="$2"
 
-kitty_pid=$(pgrep -n kitty) # -n: Newest
+worktree_dir=$(git wt "${branch}")
 
-if [[ -z "${kitty_pid}" ]]; then
-    open -gna kitty
+run-in-kitty "${worktree_dir}" nvim -c "ClaudeCodePrompt ${prompt}" .
 
-    kitty_pid=$(pgrep -n kitty)
-fi
-
-kitty_socket="/tmp/kitty-${kitty_pid}.sock"
-
-until [[ -S "${kitty_socket}" ]]; do sleep 0.05; done
-
-kitty @ --to="unix:${kitty_socket}" launch --cwd="$PWD" --type=tab zsh -ic "nvim -c 'ClaudeCodePrompt ${prompt}'; exec zsh -i"
+# Close the tab Linear opened to run this script; nvim is now in its own tab.
+kitty @ close-window --self

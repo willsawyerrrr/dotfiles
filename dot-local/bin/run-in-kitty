@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+#
+# run-in-kitty <cwd> <command>
+#
+# Runs the given command in a new kitty tab, dropping into a zsh shell on completion.
+
+cwd="$1"
+shift
+
+# Pick an arbitrary Kitty instance based on the available remote control sockets.
+# I rarely have multiple open, so this is usually safe.
+kitty_socket=(/tmp/kitty-<->.sock(N[1]))
+
+remote_control_command=()
+if [[ -n "${kitty_socket}" ]]; then
+    remote_control_command=(--to="unix:${kitty_socket}")
+fi
+
+kitty @ "${remote_control_command[@]}" launch --cwd="${cwd}" --type=tab zsh -lc "${(j: :)${(q)@}}; exec zsh -il"
