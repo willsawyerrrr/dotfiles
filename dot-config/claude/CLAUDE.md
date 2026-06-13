@@ -32,7 +32,7 @@ When I ask to "request PR review" (or similar), post a Slack message to `#eng-sc
 ```
 <PR URL>
 PR title
-[Linear issue title hyperlinked to issue]   (only if a Linear issue exists)
+[SCR-XXXX: Issue title hyperlinked to issue]   (only if a Linear issue exists)
 @reviewer ...
 ```
 
@@ -40,5 +40,5 @@ Lines, in order:
 
 1. Bare PR URL (so Slack unfurls it).
 2. PR title as plain text.
-3. (Optional) Linear issue title hyperlinked to the issue — only if one is linked.
+3. (Optional) Linear issue hyperlinked to the issue — only if one is linked. The link text must include the issue ID prefix, formatted `SCR-XXXX: Issue title`.
 4. Reviewer mentions.
