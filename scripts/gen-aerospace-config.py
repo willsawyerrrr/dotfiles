@@ -185,7 +185,7 @@ def main() -> None:
         entries = ", ".join(f"{app!r} → {ws!r}" for app, ws in invalid.items())
         raise ValueError(f"workspace-apps references unknown workspace(s): {entries}")
 
-    data["on-window-detected"] = [
+    data["on-window-detected"] = data.get("on-window-detected", []) + [
         {"if": {"app-id": app_id}, "run": f"move-node-to-workspace {ws}"}
         for app_id, ws in generator["workspace-apps"].items()
     ]
