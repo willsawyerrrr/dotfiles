@@ -17,8 +17,6 @@ l = "right"
 
 [generator.workspace-apps]
 "net.kovidgoyal.kitty" = 1
-"com.microsoft.VSCode" = 1
-"com.todesktop.230313mzl4w4u92" = 1  # Cursor
 "com.google.Chrome" = 2
 "notion.id" = 2
 "com.tinyspeck.slackmacgap" = 3
