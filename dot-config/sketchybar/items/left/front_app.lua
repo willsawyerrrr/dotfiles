@@ -11,16 +11,40 @@ end
 ---@field should_draw boolean
 ---@field icon_scale number
 
+---App names which should be displayed as the Touch ID icon.
+local touch_id_apps = {
+	coreautha = true,
+}
+
+---Return whether the app with the given name should be displayed as the Touch ID icon.
+---@param app_name string The name of the app.
+---@return boolean Whether the app should be displayed as the Touch ID icon.
+local function is_touch_id_app(app_name)
+	return touch_id_apps[app_name]
+end
+
+---App names which should not be displayed.
+local hidden_apps = {
+	loginwindow = true,
+}
+
+---Return whether the app with the given name should be hidden.
+---@param app_name string The name of the app.
+---@return boolean Whether the app should be hidden.
+local function is_hidden_app(app_name)
+	return hidden_apps[app_name]
+end
+
 ---@return DisplayDetails
 local function get_display_details(app_name)
-	if app_name == "coreautha" then
+	if is_touch_id_app(app_name) then
 		return {
 			label = "Touch ID",
 			icon_image = get_absolute_path("./icons/touch_id.png"),
 			should_draw = true,
 			icon_scale = 0.08,
 		}
-	elseif app_name == "loginwindow" then
+	elseif is_hidden_app(app_name) then
 		return {
 			should_draw = false,
 		}
