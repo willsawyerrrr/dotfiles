@@ -14,6 +14,7 @@ end
 ---App names which should be displayed as the Touch ID icon.
 local touch_id_apps = {
 	coreautha = true,
+	SecurityAgent = true,
 }
 
 ---Return whether the app with the given name should be displayed as the Touch ID icon.
