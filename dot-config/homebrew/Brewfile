@@ -130,7 +130,7 @@ cask "1password-cli@beta"
 # Password manager
 cask "1password@beta"
 # AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace@0.19.2", trusted: true
+cask "nikitabobko/tap/aerospace", trusted: true
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
