@@ -11,8 +11,6 @@ brew "ast-grep"
 brew "autoenv"
 # Official Amazon AWS command-line interface
 brew "awscli"
-# Resource monitor. C++ version and continuation of bashtop and bpytop
-brew "btop"
 # Core application library for C
 brew "glib"
 # Vector graphics library with cross-device output support
