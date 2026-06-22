@@ -35,6 +35,14 @@ tasks:
     cmd: git config core.hooksPath scripts/git-hooks
     desc: Point this repo's git hooks at scripts/git-hooks
 
+  macos:defaults:
+    cmd: zsh scripts/macos-defaults.sh
+    desc: Apply macOS system defaults
+
+  macos:defaults:diff:
+    cmd: zsh scripts/macos-defaults-diff.sh
+    desc: Capture which defaults key a System Settings change touched
+
   stow:preflight:
     desc: Pre-create target dirs that must stay unfolded (apps that write runtime state alongside config)
     vars:
