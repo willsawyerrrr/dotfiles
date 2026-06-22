@@ -1,8 +1,8 @@
 tap "bellini666/tap", "https://github.com/bellini666/pytest-language-server", trusted: true
-tap "common-fate/granted"
-tap "felixkratz/formulae"
+tap "common-fate/granted", trusted: { formulae: ["granted"] }
+tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae"
 tap "hashicorp/tap"
-tap "k1low/tap"
+tap "k1low/tap", "https://github.com/k1LoW/homebrew-tap"
 tap "nikitabobko/tap"
 tap "teamookla/speedtest"
 # Code searching, linting, rewriting
