@@ -17,6 +17,9 @@
 - Pushing branches and managing PRs are auto-allowed in settings, but treat them as requiring explicit confirmation in conversation — only push or open a PR after we have discussed and agreed to it in the current turn. The permission removal is for friction, not blanket authorisation.
 - When creating a Notion document, always put the session UUID, project name, and (if set) session name in the header so I can navigate back to the originating Claude session when reviewing the doc later.
 - Avoid the `-f` flag on `rm` — it suppresses my review and slows me down. Default to plain `rm` (or `rm -r`); only use `-f` where it's genuinely necessary.
+- Never reply to comments (PR/issue/review, Notion, etc.) — I handle all comment replies myself. Do the underlying work and report what changed in-chat. Exception: an explicit per-instance instruction to post a specific message (e.g. "tag X and say re-review") — then post only that exact message.
+- Before the first push of a branch or opening a PR, rebase onto the latest `main` and push an up-to-date version. Once a PR is already open, accept falling behind `main` — don't rebase + force-push, because rewriting history makes the PR harder to review.
+- If git signing or a push fails because the SSH agent is unreachable or refusing ("agent refused operation", "communication with agent failed", "Permission denied (publickey)"), stop and tell me to unlock my machine, then wait — never fall back to `--no-gpg-sign` or retry blindly. Commits must be signed (`commit.gpgsign=true`, SSH key).
 
 ## Global config
 
