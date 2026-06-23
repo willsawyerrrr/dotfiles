@@ -31,7 +31,7 @@ Working directory `~` is a strong signal that a request is about global config. 
 
 ### Requesting PR review
 
-When I ask to "request PR review" (or similar), post a Slack message to `#eng-scribe` via the Slack MCP (`slack_send_message`) with this format:
+When I ask to "request PR review" (or similar), post a Slack message to `#eng-scribe` via the Slack MCP (`slack_send_message`) with this format. Note `#eng-scribe` is a **private** channel, so search with `channel_types: "public_channel,private_channel"`.
 
 ```
 <PR URL>
