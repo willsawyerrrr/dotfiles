@@ -11,7 +11,13 @@ Pick a short kebab-case `<task-directory>` for the work. If the user has given y
 
 **Create the worktree before anything else.** Call `EnterWorktree` with `name: <task-directory>`. The tool creates the worktree and switches the session's cwd into it; the new branch is named `<task-directory>` and the base ref is governed by the user's `worktree.baseRef` setting. Do not fetch, branch, or `cd` manually. Every subsequent step in all three phases — your own commands and every spawned agent — runs inside this worktree; the original checkout stays untouched.
 
-**Rename the Claude Code session** as soon as `<task-directory>` is chosen, so the session is easy to find later. If the work is tied to a Linear issue, use `<ISSUE-ID>: <Issue title>` (e.g. `SCR-1234: Add some new feature`); otherwise use the `<task-directory>` value verbatim. Do this without asking.
+**Prompt the user to rename the Claude Code session** as soon as `<task-directory>` is chosen, so the session is easy to find later. There is no tool or programmatic path to rename a running session — `/rename` is an interactive slash command that only the user can type, so do not attempt to do it yourself. Instead, compute the name and ask the user to paste the exact command, e.g.:
+
+> Rename this session for easy reference later — paste:
+>
+>     /rename SCR-1234: Add some new feature
+
+If the work is tied to a Linear issue, use `<ISSUE-ID>: <Issue title>` (e.g. `SCR-1234: Add some new feature`); otherwise use the `<task-directory>` value verbatim. Surface the command once and move on — don't block the workflow waiting for it.
 
 ## Phase 1 — Research
 
