@@ -7,9 +7,14 @@
 cwd="$1"
 shift
 
-# Pick an arbitrary Kitty instance based on the available remote control sockets.
-# I rarely have multiple open, so this is usually safe.
-kitty_socket=(/tmp/kitty-<->.sock(N[1]))
+# Target an existing Kitty instance via its remote control socket, so the
+# command opens as a tab in a window I already have open. Exclude this script's
+# own instance (e.g. the transient window Linear opens to run it) so the tab
+# doesn't land in a throwaway window that then becomes a new OS window. Sort
+# numerically so the oldest (main) instance wins when several are open.
+own_socket="${KITTY_LISTEN_ON#unix:}"
+kitty_sockets=(/tmp/kitty-<->.sock(Nn))
+kitty_socket=${${kitty_sockets:#$own_socket}[1]:-${kitty_sockets[1]}}
 
 remote_control_command=()
 if [[ -n "${kitty_socket}" ]]; then
