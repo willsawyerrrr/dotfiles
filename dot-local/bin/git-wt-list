@@ -1,0 +1,102 @@
+#!/usr/bin/env zsh
+#
+# git wt-list [<dir> ...]
+#
+# Lists every worktree of every repo found in each <dir> (default: the current
+# directory) as a single table. A "repo" is any immediate subdirectory set up
+# the wt-clone way — a directory containing a `.git` file or a `.bare` dir — so
+# running this in e.g. ~/heidi/ surfaces the worktrees of all repos cloned
+# there at once. If a <dir> is itself a repo (rather than a container of
+# repos), its own worktrees are listed. The bare entry is omitted; a dirty
+# worktree is flagged with ` *` next to its name.
+
+set -e
+
+# True if <dir> is a wt-clone-style repo (has a `.git` file or a `.bare` dir).
+is_repo() { [[ -e "$1/.git" || -d "$1/.bare" ]]; }
+
+# Collected table rows, each tab-separated as <marker> <worktree>[ *] <branch>:
+# ` *` flags a dirty tree, and <branch> is set only when it differs from the
+# worktree dir name. <marker> is the repo name on the first row; when a repo has
+# several worktrees, the rest are connected beneath it with tree glyphs so the
+# group reads as one. The glyph also keeps the cell non-empty, which macOS's BSD
+# `column -t` needs to avoid collapsing it and shifting the row's columns left.
+# The BRANCH column is only rendered if some row actually populated it.
+typeset -ga TABLE=()
+
+# Append one repo's rows to TABLE.
+#
+# Note: locals are named `wt`/`repo` — never `path`, which zsh ties to $PATH; a
+# `local path` would blank PATH inside the function and break `git` lookups.
+list_repo() {
+  local repo="$1" name="$2" line wt branch dirty
+  local -a rows
+  # Read via process substitution (not a pipe) so `rows` survives in this scope.
+  while IFS= read -r line; do
+    case "${line}" in
+      "worktree "*) wt="${line#worktree }" ;;
+      "branch "*)   branch="${line#branch refs/heads/}" ;;
+      "detached")   branch="(detached)" ;;
+      "bare")       wt="" ;;  # skip the bare entry
+      "")
+        if [[ -n "${wt}" ]]; then
+          # Flag a dirty tree with ` *` on the worktree cell — not a trailing
+          # column, which `column -t` would collapse into an empty branch cell.
+          dirty=""
+          [[ -n "$(git -C "${wt}" status --porcelain 2>/dev/null)" ]] && dirty=" *"
+          # Only show the branch when it differs from the worktree dir name.
+          [[ "${branch}" == "${wt:t}" ]] && branch=""
+          # Always list the main worktree first; keep the rest in git's order.
+          if [[ "${wt:t}" == main ]]; then
+            rows=( "${wt:t}${dirty}"$'\t'"${branch}" "${rows[@]}" )
+          else
+            rows+=( "${wt:t}${dirty}"$'\t'"${branch}" )
+          fi
+        fi
+        wt="" branch=""
+        ;;
+    esac
+  done < <(git -C "${repo}" worktree list --porcelain)
+
+  local i n=${#rows} marker
+  for (( i = 1; i <= n; i++ )); do
+    if (( i == 1 )); then    marker="${name}"
+    elif (( i == n )); then  marker="└─"
+    else                     marker="├─"
+    fi
+    TABLE+=( "${marker}"$'\t'"${rows[i]}" )
+  done
+}
+
+for dir in "${@:-.}"; do
+  if is_repo "${dir}"; then
+    # <dir> is itself a repo.
+    list_repo "${dir}" "${dir:a:t}"
+  else
+    # <dir> is a container of repos.
+    for repo in "${dir}"/*(N/); do
+      is_repo "${repo}" && list_repo "${repo}" "${repo:t}"
+    done
+  fi
+done
+
+# Render BRANCH only if at least one row set it (the last tab-separated field).
+show_branch=""
+for row in "${TABLE[@]}"; do
+  # ${row##*$'\t'} strips the longest prefix ending in a tab — i.e. everything up
+  # to and including the last tab — leaving just the branch field to test.
+  [[ -n "${row##*$'\t'}" ]] && { show_branch=1; break; }
+done
+
+{
+  if [[ -n "${show_branch}" ]]; then
+    print -r -- $'REPO\tWORKTREE\tBRANCH'
+    print -rl -- "${TABLE[@]}"
+  else
+    print -r -- $'REPO\tWORKTREE'
+    # ${TABLE[@]%$'\t'*} strips the shortest suffix starting at a tab — i.e. the
+    # last tab and the (empty) branch after it — from every element, leaving
+    # two-field rows.
+    print -rl -- "${TABLE[@]%$'\t'*}"
+  fi
+} | column -t -s $'\t'
