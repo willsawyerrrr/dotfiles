@@ -2,6 +2,7 @@ tap "bellini666/tap", "https://github.com/bellini666/pytest-language-server", tr
 tap "common-fate/granted", trusted: { formulae: ["granted"] }
 tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae"
 tap "hashicorp/tap"
+tap "hmarr/tap"
 tap "k1low/tap", "https://github.com/k1LoW/homebrew-tap"
 tap "nikitabobko/tap"
 tap "teamookla/speedtest"
@@ -23,6 +24,8 @@ brew "pango"
 brew "librsvg"
 # Statistics utility to count lines of code
 brew "cloc"
+# Command-line tool and Go library for CODEOWNERS files
+brew "hmarr/tap/codeowners"
 # Reference implementation for the Development Containers specification
 brew "devcontainer"
 # Simple, fast and user-friendly alternative to find

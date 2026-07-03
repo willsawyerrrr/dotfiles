@@ -8,5 +8,19 @@ return {
         statusline = 1000,
       },
     },
+    sections = {
+      lualine_c = {
+        'filename',
+        {
+          function()
+            return require('codeowners').get_codeowners()
+          end,
+          icon = '',
+          cond = function()
+            return require('codeowners').get_codeowners() ~= ''
+          end,
+        },
+      },
+    },
   },
 }
