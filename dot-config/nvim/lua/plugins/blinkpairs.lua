@@ -1,6 +1,8 @@
 return {
   'saghen/blink.pairs',
+  dependencies = 'saghen/blink.lib',
   version = '*',
-  build = 'cargo build --release',
-  opts = {},
+  build = function()
+    require('blink.pairs').download():pwait(60000)
+  end,
 }
