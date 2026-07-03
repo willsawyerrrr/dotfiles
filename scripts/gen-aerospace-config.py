@@ -174,6 +174,7 @@ def main() -> None:
     directions = dict(generator["directions"])
 
     data.update(data.pop("aerospace"))
+    data["persistent-workspaces"] = workspaces
     data["workspace-to-monitor-force-assignment"] = workspace_monitors
 
     invalid = {

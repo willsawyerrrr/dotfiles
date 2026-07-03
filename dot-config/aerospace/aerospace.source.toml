@@ -23,6 +23,12 @@ l = "right"
 "com.linear" = 3
 
 [aerospace]
+# https://nikitabobko.github.io/AeroSpace/guide#config-version
+config-version = 2
+
+# Reload automatically when aerospace.toml changes.
+auto-reload-config = true
+
 start-at-login = true
 
 # https://nikitabobko.github.io/AeroSpace/commands
