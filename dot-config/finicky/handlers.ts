@@ -9,6 +9,7 @@ const heidiUrls = [
   "app.aus.vanta.com",
   "app.flagsmith.com",
   "app.incident.io",
+  "app.notion.com",
   "cloud.mongodb.com",
   "eu.posthog.com",
   "github.com/oscerai",
