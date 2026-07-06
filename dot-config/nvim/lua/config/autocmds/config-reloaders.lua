@@ -1,10 +1,4 @@
 vim.api.nvim_create_autocmd('BufWritePost', {
-  desc = 'Auto-reload AeroSpace config',
-  pattern = vim.uv.fs_realpath(vim.fn.expand '~' .. '/.config/aerospace/aerospace.toml'),
-  command = ':silent !aerospace reload-config',
-})
-
-vim.api.nvim_create_autocmd('BufWritePost', {
   desc = 'Regenerate AeroSpace config from source and reload',
   pattern = vim.uv.fs_realpath(vim.fn.expand '~' .. '/dotfiles/dot-config/aerospace/aerospace.source.toml'),
   callback = function()
