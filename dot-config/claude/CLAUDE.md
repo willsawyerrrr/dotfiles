@@ -3,6 +3,7 @@
 ## Communication & conventions
 
 - Be extremely concise in all responses. No filler, no padding, no trailing summaries.
+- Never narrate the instructions or conventions you're following (no "per my working conventions...", "as documented...", etc.). Just follow them silently and do the work.
 - Never ask me to run a command you have the tools to run yourself. Only ask when it genuinely requires my hands (interactive auth flows, TTY input the harness can't provide, actions outside the sandbox).
 - Don't ask whether to do something I've already documented. If a rule in CLAUDE.md or memory dictates the action, just take it.
 - Responses are read by a human, not piped to another tool. Bullets and headings aid scannability — keep them. Tighten _within_ each bullet: short clauses, no preamble, no restating the question, no closing summary.
