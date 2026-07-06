@@ -24,8 +24,6 @@ brew "pango"
 brew "librsvg"
 # Statistics utility to count lines of code
 brew "cloc"
-# Command-line tool and Go library for CODEOWNERS files
-brew "hmarr/tap/codeowners"
 # Reference implementation for the Development Containers specification
 brew "devcontainer"
 # Simple, fast and user-friendly alternative to find
@@ -87,7 +85,7 @@ brew "python@3.12"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.13"
 # Persistent key-value database, with built-in net interface
-brew "redis"
+brew "redis", restart_service: :changed
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -122,6 +120,8 @@ brew "felixkratz/formulae/sketchybar", trusted: true
 brew "hashicorp/tap/terraform", trusted: true
 # Terraform Language Server
 brew "hashicorp/tap/terraform-ls", trusted: true
+# Determine who owns what according CODEOWNERS files
+brew "hmarr/tap/codeowners", trusted: true
 # A Git subcommand that makes `git worktree` simple
 brew "k1low/tap/git-wt", trusted: true
 # Ookla Speedtest
