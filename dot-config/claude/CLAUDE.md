@@ -10,6 +10,7 @@
 - Commit messages follow Conventional Commits, with the first word after the type capitalised. Example: `feat: Add new thing` (not `fix: add new thing`).
 - Branch names use a Conventional Commits type as a prefix followed by `/` (e.g. `feat/add-new-thing`).
 - Never include Linear issue IDs in code (e.g. comments, identifiers, strings). They belong in commit messages, branch names, and PR/Slack metadata, not in the code itself.
+- Never title a commit as "address review" or similar. A change addressing PR review feedback must be committed as though its purpose stands on its own, independent of the review — structure and message it exactly as you would have if you'd decided to make it unprompted. If it's worth making, it's worth describing on its own terms.
 
 ## How to work
 
