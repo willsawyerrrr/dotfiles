@@ -36,14 +36,19 @@ Working directory `~` is a strong signal that a request is about global config. 
 
 When I ask to "request PR review" (or similar), post a Slack message to `#eng-scribe` via the Slack MCP (`slack_send_message`) with this format. Note `#eng-scribe` is a **private** channel, so search with `channel_types: "public_channel,private_channel"`.
 
+**Each element must be separated by a BLANK line (double `\n`), not a single newline.** The Slack MCP renders standard markdown, where a single newline is a soft-wrap (collapses to a space) — so `<PR URL>\nPR title` renders as the title jammed onto the URL line. Put an empty line between every element so each lands on its own line:
+
 ```
 <PR URL>
+
 PR title
+
 [SCR-XXXX: Issue title hyperlinked to issue]   (only if a Linear issue exists)
+
 @reviewer ...
 ```
 
-Lines, in order:
+Elements, in order:
 
 1. Bare PR URL (so Slack unfurls it).
 2. PR title as plain text.
