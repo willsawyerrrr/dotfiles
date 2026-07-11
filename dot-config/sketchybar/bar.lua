@@ -1,11 +1,15 @@
 local colours = require("colours")
 
+local SIDE_PADDING = 10
+
 local unlocked = {
 	position = "top",
 	height = 50,
 	color = colours.transparent,
 	y_offset = 0,
 	margin = 0,
+	padding_left = SIDE_PADDING,
+	padding_right = SIDE_PADDING,
 }
 
 sbar.bar(unlocked)
