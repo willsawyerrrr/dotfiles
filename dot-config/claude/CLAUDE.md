@@ -49,7 +49,7 @@ PR title
 
 [SCR-XXXX: Issue title hyperlinked to issue]   (only if a Linear issue exists)
 
-@reviewer ...
+@reviewer
 ```
 
 Elements, in order:
