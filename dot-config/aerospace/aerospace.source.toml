@@ -166,7 +166,3 @@ shift-down = [
   "mode main",
   "exec-and-forget sketchybar --trigger aerospace_status_change MODE=main",
 ]
-
-[[on-window-detected]]
-if.app-id = "com.linear"
-run = "layout tiling"
