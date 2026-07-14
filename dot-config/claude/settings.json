@@ -18,12 +18,6 @@
       "mcp__claude_ai_Slack",
       "mcp__plugin_posthog_posthog__exec"
     ],
-    "ask": [
-      "mcp__claude_ai_Slack__slack_create_canvas",
-      "mcp__claude_ai_Slack__slack_schedule_message",
-      "mcp__claude_ai_Slack__slack_send_message",
-      "mcp__claude_ai_Slack__slack_update_canvas"
-    ],
     "defaultMode": "acceptEdits"
   },
   "hooks": {
