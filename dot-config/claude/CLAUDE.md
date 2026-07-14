@@ -14,6 +14,7 @@
 - In code (docstrings, comments), inline code spans use single backticks, never double.
 - A method's behaviour belongs in that method's own docstring, not in its class's docstring. Class docstrings describe the class; keep per-method detail on the method.
 - Never title a commit as "address review" or similar. A change addressing PR review feedback must be committed as though its purpose stands on its own, independent of the review — structure and message it exactly as you would have if you'd decided to make it unprompted. If it's worth making, it's worth describing on its own terms.
+- Never include historical or evolution framing in code, docs, commit messages, or PR descriptions — no "now", "no longer", "previously", "used to", "instead of the old…", or comparisons to a prior approach. Describe only the current state, as though it had always been so.
 
 ## How to work
 
