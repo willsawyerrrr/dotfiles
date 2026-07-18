@@ -5,4 +5,4 @@
 repo="${@[-1]}"
 set -- "${@[1,-2]}"
 
-exec git clone "$@" "git@github.com:willsawyerrrr/${repo}.git" "${repo}"
+exec git wt-clone "$@" "git@github.com:willsawyerrrr/${repo}.git" "${repo}"
