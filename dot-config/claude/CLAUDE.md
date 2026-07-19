@@ -37,27 +37,3 @@ Anything global (preferences, conventions, workflows that apply across all proje
 
 Working directory `~` is a strong signal that a request is about global config. `~/dotfiles` is a weaker signal — it's a real project with its own `CLAUDE.md` covering repo-management concerns, so requests there are often project-scoped.
 
-## Workflows
-
-### Requesting PR review
-
-When I ask to "request PR review" (or similar), post a Slack message to `#eng-scribe` via the Slack MCP (`slack_send_message`) with this format. Note `#eng-scribe` is a **private** channel, so search with `channel_types: "public_channel,private_channel"`.
-
-**Each element must be separated by a BLANK line (double `\n`), not a single newline.** The Slack MCP renders standard markdown, where a single newline is a soft-wrap (collapses to a space) — so `<PR URL>\nPR title` renders as the title jammed onto the URL line. Put an empty line between every element so each lands on its own line:
-
-```
-<PR URL>
-
-PR title
-
-[SCR-XXXX: Issue title hyperlinked to issue]   (only if a Linear issue exists)
-
-@reviewer
-```
-
-Elements, in order:
-
-1. Bare PR URL (so Slack unfurls it).
-2. PR title as plain text.
-3. (Optional) Linear issue hyperlinked to the issue — only if one is linked. The link text must include the issue ID prefix, formatted `SCR-XXXX: Issue title`.
-4. Reviewer mentions.
