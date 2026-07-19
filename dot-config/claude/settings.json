@@ -17,6 +17,7 @@
       "mcp__claude_ai_Notion",
       "mcp__claude_ai_Omni",
       "mcp__claude_ai_Slack",
+      "mcp__claude_ai_Vercel",
       "mcp__plugin_posthog_posthog__exec"
     ],
     "defaultMode": "acceptEdits"
