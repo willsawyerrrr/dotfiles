@@ -22,6 +22,8 @@ brew "gdk-pixbuf"
 brew "pango"
 # Library to render SVG files using Cairo
 brew "librsvg"
+# Tool for emulating mouse and keyboard events
+brew "cliclick"
 # Statistics utility to count lines of code
 brew "cloc"
 # Secure runtime for JavaScript and TypeScript
