@@ -26,7 +26,9 @@ const heidiUrls = [
   "www.notion.so",
 ];
 const personalUrls = [
+  "*-willsawyerrrr.vercel.app",
   "github.com/willsawyerrrr",
+  "willsawyerrrr.dev",
   "www.notion.so/bronteandwill",
   "youtube.com",
 ];
