@@ -2,6 +2,19 @@
 
 Scoped to Heidi work under `~/heidi`. The global conventions in `~/.config/claude/CLAUDE.md` still apply.
 
+## Pushing & PRs
+
+- Pushing branches and managing PRs are auto-allowed in settings, but treat them as requiring explicit confirmation in conversation — only push or open a PR after we have discussed and agreed to it in the current turn. The permission removal is for friction, not blanket authorisation.
+
+## Linear
+
+- Never include Linear issue IDs in code (e.g. comments, identifiers, strings). They belong in commit messages, branch names, and PR/Slack metadata, not in the code itself.
+- Convey Linear issue metadata (status, assignee, priority, estimate, labels, project, cycle, relations, etc.) through Linear's native issue attributes — never in the issue description. The description is for the substance of the issue only.
+
+## Notion
+
+- When creating a Notion document, always put the session UUID, project name, and (if set) session name in the header so I can navigate back to the originating Claude session when reviewing the doc later.
+
 ## Requesting PR review
 
 When I ask to "request PR review" (or similar), post a Slack message to `#eng-scribe` via the Slack MCP (`slack_send_message`) with this format. Note `#eng-scribe` is a **private** channel, so search with `channel_types: "public_channel,private_channel"`.
