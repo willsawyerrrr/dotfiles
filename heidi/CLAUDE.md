@@ -38,6 +38,10 @@ Elements, in order:
 3. (Optional) Linear issue hyperlinked to the issue — only if one is linked. The link text must include the issue ID prefix, formatted `SCR-XXXX: Issue title`.
 4. Reviewer mentions.
 
+## Preview environments
+
+Spin up a preview environment of a back end by commenting `/preview` on its PR.
+
 ## Hubert (AI code review)
 
 Hubert is Heidi's AI code reviewer — "the code surgeon" — running as a GitHub app on pull requests. It's defined in the `token-factory` repo and configured per-repository via the `.token-factory` directory at that repo's root (this is where PR size limits, code-owner scoping, etc. live).
