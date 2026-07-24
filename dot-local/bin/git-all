@@ -1,0 +1,38 @@
+#!/usr/bin/env zsh
+#
+# git all [-C <dir>] <command> [<arg> ...]
+#
+# Runs <command> in every git repo directly under <dir> (default: the current
+# directory), printing a header per repo. <command> runs via the shell, so
+# pipes and git aliases work; a leading `git` is optional (e.g. both
+# `git all status` and `git all git status` fetch each repo's status).
+
+set -e
+
+dir="."
+if [[ "${1:-}" == "-C" ]]; then
+  dir="${2:-}"
+  if [[ -z "$dir" ]]; then
+    print -u2 "usage: git all [-C <dir>] <command> [<arg> ...]"
+    exit 2
+  fi
+  set -- "${@[3,-1]}"
+fi
+
+if [[ $# -eq 0 ]]; then
+  print -u2 "usage: git all [-C <dir>] <command> [<arg> ...]"
+  exit 2
+fi
+
+# A leading `git` is implied — `git all status` means `git all git status`.
+if [[ "$1" != "git" ]]; then
+  set -- git "$@"
+fi
+
+rc=0
+for repo in "${dir}"/*(/N); do
+  git -C "${repo}" rev-parse --git-dir &>/dev/null || continue
+  print -P "%B%F{blue}${repo:t}%f%b"
+  (cd "${repo}" && "$@") || rc=$?
+done
+exit ${rc}
