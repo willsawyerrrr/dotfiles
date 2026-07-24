@@ -78,12 +78,16 @@ brew "tree-sitter"
 brew "neovim"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node@22"
+# Manage multiple Node.js versions
+brew "nvm"
 # Spec-driven development (SDD) for AI coding assistants
 brew "openspec"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
 # Fast, disk space efficient package manager
 brew "pnpm"
+# Object-relational database system
+brew "postgresql@17", link: true
 # Terminal slideshow tool
 brew "presenterm"
 # Interpreted, interactive, object-oriented programming language
@@ -107,7 +111,7 @@ brew "tree"
 # Parser generator tool
 brew "tree-sitter-cli"
 # Command-line interface for Vercel
-brew "vercel-cli"
+brew "vercel"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Convert HTML to PDF
