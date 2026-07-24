@@ -10,3 +10,6 @@
 [submodule "dracula/lazygit"]
 	path = dracula/lazygit
 	url = https://github.com/dracula/lazygit.git
+[submodule "dracula/bashtop"]
+	path = dracula/bashtop
+	url = https://github.com/dracula/bashtop.git
