@@ -93,6 +93,8 @@ outer.right = 10
 
 alt-enter = "exec-and-forget open -n /Applications/kitty.app"
 
+alt-t = "exec-and-forget zsh -c ~/.config/todo/toggle.sh"
+
 alt-slash = "layout tiles horizontal vertical"
 alt-comma = "layout accordion horizontal vertical"
 

@@ -16,3 +16,6 @@
 [submodule "dracula/gitk"]
 	path = dracula/gitk
 	url = https://github.com/dracula/gitk.git
+[submodule "dot-config/todo-nvim/pack/vendor/start/dracula.nvim"]
+	path = dot-config/todo-nvim/pack/vendor/start/dracula.nvim
+	url = https://github.com/maxmx03/dracula.nvim.git

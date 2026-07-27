@@ -49,6 +49,7 @@ tasks:
       UNFOLD_DIRS:
         - ~/.config/aerospace
         - ~/.config/claude
+        - ~/.config/todo
     cmds:
       - for: { var: UNFOLD_DIRS }
         cmd: mkdir -p {{.ITEM}} && touch {{.ITEM}}/.stow-keep
