@@ -55,6 +55,8 @@ When Hubert reviews:
 3. Respond to each comment and resolve it — both the ones you addressed and the ones you pushed back on.
 4. Once all comments are handled, re-request review with a **new top-level comment tagging Hubert** and asking for another pass.
 
+Request at most one re-review per PR. If Hubert's feedback after that re-review still needs addressing, do the work and report it in-chat — deciding whether to ask him again is mine.
+
 **Aiming for auto-approval.** On small tasks — especially chores — deliberately aim for Hubert's auto-approval. Two conditions:
 
 - Work only in directories we own as code owners.
