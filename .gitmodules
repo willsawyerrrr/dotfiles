@@ -13,3 +13,6 @@
 [submodule "dracula/bashtop"]
 	path = dracula/bashtop
 	url = https://github.com/dracula/bashtop.git
+[submodule "dracula/gitk"]
+	path = dracula/gitk
+	url = https://github.com/dracula/gitk.git
