@@ -26,6 +26,9 @@
 [gpg]
 	format = ssh
 
+[includeIf "gitdir:~/heidi/"]
+	path = ~/heidi/.gitconfig
+
 [init]
 	defaultBranch = main
 
@@ -39,7 +42,7 @@
 	gpgSign = true
 
 [user]
-	email = williamsawyer@heidihealth.com
+	email = wmsawyer2609@gmail.com
 	name = William Sawyer
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBbwmV/ajwmOVeHcm/4Ww1cn2Czq9wzPE9MwYw8ZD6KK
 
