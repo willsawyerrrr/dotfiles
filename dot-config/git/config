@@ -26,6 +26,9 @@
 [gpg]
 	format = ssh
 
+[gpg "ssh"]
+	allowedSignersFile = ~/.config/git/allowed_signers
+
 [includeIf "gitdir:~/heidi/"]
 	path = ~/heidi/.gitconfig
 

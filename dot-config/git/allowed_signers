@@ -1,0 +1,3 @@
+# Public keys git accepts SSH commit signatures from, keyed by the author identity that signed.
+# Both identities sign with one key, so both principals map to it.
+wmsawyer2609@gmail.com,williamsawyer@heidihealth.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBbwmV/ajwmOVeHcm/4Ww1cn2Czq9wzPE9MwYw8ZD6KK
