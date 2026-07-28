@@ -44,11 +44,12 @@ tasks:
     desc: Capture which defaults key a System Settings change touched
 
   stow:preflight:
-    desc: Pre-create target dirs that must stay unfolded (apps that write runtime state alongside config)
+    desc: Pre-create target dirs that must stay unfolded (untracked machine-local files live alongside tracked config)
     vars:
       UNFOLD_DIRS:
         - ~/.config/aerospace
         - ~/.config/claude
+        - ~/.config/git
         - ~/.config/todo
     cmds:
       - for: { var: UNFOLD_DIRS }

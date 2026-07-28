@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+#
+# git maintain
+#
+# Registers the current repository for background maintenance in the
+# machine-local config at ${XDG_CONFIG_HOME}/git/maintenance, which
+# ~/.config/git/config includes.
+#
+# The shared repository is registered — the bare dir of a worktree layout, else
+# the main worktree — so each worktree doesn't register itself as its own repo.
+
+set -e
+
+config="${XDG_CONFIG_HOME:-${HOME}/.config}/git/maintenance"
+repo=$(git worktree list --porcelain | head -1 | cut -d' ' -f2-)
+[[ -n "${repo}" ]] || exit 1
+
+exec git -C "${repo}" maintenance register --config-file "${config}"

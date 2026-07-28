@@ -29,6 +29,10 @@
 [gpg "ssh"]
 	allowedSignersFile = ~/.config/git/allowed_signers
 
+[include]
+	# Machine-local list of repos registered for background maintenance
+	path = ~/.config/git/maintenance
+
 [includeIf "gitdir:~/heidi/"]
 	path = ~/heidi/.gitconfig
 

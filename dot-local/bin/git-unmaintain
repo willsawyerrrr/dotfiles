@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+#
+# git unmaintain
+#
+# Deregisters the current repository from background maintenance in the
+# machine-local config at ${XDG_CONFIG_HOME}/git/maintenance, which
+# ~/.config/git/config includes.
+#
+# The shared repository is deregistered — the bare dir of a worktree layout,
+# else the main worktree — matching what git-maintain registers.
+
+set -e
+
+config="${XDG_CONFIG_HOME:-${HOME}/.config}/git/maintenance"
+repo=$(git worktree list --porcelain | head -1 | cut -d' ' -f2-)
+[[ -n "${repo}" ]] || exit 1
+
+exec git -C "${repo}" maintenance unregister --config-file "${config}" --force
