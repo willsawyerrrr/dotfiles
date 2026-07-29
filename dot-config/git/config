@@ -33,9 +33,6 @@
 	# Machine-local list of repos registered for background maintenance
 	path = ~/.config/git/maintenance
 
-[includeIf "gitdir:~/heidi/"]
-	path = ~/heidi/.gitconfig
-
 [init]
 	defaultBranch = main
 
@@ -55,3 +52,8 @@
 
 [wt]
 	basedir = ..
+
+# Conditional includes must come last: git applies an include where it appears,
+# so any section below it wins. Work credentials override [user] above.
+[includeIf "gitdir:~/heidi/"]
+	path = ~/heidi/.gitconfig
