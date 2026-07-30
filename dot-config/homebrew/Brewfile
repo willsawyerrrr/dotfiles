@@ -88,6 +88,8 @@ brew "openspec"
 brew "pipx"
 # Fast, disk space efficient package manager
 brew "pnpm"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
 # Object-relational database system
 brew "postgresql@17", link: true
 # Terminal slideshow tool
@@ -181,6 +183,8 @@ cask "raycast"
 cask "redis-insight"
 # Team communication and collaboration software
 cask "slack"
+# CLI to create, run, and deploy Slack apps
+cask "slack-cli"
 # Music streaming service
 cask "spotify"
 # VPN client for secure internet access and private browsing
@@ -189,5 +193,6 @@ cask "windscribe"
 cask "zoom"
 go "github.com/nitintf/claudewatch"
 uv "uv-sort"
+npm "@railway/cli"
 npm "prettier"
 npm "yaml-language-server"
