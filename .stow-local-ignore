@@ -3,6 +3,8 @@
 # Pattern syntax:
 # - Plain pattern (e.g., "foo")       -> matches at ANY depth
 # - ^/pattern (e.g., "^/foo")         -> matches ONLY at root level
+# - Any pattern containing "/" is matched against the whole path, so a
+#   trailing slash (e.g., "foo/") never matches — write "foo" or "^/foo"
 # - Use \. to match literal dots (e.g., "\.txt" not ".txt")
 # - Regex wildcards: .+ (one or more), .* (zero or more), ^ (start), $ (end)
 
@@ -10,10 +12,10 @@ Brewfile
 install.sh
 Taskfile.yaml
 
-dracula/
-scripts/
+^/dracula
+^/scripts
 
-\.claude/settings\.local\.json
+settings\.local\.json
 aerospace\.source\.toml
 
 ##################
