@@ -5,8 +5,6 @@ export EDITOR="nvim"
 export MANPAGER="nvim +Man!"
 export PATH="/Users/willsawyerrrr/.local/bin:${PATH}"
 
-export LOCAL_ENV=1
-
 export DYLD_FALLBACK_LIBRARY_PATH="/opt/homebrew/lib:${DYLD_FALLBACK_LIBRARY_PATH}"
 export PYTHONDONTWRITEBYTECODE=1
 

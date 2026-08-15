@@ -27,6 +27,9 @@
 - Before the first push of a branch or opening a PR, rebase onto the latest `main` and push an up-to-date version. Once a PR is already open, accept falling behind `main` — don't rebase + force-push, because rewriting history makes the PR harder to review.
 - When history genuinely is being rewritten — resolving conflicts, an intended rebase, amend, or squash — force-push it (use `--force-with-lease`). The "don't force-push" rule above only protects an already-open PR that has merely fallen behind `main`.
 - If git signing or a push fails because the SSH agent is unreachable or refusing ("agent refused operation", "communication with agent failed", "Permission denied (publickey)"), stop and notify me on my phone (via a push notification) to unlock my machine, then wait — never fall back to `--no-gpg-sign` or retry blindly. Commits must be signed (`commit.gpgsign=true`, SSH key).
+- Never include Linear issue IDs in code (e.g. comments, identifiers, strings). They belong in commit messages, branch names, and PR/Slack metadata, not in the code itself.
+- Convey Linear issue metadata (status, assignee, priority, estimate, labels, project, cycle, relations, etc.) through Linear's native issue attributes — never in the issue description. The description is for the substance of the issue only.
+- When creating a Notion document, always put the session UUID, project name, and (if set) session name in the header so I can navigate back to the originating Claude session when reviewing the doc later.
 
 ## Global config
 

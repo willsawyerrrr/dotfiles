@@ -52,8 +52,3 @@
 
 [wt]
 	basedir = ..
-
-# Conditional includes must come last: git applies an include where it appears,
-# so any section below it wins. Work credentials override [user] above.
-[includeIf "gitdir:~/heidi/"]
-	path = ~/heidi/.gitconfig
