@@ -2,15 +2,12 @@
 
 git:
   overrideGpg: true
-  pagers:
-    - pager: delta --paging=never
-
+  diffRenderers:
+    - command: delta --paging=never
 gui:
   commitAuthorShortLength: 15
-
 os:
   editPreset: nvim-remote
-
 customCommands:
   - key: w
     context: localBranches
