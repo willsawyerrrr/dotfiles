@@ -1,5 +1,3 @@
-export ZSH="${HOME}/.oh-my-zsh"
-
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="dracula"
 ZSH_CUSTOM="${XDG_CONFIG_HOME}/omz_custom"
@@ -34,7 +32,7 @@ plugins=(
 # Auto-include every plugin under ${ZSH_CUSTOM}/plugins
 plugins+=(${ZSH_CUSTOM}/plugins/*(N/:t))
 
-source "${ZSH}/oh-my-zsh.sh"
+source "${ZDOTDIR}/ohmyzsh/oh-my-zsh.sh"
 
 # autoload -Uz edit-command-line
 # zle -N edit-command-line
