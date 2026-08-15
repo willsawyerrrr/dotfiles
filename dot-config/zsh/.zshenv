@@ -1,11 +1,11 @@
 . "$HOME/.cargo/env"
 
 # Standard Shell config
-export EDITOR="nvim"
-export MANPAGER="nvim +Man!"
-export PATH="/Users/willsawyerrrr/.local/bin:${PATH}"
+export EDITOR=nvim
+export MANPAGER=nvim\ +Man!
+export PATH=/Users/willsawyerrrr/.local/bin:${PATH}
 
-export DYLD_FALLBACK_LIBRARY_PATH="/opt/homebrew/lib:${DYLD_FALLBACK_LIBRARY_PATH}"
+export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib:${DYLD_FALLBACK_LIBRARY_PATH}
 export PYTHONDONTWRITEBYTECODE=1
 
 for env_file in ${ZDOTDIR}/env/*; . "${env_file}"
