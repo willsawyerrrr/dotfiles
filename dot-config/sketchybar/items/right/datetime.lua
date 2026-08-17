@@ -15,6 +15,7 @@ local datetime_item = sbar.add(
 )
 
 local seconds_override = false
+local awaiting_frequency_reset = false
 
 local update_datetime = utils.use_battery_details(function(charging, _)
 	local datetime_format = "%d %B %I:%M"
@@ -32,6 +33,11 @@ local update_datetime = utils.use_battery_details(function(charging, _)
 	end
 
 	datetime_item:set({ label = datetime })
+
+	if awaiting_frequency_reset then
+		datetime_item:set({ frequency = 10 })
+		awaiting_frequency_reset = false
+	end
 end)
 datetime_item:subscribe("routine", update_datetime)
 update_datetime()
@@ -58,13 +64,11 @@ local function temporarily_show_seconds(_)
 	end
 
 	seconds_override = true
-	update_datetime()
 	datetime_item:set({ update_freq = 1 })
 
 	sbar.exec("sleep 5", function()
 		seconds_override = false
-		update_datetime()
-		datetime_item:set({ update_freq = 10 })
+		awaiting_frequency_reset = true
 	end)
 end
 datetime_item:subscribe({ "mouse.clicked" }, temporarily_show_seconds)
