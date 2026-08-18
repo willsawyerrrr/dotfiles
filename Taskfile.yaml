@@ -50,6 +50,7 @@ tasks:
         - ~/.config/aerospace
         - ~/.config/claude
         - ~/.config/git
+        - ~/.config/homebrew
         - ~/.config/todo
     cmds:
       - for: { var: UNFOLD_DIRS }
