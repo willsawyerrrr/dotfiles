@@ -34,9 +34,9 @@ plugins+=(${ZSH_CUSTOM}/plugins/*(N/:t))
 
 source "${ZDOTDIR}/ohmyzsh/oh-my-zsh.sh"
 
-# autoload -Uz edit-command-line
-# zle -N edit-command-line
-# bindkey '^Xe' edit-command-line
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^E' edit-command-line
 
 HISTFILE="${ZSH_CACHE_DIR}/history"
 HISTSIZE=10000
