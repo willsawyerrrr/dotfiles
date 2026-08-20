@@ -61,5 +61,7 @@ tasks:
     deps:
       - stow:preflight
       - aerospace:gen
-    cmd: stow --dotfiles --restow .
+    cmds:
+      - stow --dotfiles --restow .
+      - sudo stow --dir root --target / --restow .
     desc: Install dotfiles

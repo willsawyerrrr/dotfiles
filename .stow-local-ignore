@@ -13,6 +13,7 @@ install.sh
 Taskfile.yaml
 
 ^/dracula
+^/root
 ^/scripts
 
 settings\.local\.json
