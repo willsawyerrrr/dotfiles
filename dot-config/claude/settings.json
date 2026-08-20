@@ -18,8 +18,10 @@
       "mcp__claude_ai_Vercel",
       "mcp__plugin_posthog_posthog__exec"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
+  "model": "opus[1m]",
+  "enableAllProjectMcpServers": false,
   "hooks": {
     "WorktreeCreate": [
       {
@@ -42,8 +44,6 @@
       }
     ]
   },
-  "model": "opus[1m]",
-  "enableAllProjectMcpServers": false,
   "defaultShell": "bash",
   "statusLine": {
     "type": "command",
