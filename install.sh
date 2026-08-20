@@ -16,6 +16,10 @@ if ! ( which brew >/dev/null ); then
     NONINTERACTIVE=1 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+if ! ( which cargo >/dev/null ); then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -- -y
+fi
+
 brew bundle install --file ./dot-config/homebrew/Brewfile
 
 task stow:install
