@@ -34,8 +34,6 @@ brew "deno"
 brew "devcontainer"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# Play, record, convert, and stream select audio and video codecs
-brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GitHub command-line tool
@@ -50,8 +48,6 @@ brew "git-gui"
 brew "go"
 # Task is a task runner/build tool that aims to be simpler and easier to use
 brew "go-task"
-# Easiest way to access your cloud
-brew "granted"
 # Kubernetes package manager
 brew "helm"
 # Deploy Kubernetes Helm Charts
@@ -60,8 +56,6 @@ brew "helmfile"
 brew "imagemagick"
 # Simple terminal UI for git commands
 brew "lazygit"
-# Implementation of the file(1) command
-brew "libmagic"
 # Powerful, lightweight programming language
 brew "lua"
 # Package manager for the Lua programming language
@@ -120,8 +114,6 @@ brew "uv"
 brew "vercel"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
-# Convert HTML to PDF
-brew "weasyprint"
 # Internet file retriever
 brew "wget"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
@@ -167,16 +159,12 @@ cask "linear"
 cask "linearmouse"
 # Support for Logitech G gear
 cask "logitech-g-hub"
-# Spreadsheet software
-cask "microsoft-excel"
 # Interactive tool for analyzing MongoDB data
 cask "mongodb-compass"
 # App to write, plan, collaborate, and get organised
 cask "notion"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
-# Identity verification provider
-cask "okta-verify"
 # Collaboration platform for API development
 cask "postman"
 # Control your tools with a few keystrokes
