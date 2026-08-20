@@ -48,6 +48,8 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Show hidden (dot) files.
 # https://macos-defaults.com/finder/appleshowallfiles.html
 defaults write com.apple.finder AppleShowAllFiles -bool true
+# Allow quitting finder.
+defaults write com.apple.finder QuitMenuItem -bool true
 # Keep folders on top when sorting by name.
 # https://macos-defaults.com/finder/_fxsortfoldersfirst.html
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
