@@ -16,7 +16,7 @@ if [[ ! -d $ZSH ]]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-brew bundle install
+brew bundle install --file ./dot-config/homebrew/Brewfile
 
 task stow:install
 task hooks:install
