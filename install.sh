@@ -20,6 +20,10 @@ if ! ( which cargo >/dev/null ); then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -- -y
 fi
 
+if [[ ! -d $HOME/.local/share/sketchybar_lua ]]; then
+    (git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua/)
+fi
+
 brew bundle install --file ./dot-config/homebrew/Brewfile
 
 task stow:install
