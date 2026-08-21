@@ -20,7 +20,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "sonnet",
   "enableAllProjectMcpServers": false,
   "hooks": {
     "WorktreeCreate": [
