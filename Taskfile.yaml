@@ -13,7 +13,9 @@ tasks:
 
   brew:install:
     if: "! brew bundle check"
-    cmd: brew bundle install --global
+    cmds:
+      - brew bundle install --global
+      - brew autoupdate start 12h --upgrade --cleanup --immediate --sudo
     desc: Install from Brewfile
 
   dracula:add:

@@ -1,5 +1,6 @@
 tap "bellini666/tap", "https://github.com/bellini666/pytest-language-server", trusted: true
 tap "common-fate/granted", trusted: { formulae: ["granted"] }
+tap "domt4/autoupdate", trusted: { commands: ["autoupdate"] }
 tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae"
 tap "hashicorp/tap"
 tap "hmarr/tap"
@@ -78,6 +79,8 @@ brew "node@22"
 brew "nvm"
 # Spec-driven development (SDD) for AI coding assistants
 brew "openspec"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
 # Fast, disk space efficient package manager
