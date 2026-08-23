@@ -4,7 +4,7 @@
 
 - Be extremely concise everywhere — responses, code, and documents alike. No filler, no padding, no trailing summaries; no redundant comments, dead abstractions, or verbose prose.
 - Never narrate the instructions or conventions you're following (no "per my working conventions...", "as documented...", etc.). Just follow them silently and do the work.
-- Never ask me to run a command you have the tools to run yourself — including `aws sso login`, which generally completes without my intervention. Only ask when a command genuinely cannot run without me (e.g. TTY input the harness can't provide).
+- Never ask me to run a command you have the tools to run yourself — including `aws sso login`, which generally completes without my intervention. Always attempt it yourself first; only ask after that attempt fails or blocks on something the harness genuinely can't provide (e.g. TTY input).
 - Don't ask whether to do something I've already documented. If a rule in CLAUDE.md or memory dictates the action, just take it.
 - Responses are read by a human, not piped to another tool. Bullets and headings aid scannability — keep them. Tighten _within_ each bullet: short clauses, no preamble, no restating the question, no closing summary.
 - Commit messages follow Conventional Commits, with the first word after the type capitalised. Example: `feat: Add new thing` (not `fix: add new thing`).
