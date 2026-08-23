@@ -55,6 +55,7 @@ tasks:
         - ~/.config/git
         - ~/.config/homebrew
         - ~/.config/todo
+        - ~/willsawyerrrr.dev
     cmds:
       - for: { var: UNFOLD_DIRS }
         cmd: mkdir -p {{.ITEM}} && touch {{.ITEM}}/.stow-keep
