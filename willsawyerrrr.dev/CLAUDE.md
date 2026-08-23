@@ -42,3 +42,8 @@ colliding on git state.
 - Delegate work to subagents rather than doing it inline, reserving the main
   thread for orchestration and conversation. Launch independent subagents
   concurrently.
+
+## Deployment
+
+- When deploying a project to Vercel, add the `<app-name>.willsawyerrrr.dev`
+  domain to the Vercel project.
