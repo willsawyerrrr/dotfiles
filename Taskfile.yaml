@@ -12,9 +12,9 @@ tasks:
     desc: Dump Brewfile
 
   brew:install:
-    if: "! brew bundle check"
     cmds:
-      - brew bundle install --global
+      - cmd: brew bundle install --global
+        if: "! brew bundle check --global"
       - cmd: brew autoupdate start 12h --upgrade --cleanup --immediate --sudo
         if: "! (brew autoupdate status | grep -q running)"
     desc: Install from Brewfile
