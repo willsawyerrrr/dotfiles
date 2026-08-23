@@ -20,3 +20,4 @@ Workflows are wrapped in `Taskfile.yaml` — run `task --list` to see them.
 
 - Commit messages are scoped to the application whose configuration is being edited (e.g. `feat(nvim): Add keymap`).
 - Whenever you add a new file to this repo, run the `stow:install` task afterwards so the new file is symlinked into `$HOME`.
+- Commit directly to `main`. This repo is exempt from the global convention of branching for each change.
