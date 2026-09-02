@@ -20,7 +20,7 @@
       "mcp__claude_in_chrome",
       "mcp__plugin_posthog_posthog__exec"
     ],
-    "defaultMode": "auto"
+    "defaultMode": "bypassPermissions"
   },
   "model": "sonnet",
   "enableAllProjectMcpServers": false,
