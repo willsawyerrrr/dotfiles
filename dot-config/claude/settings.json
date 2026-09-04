@@ -54,6 +54,7 @@
   "enabledPlugins": {
     "claudewatch@claudewatch": true,
     "lua-lsp@claude-plugins-official": true,
+    "mattpocock-skills@claude-plugins-official": true,
     "posthog@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
@@ -75,9 +76,9 @@
     "enabled": true,
     "mode": "hold"
   },
+  "skipDangerousModePermissionPrompt": true,
   "remoteControlAtStartup": true,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "voiceEnabled": true,
-  "skipDangerousModePermissionPrompt": true
+  "voiceEnabled": true
 }
