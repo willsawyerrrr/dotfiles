@@ -42,6 +42,8 @@ colliding on git state.
 - Delegate work to subagents rather than doing it inline, reserving the main
   thread for orchestration and conversation. Launch independent subagents
   concurrently.
+- Prefix each subagent's name with the ID of the Linear issue it's working
+  on, e.g. `WSD-123: <description>`.
 
 ## Deployment
 
