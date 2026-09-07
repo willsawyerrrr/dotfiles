@@ -61,6 +61,8 @@ brew "lazygit"
 brew "lua"
 # Package manager for the Lua programming language
 brew "luarocks"
+# Mac App Store command-line interface
+brew "mas"
 # Terminal image, video, directory, and Markdown viewer
 brew "mcat"
 # Terminal markdown viewer
