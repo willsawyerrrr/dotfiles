@@ -45,6 +45,11 @@ colliding on git state.
 - Prefix each subagent's name with the ID of the Linear issue it's working
   on, e.g. `WSD-123: <description>`.
 
+## Credentials
+
+- Third-party service credentials are often stored in `~/willsawyerrrr.dev/.env`.
+  If a credential isn't in a project's own `.env`, check there.
+
 ## Deployment
 
 - When deploying a project to Vercel, add the `<app-name>.willsawyerrrr.dev`
