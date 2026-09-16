@@ -55,7 +55,6 @@ tasks:
         - ~/.config/claude
         - ~/.config/git
         - ~/.config/homebrew
-        - ~/.config/todo
         - ~/willsawyerrrr.dev
     cmds:
       - for: { var: UNFOLD_DIRS }

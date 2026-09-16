@@ -3,7 +3,7 @@
 # Bound to option+t (alt-t) in AeroSpace.
 set -uo pipefail
 
-TODO_FILE="$HOME/.config/todo/todo.md"
+TODO_FILE="${XDG_DATA_HOME}/todo/todo.md"
 
 mkdir -p "$(dirname "$TODO_FILE")"
 touch "$TODO_FILE"
