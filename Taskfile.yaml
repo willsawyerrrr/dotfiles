@@ -53,6 +53,7 @@ tasks:
       UNFOLD_DIRS:
         - ~/.config/aerospace
         - ~/.config/claude
+        - ~/.config/claude/skills
         - ~/.config/git
         - ~/.config/homebrew
         - ~/.config/zsh
