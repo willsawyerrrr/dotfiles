@@ -20,12 +20,25 @@ if ! ( which cargo >/dev/null ); then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -- -y
 fi
 
-if [[ ! -d $HOME/.local/share/sketchybar_lua ]]; then
-    (git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua/)
+if [[ "$OSTYPE" == darwin* ]]; then
+    # MacOS
+    task macos:defaults
+
+    if [[ ! -d $HOME/.local/share/sketchybar_lua ]]; then
+        (git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua/)
+    fi
+elif [[ "$OSTYPE" == linux* && -n "$WSL_DISTRO_NAME" ]]; then
+    # WSL
+    cat > ~/.config/git/local <<EOF
+[include]
+	path = ~/.config/git/config-wsl
+EOF
+elif [[ "$OSTYPE" == linux* ]]; then
+    # Linux
+    :
 fi
 
 brew bundle install --file ./dot-config/homebrew/Brewfile
 
 task stow:install
 task hooks:install
-task macos:defaults

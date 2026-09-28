@@ -69,5 +69,5 @@ tasks:
       - aerospace:gen
     cmds:
       - stow --dotfiles --restow .
-      - sudo stow --dir root --target / --restow .
+      - sudo `which stow` --dir root --target / --restow .
     desc: Install dotfiles

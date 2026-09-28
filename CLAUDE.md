@@ -2,7 +2,7 @@
 
 ## Repo purpose
 
-Personal macOS dotfiles. Config files live under `dot-<name>/` directories and are deployed into `$HOME` via GNU Stow's `--dotfiles` mode (which rewrites the `dot-` prefix to a leading `.`). For example, `dot-config/nvim/init.lua` → `~/.config/nvim/init.lua`, and `dot-zshenv` → `~/.zshenv`.
+Personal dotfiles, deployed on macOS and WSL. Config files live under `dot-<name>/` directories and are deployed into `$HOME` via GNU Stow's `--dotfiles` mode (which rewrites the `dot-` prefix to a leading `.`). For example, `dot-config/nvim/init.lua` → `~/.config/nvim/init.lua`, and `dot-zshenv` → `~/.zshenv`.
 
 ## Workflows
 
@@ -14,6 +14,7 @@ Workflows are wrapped in `Taskfile.yaml` — run `task --list` to see them.
 - **Zsh XDG redirection**: `dot-zshenv` is the only zsh file at `$HOME` and exists solely to set `ZDOTDIR=$XDG_CONFIG_HOME/zsh` and source `${ZDOTDIR}/.zshenv`. Edit real zsh config under `dot-config/zsh/`, not `dot-zshenv`.
 - **Claude config** is tracked under `dot-claude/`. Machine-specific overrides go in `.claude/settings.local.json` (stow-ignored). Per the global CLAUDE.md, prefer editing `dot-claude/CLAUDE.md` over auto-memory for persistent global preferences.
 - **Git maintenance**: the list of repos registered for background maintenance is machine-local and untracked, at `~/.config/git/maintenance`, pulled in by an `[include]` in `dot-config/git/config`. Add or drop the current repo with `git maintain` / `git unmaintain` (`dot-local/bin/git-{,un}maintain`). `~/.config/git` is in the `stow:preflight` unfold list so the untracked file can sit alongside the symlinked config.
+- **OS-specific git config**: settings that only apply on one OS live in a tracked, stowed fragment, not in the shared `dot-config/git/config`. Each machine opts in via its own untracked `~/.config/git/local` (same unfold mechanism as `maintenance`) containing an `[include]` path to that fragment.
 - **Dracula themes** are vendored as git submodules under `dracula/` and referenced from individual app configs. After cloning, run `git submodule update --init --recursive` (or clone with `--recurse-submodules`).
 
 ## Conventions

@@ -30,6 +30,8 @@
 	allowedSignersFile = ~/.config/git/allowed_signers
 
 [include]
+	# Machine-local pointer to an OS-specific config fragment (e.g. config-windows)
+	path = ~/.config/git/local
 	# Machine-local list of repos registered for background maintenance
 	path = ~/.config/git/maintenance
 
