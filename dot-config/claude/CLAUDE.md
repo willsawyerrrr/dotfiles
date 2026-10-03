@@ -21,6 +21,7 @@
 - After making code changes, run the project's pre-commit hooks (e.g. `pre-commit run --files <changed>` or the project's equivalent) to verify formatting and linting before reporting the task complete.
 - Commit completed work by default — don't wait to be asked. Only hold off on _pushing_ when you're genuinely unsure it's ready. When a PR is already under review, add a new commit rather than folding or amending into reviewed commits, so the review history stays intact.
 - Always name worktrees after their branches.
+- Always clean up merged worktrees and branches (local and remote) once their PR merges: remove the worktree with plain `git wt --delete` (no `--force-delete`; skip and report any with uncommitted changes). Leave other sessions' worktrees and unmerged work alone.
 - In a worktree-enabled repo, never check out any branch other than `main` in the main worktree — every other branch belongs in its own dedicated worktree.
 - Avoid the `-f` flag on `rm` — it suppresses my review and slows me down. Default to plain `rm` (or `rm -r`); only use `-f` where it's genuinely necessary.
 - Never reply to comments (PR, issue, review, etc.) — I handle all comment replies myself. Do the underlying work and report what changed in-chat. Exception: an explicit per-instance instruction to post a specific message (e.g. "tag X and say re-review") — then post only that exact message.
