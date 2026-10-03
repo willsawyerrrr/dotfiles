@@ -191,6 +191,7 @@ cask "spotify"
 cask "windscribe"
 mas "1Password for Safari", id: 1569813296
 mas "AdBlock", id: 1402042596
+mas "Numbers", id: 361304891
 mas "Xcode", id: 497799835
 go "github.com/nitintf/claudewatch"
 uv "uv-sort"
