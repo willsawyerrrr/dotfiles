@@ -1,6 +1,7 @@
 ---
 name: research-plan-implement
 description: Three-phase workflow for non-trivial tasks — research with an agent and grill the user, plan via a private Notion review cycle, then implement with a fresh agent. Use when the user invokes /research-plan-implement, asks to "research, plan, then implement", or hands over a task large enough that jumping straight to code would waste effort.
+disable-model-invocation: true
 ---
 
 # Research → Plan → Implement
