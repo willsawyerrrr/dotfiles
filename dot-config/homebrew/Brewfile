@@ -142,8 +142,6 @@ brew "hmarr/tap/codeowners", trusted: true
 brew "k1low/tap/git-wt", trusted: true
 # Ookla Speedtest
 brew "teamookla/speedtest/speedtest", trusted: true
-# Menu bar manager for Claude Code remote-control servers
-brew "willsawyerrrr/tap/tether", trusted: true
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
@@ -187,6 +185,8 @@ cask "slack"
 cask "slack-cli"
 # Music streaming service
 cask "spotify"
+# Menu bar manager for Claude Code remote-control servers
+cask "willsawyerrrr/tap/tether", trusted: true
 # VPN client for secure internet access and private browsing
 cask "windscribe"
 mas "1Password for Safari", id: 1569813296
