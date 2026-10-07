@@ -27,6 +27,14 @@ colliding on git state.
   scope, or a workflow, update the affected docs (`docs/` and the project's
   `CLAUDE.md`) as part of the same change, so `main` is never merged with
   stale docs.
+- Every repo's CI defines one aggregate job named `CI Status` that `needs`
+  every other job (`if: always()`, failing if any dependency failed or was
+  cancelled). Every repo guards `main` with a repository ruleset (never classic
+  branch protection) that requires only `CI Status`, blocks force pushes and
+  deletion, and lets the repository admin role bypass.
+- Track every change in Linear, including repo-settings changes (rulesets,
+  branch protection, merge settings) that need no branch or PR: file the
+  issue, record what was changed in its description, and mark it Done.
 - Claude drives everything in these repos — code, docs, CI, config — and owns
   the git and PR lifecycle autonomously: branching, committing, pushing, and
   opening, updating, and merging pull requests, all without per-turn
@@ -42,6 +50,9 @@ colliding on git state.
 - Delegate work to subagents rather than doing it inline, reserving the main
   thread for orchestration and conversation. Launch independent subagents
   concurrently.
+- Track all work in Linear. Before starting, find or create the issue in the
+  project's Linear project; keep its status current (In Progress → In Review
+  → Done) and attach the PRs. Work found along the way gets its own issue.
 - Prefix each subagent's name with the ID of the Linear issue it's working
   on, e.g. `WSD-123: <description>`.
 
