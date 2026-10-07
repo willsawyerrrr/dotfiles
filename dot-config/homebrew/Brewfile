@@ -147,7 +147,7 @@ brew "k1low/tap/git-wt", trusted: true
 # Ookla Speedtest
 brew "teamookla/speedtest/speedtest", trusted: true
 # Password manager that keeps all passwords secure behind one password
-cask "1password"
+cask "1password", args: { appdir: "/Applications" }
 # Command-line interface for 1Password
 cask "1password-cli"
 # AeroSpace is an i3-like tiling window manager for macOS

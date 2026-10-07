@@ -92,7 +92,7 @@ outer.right = 10
 
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
-alt-enter = "exec-and-forget open -n /Applications/kitty.app"
+alt-enter = "exec-and-forget open -n ~/Applications/kitty.app"
 
 alt-t = "exec-and-forget zsh -c ~/.config/todo/toggle.sh"
 
