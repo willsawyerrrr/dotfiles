@@ -61,6 +61,13 @@ colliding on git state.
 - All bundle IDs are `dev.willsawyerrrr.<kebab-cased-application-name>` — never
   `concatenatedapplicationname` or `CapitalisedApplicationName`.
 
+## iOS export compliance
+
+- Every iOS app deployed to App Store Connect must declare its export
+  encryption configuration in its `Info.plist`: set
+  `ITSAppUsesNonExemptEncryption` to `false` when the app uses only exempt
+  encryption (e.g. HTTPS), so builds skip the manual export-compliance prompt.
+
 ## Credentials
 
 - Third-party service credentials are often stored in `~/willsawyerrrr.dev/.env`.
