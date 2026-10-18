@@ -58,6 +58,7 @@ colliding on git state.
 - Track all work in Linear. Before starting, find or create the issue in the
   project's Linear project; keep its status current (In Progress → In Review
   → Done) and attach the PRs. Work found along the way gets its own issue.
+  Dependabot pull requests are the exception: they need no Linear issue.
 - Prefix each subagent's name with the ID of the Linear issue it's working
   on, e.g. `WSD-123: <description>`.
 
