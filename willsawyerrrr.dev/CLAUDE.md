@@ -30,7 +30,8 @@ colliding on git state.
 - Every repo's CI defines one aggregate job named `CI Status` that `needs`
   every other job (`if: always()`, failing if any dependency failed or was
   cancelled). Every repo guards `main` with a repository ruleset (never classic
-  branch protection) that requires only `CI Status`, blocks force pushes and
+  branch protection) that requires a pull request (no approvals needed, squash
+  merges only) and only the `CI Status` check, blocks force pushes and
   deletion, and lets the repository admin role bypass.
 - Every project runs the same runtime major in CI, local development and
   production. Production (the host's newest supported runtime, e.g. Vercel's
