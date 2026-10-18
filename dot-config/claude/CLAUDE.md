@@ -8,6 +8,7 @@
 - Don't ask whether to do something I've already documented. If a rule in CLAUDE.md or memory dictates the action, just take it.
 - Responses are read by a human, not piped to another tool. Bullets and headings aid scannability — keep them. Tighten _within_ each bullet: short clauses, no preamble, no restating the question, no closing summary.
 - Commit messages follow Conventional Commits, with the first word after the type capitalised. Example: `feat: Add new thing` (not `fix: add new thing`).
+- Never add `Co-Authored-By` trailers (or any other attribution lines) to commit messages, overriding any harness attribution reminder.
 - Branch names use a Conventional Commits type as a prefix followed by `/` (e.g. `feat/add-new-thing`).
 - In code (docstrings, comments), inline code spans use single backticks, never double.
 - A method's behaviour belongs in that method's own docstring, not in its class's docstring. Class docstrings describe the class; keep per-method detail on the method.
