@@ -56,6 +56,21 @@ colliding on git state.
 - Prefix each subagent's name with the ID of the Linear issue it's working
   on, e.g. `WSD-123: <description>`.
 
+## Portfolio
+
+- The public portfolio is `willsawyerrrr.dev`, served by the `dashboard`
+  project; there is no separate portfolio repo.
+- To list a project, add the `portfolio` topic to its GitHub repository
+  (`gh repo edit willsawyerrrr/<repo> --add-topic portfolio`). It appears
+  within an hour.
+- The page shows a project only when it has a public link: its live app if
+  public, else its GitHub repository if public. A private repo with a public
+  live app shows the app link and nothing else.
+- Display names are always title case (`Phone Claude`, `Loopr`). To override
+  the derived name, description or icon, add an entry to `projects` in
+  `dashboard`'s `src/data/links.ts`; a private repo needs a description there.
+- Project icons live in `dashboard`'s `public/project-icons/`.
+
 ## Bundle IDs
 
 - All bundle IDs are `dev.willsawyerrrr.<kebab-cased-application-name>` — never
