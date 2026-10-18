@@ -32,6 +32,11 @@ colliding on git state.
   cancelled). Every repo guards `main` with a repository ruleset (never classic
   branch protection) that requires only `CI Status`, blocks force pushes and
   deletion, and lets the repository admin role bypass.
+- Every project runs the same runtime major in CI, local development and
+  production. Production (the host's newest supported runtime, e.g. Vercel's
+  Node) sets the version; pin it everywhere (`.nvmrc`, `engines`, CI
+  `setup-node`, type packages) and configure Dependabot to ignore majors
+  beyond it.
 - Track every change in Linear, including repo-settings changes (rulesets,
   branch protection, merge settings) that need no branch or PR: file the
   issue, record what was changed in its description, and mark it Done.
