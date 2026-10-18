@@ -88,6 +88,12 @@ colliding on git state.
   `ITSAppUsesNonExemptEncryption` to `false` when the app uses only exempt
   encryption (e.g. HTTPS), so builds skip the manual export-compliance prompt.
 
+## App Store Connect listing icon
+
+- An app's App Store Connect listing shows a placeholder icon until a build is
+  attached to its version (App Store → the iOS version → Build). It then uses
+  that build's icon; there is no separate icon upload.
+
 ## Credentials
 
 - Third-party service credentials are often stored in `~/willsawyerrrr.dev/.env`.
