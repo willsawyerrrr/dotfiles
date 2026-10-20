@@ -7,7 +7,7 @@ tap "hmarr/tap"
 tap "k1low/tap", "https://github.com/k1LoW/homebrew-tap"
 tap "nikitabobko/tap"
 tap "teamookla/speedtest"
-tap "willsawyerrrr/tap"
+tap "willsawyerrrr/tap", trusted: true
 # Code searching, linting, rewriting
 brew "ast-grep"
 # Per-project, per-directory shell environments
