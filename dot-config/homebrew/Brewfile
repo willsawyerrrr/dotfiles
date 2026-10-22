@@ -8,12 +8,16 @@ tap "k1low/tap", "https://github.com/k1LoW/homebrew-tap"
 tap "nikitabobko/tap"
 tap "teamookla/speedtest"
 tap "willsawyerrrr/tap", trusted: true
+# Static checker for GitHub Actions workflow files
+brew "actionlint"
 # Code searching, linting, rewriting
 brew "ast-grep"
 # Per-project, per-directory shell environments
 brew "autoenv"
 # Official Amazon AWS command-line interface
 brew "awscli"
+# Bash Automated Testing System
+brew "bats-core"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
 # Core application library for C
@@ -50,6 +54,8 @@ brew "git"
 brew "git-delta"
 # Tcl/Tk UI for the git revision control system
 brew "git-gui"
+# Audit git repos for secrets
+brew "gitleaks"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Task is a task runner/build tool that aims to be simpler and easier to use
@@ -96,6 +102,8 @@ brew "pnpm"
 brew "poppler"
 # Object-relational database system
 brew "postgresql@17", link: true
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
 # Terminal slideshow tool
 brew "presenterm"
 # Interpreted, interactive, object-oriented programming language
