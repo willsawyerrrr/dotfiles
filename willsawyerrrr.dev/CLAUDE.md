@@ -101,6 +101,42 @@ colliding on git state.
 - Third-party service credentials are often stored in `~/willsawyerrrr.dev/.env`.
   If a credential isn't in a project's own `.env`, check there.
 
+## 1Password Environments
+
+- Local development loads secrets from 1Password Environments via
+  `op run --environment <id> -- <command>`, not from a `.env` file. Environment
+  IDs are not secrets.
+- Each project has its own Environment. Reusable Environments hold secrets
+  shared across projects (e.g. Apple Development, a general-purpose one); add a
+  new one whenever several projects need the same secrets.
+- Pass `--environment` once per Environment to combine them; variables merge
+  and, on a name clash, the last one wins, so list the shared Environment
+  before the project's.
+
+### Shared Environments
+
+| Environment       | ID                         | Holds                                                                                          |
+| ----------------- | -------------------------- | ---------------------------------------------------------------------------------------------- |
+| Apple Development | b5zkkwxuutlttwbrv5xhgojye4 | Apple team ID, App Store Connect key, Developer ID certificate, notarisation key               |
+| Shared            | 3i642eynjpsx2uctyqlexobgge | Account-level tokens: Supabase, GitHub, Linear, Vapi, Twilio, Recraft, Homebrew tap deploy key |
+
+### Project Environments
+
+| Environment         | ID                         |
+| ------------------- | -------------------------- |
+| App Intents Factory | d2ddxa6xgvqrxvux52jwkxgamy |
+| Chore Tracker       | wjm4duhdh5lbojqz2gn6pqck6q |
+| Dashboard           | p4opp3txd6i72uch2gwirp2lbu |
+| Homebrew Tap        | tftzukegxqsikrtd7o5cojt66q |
+| Loopr               | wukpvhxkhkygbjbpg2jl4urine |
+| Nest                | we4tm6dkfoffx42g243qr7ju6m |
+| Personal Shopper    | pypsxvgj5p7ioxffch5lil4w5u |
+| Phone Claude        | ufudw2eopg5tmebz6ptldpitki |
+| Platform            | 3wm7pn2k5bnmyuzqznz33lufp4 |
+| Tee Finder          | zphtn46o5nvwlcz3poouqxesfe |
+| Tether              | pr4n6btanxalwrgrhgp2xu2h5i |
+| Work Use Tracker    | gdfkh3sptrkqouuj37rofcuc3e |
+
 ## Deployment
 
 - When deploying a project to Vercel, add the `<app-name>.willsawyerrrr.dev`
