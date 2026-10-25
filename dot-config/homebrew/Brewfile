@@ -180,6 +180,8 @@ cask "linearmouse"
 cask "logitech-g-hub"
 # Interactive tool for analyzing MongoDB data
 cask "mongodb-compass"
+# Household budgeting app for two
+cask "willsawyerrrr/tap/nest", trusted: true
 # App to write, plan, collaborate, and get organised
 cask "notion"
 # Simple application that will prevent iTunes or Apple Music from launching
