@@ -1,5 +1,6 @@
 # zsh Aliases
 
+alias c="claude"
 alias diff="delta"
 alias dotfiles='cd "${DOTFILES_DIR}" && nvim .'
 alias venv="source .venv/bin/activate"
