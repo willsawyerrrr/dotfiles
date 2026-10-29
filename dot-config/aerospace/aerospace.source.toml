@@ -19,8 +19,8 @@ l = "right"
 "net.kovidgoyal.kitty" = 1
 "com.google.Chrome" = 2
 "notion.id" = 2
-"com.tinyspeck.slackmacgap" = 3
 "com.linear" = 3
+"com.tinyspeck.slackmacgap" = 3
 
 [aerospace]
 # https://nikitabobko.github.io/AeroSpace/guide#config-version
