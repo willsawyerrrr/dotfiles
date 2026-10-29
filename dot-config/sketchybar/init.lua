@@ -3,6 +3,8 @@ package.cpath = package.cpath .. ";/Users/" .. os.getenv("USER") .. "/.local/sha
 ---@diagnostic disable-next-line: lowercase-global
 sbar = require("sketchybar")
 
+local colours = require("colours")
+
 -- Bundle the entire initial configuration into a single message to sketchybar
 sbar.begin_config()
 
@@ -33,6 +35,17 @@ sbar.default({
 	},
 	padding_left = 5,
 	padding_right = 5,
+	popup = {
+		background = {
+			drawing = "on",
+			border_width = 2,
+			border_color = colours.foreground,
+			corner_radius = 5,
+		},
+		blur_radius = 10,
+		height = 30,
+		y_offset = -10,
+	},
 })
 require("items")
 sbar.hotload(true)
