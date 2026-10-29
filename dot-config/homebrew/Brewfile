@@ -192,10 +192,6 @@ cask "postman"
 cask "raycast"
 # GUI for streamlined Redis application development
 cask "redis-insight"
-# Team communication and collaboration software
-cask "slack"
-# CLI to create, run, and deploy Slack apps
-cask "slack-cli"
 # Music streaming service
 cask "spotify"
 # Menu bar manager for Claude Code remote-control servers
