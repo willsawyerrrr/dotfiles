@@ -1,4 +1,4 @@
-import { personalChromeProfile } from "./browsers";
+import { personalSafariProfile } from "./browsers";
 import type {
   BrowserHandler,
   BrowserSpecification,
@@ -21,4 +21,4 @@ function handleWithBrowser(browser: BrowserSpecification) {
   };
 }
 
-export default [...personalUrls.map(handleWithBrowser(personalChromeProfile))];
+export default [...personalUrls.map(handleWithBrowser(personalSafariProfile))];
