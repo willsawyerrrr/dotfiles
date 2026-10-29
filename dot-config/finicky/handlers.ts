@@ -1,30 +1,9 @@
-import { heidiChromeProfile, personalChromeProfile } from "./browsers";
+import { personalChromeProfile } from "./browsers";
 import type {
   BrowserHandler,
   BrowserSpecification,
 } from "~/Applications/Finicky.app/Contents/Resources/finicky.d.ts";
 
-const heidiUrls = [
-  "amazonaws.com",
-  "app.aus.vanta.com",
-  "app.flagsmith.com",
-  "app.incident.io",
-  "app.notion.com",
-  "cloud.mongodb.com",
-  "eu.posthog.com",
-  "github.com/oscerai",
-  "heidi-dev.sentry.io",
-  "heidi.kinde.com/admin",
-  "heidihealth.bamboohr.com",
-  "heidihealth.okta.com",
-  "insideheidi.slack.com",
-  "linear.app/getheidi",
-  "scribe-admin-*.vercel.app",
-  "us3.datadoghq.com",
-  "vercel.com/heidi-health",
-  "www.airwallex.com",
-  "www.notion.so",
-];
 const personalUrls = [
   "*-willsawyerrrr.vercel.app",
   "github.com/willsawyerrrr",
@@ -42,7 +21,4 @@ function handleWithBrowser(browser: BrowserSpecification) {
   };
 }
 
-export default [
-  ...heidiUrls.map(handleWithBrowser(heidiChromeProfile)),
-  ...personalUrls.map(handleWithBrowser(personalChromeProfile)),
-];
+export default [...personalUrls.map(handleWithBrowser(personalChromeProfile))];
