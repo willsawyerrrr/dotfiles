@@ -1,4 +1,4 @@
-import { BrowserSpecification } from "/Applications/Finicky.app/Contents/Resources/finicky";
+import { BrowserSpecification } from "~/Applications/Finicky.app/Contents/Resources/finicky";
 
 export enum Browser {
   GoogleChrome = "Google Chrome",
