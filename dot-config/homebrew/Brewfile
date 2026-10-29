@@ -137,8 +137,6 @@ brew "wget"
 brew "xcodegen"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
-# Pluggable terminal workspace, with terminal multiplexer as the base feature
-brew "zellij"
 # Blazingly fast Language Server Protocol implementation for pytest
 brew "bellini666/tap/pytest-language-server"
 # Custom macOS statusbar with shell plugin, interaction and graph support
