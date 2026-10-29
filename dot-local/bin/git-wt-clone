@@ -8,6 +8,12 @@
 # local branches (refs/heads/*) only exist for the worktrees you create. An
 # initial worktree is created for the default branch.
 
+# Print the header comment above as help.
+if [[ "${1:-}" == (-h|--help) ]]; then
+  sed -En '3,/^($|[^#])/{/^($|[^#])/d;s/^# ?//;p;}' "$0"
+  exit 0
+fi
+
 set -e
 
 dir="${@[-1]:-}"

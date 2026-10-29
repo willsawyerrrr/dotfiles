@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 #
-# git maintain
+# git maintain [-h]
 #
 # Registers the current repository for background maintenance in the
 # machine-local config at ${XDG_CONFIG_HOME}/git/maintenance, which
@@ -8,6 +8,12 @@
 #
 # The shared repository is registered — the bare dir of a worktree layout, else
 # the main worktree — so each worktree doesn't register itself as its own repo.
+
+# Print the header comment above as help.
+if [[ "${1:-}" == (-h|--help) ]]; then
+  sed -En '3,/^($|[^#])/{/^($|[^#])/d;s/^# ?//;p;}' "$0"
+  exit 0
+fi
 
 set -e
 
