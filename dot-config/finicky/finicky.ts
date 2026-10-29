@@ -4,7 +4,7 @@ import rewrite from "./rewrite";
 import type { FinickyConfig } from "~/Applications/Finicky.app/Contents/Resources/finicky.d.ts";
 
 export default {
-  defaultBrowser: Browser.GoogleChrome,
+  defaultBrowser: Browser.Safari,
 
   options: {
     logRequests: false,
