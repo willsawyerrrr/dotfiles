@@ -10,6 +10,12 @@
 # repos), its own worktrees are listed. The bare entry is omitted; a dirty
 # worktree is flagged with ` *` next to its name.
 
+# Print the header comment above as help.
+if [[ "${1:-}" == (-h|--help) ]]; then
+  sed -En '3,/^($|[^#])/{/^($|[^#])/d;s/^# ?//;p;}' "$0"
+  exit 0
+fi
+
 set -e
 
 # True if <dir> is a wt-clone-style repo (has a `.git` file or a `.bare` dir).

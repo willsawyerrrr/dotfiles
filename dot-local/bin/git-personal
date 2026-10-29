@@ -1,6 +1,15 @@
 #!/usr/bin/env zsh
 #
 # git personal [<git-clone-option> ...] <repo>
+#
+# Clones github.com/willsawyerrrr/<repo> into <repo>/ via `git wt-clone`, so it
+# is ready for worktrees. Any <git-clone-option> is passed through.
+
+# Print the header comment above as help.
+if [[ "${1:-}" == (-h|--help) ]]; then
+  sed -En '3,/^($|[^#])/{/^($|[^#])/d;s/^# ?//;p;}' "$0"
+  exit 0
+fi
 
 repo="${@[-1]}"
 set -- "${@[1,-2]}"
