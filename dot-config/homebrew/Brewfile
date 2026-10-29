@@ -200,7 +200,9 @@ cask "willsawyerrrr/tap/tether", trusted: true
 cask "windscribe"
 mas "1Password for Safari", id: 1569813296
 mas "AdBlock", id: 1402042596
+mas "Developer", id: 640199958
 mas "Numbers", id: 361304891
+mas "TestFlight", id: 899247664
 mas "Xcode", id: 497799835
 go "github.com/nitintf/claudewatch"
 uv "uv-sort"
