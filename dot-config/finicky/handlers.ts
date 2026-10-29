@@ -32,7 +32,6 @@ const personalUrls = [
   "www.notion.so/bronteandwill",
   "youtube.com",
 ];
-const situUrls = ["github.com/SituDevelopment", "situworkspace.slack.com"];
 
 function handleWithBrowser(browser: BrowserSpecification) {
   return function (url: string): BrowserHandler {
@@ -46,5 +45,4 @@ function handleWithBrowser(browser: BrowserSpecification) {
 export default [
   ...heidiUrls.map(handleWithBrowser(heidiChromeProfile)),
   ...personalUrls.map(handleWithBrowser(personalChromeProfile)),
-  ...situUrls.map(handleWithBrowser(personalChromeProfile)),
 ];
