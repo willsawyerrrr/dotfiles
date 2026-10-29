@@ -2,7 +2,7 @@ import { heidiChromeProfile, personalChromeProfile } from "./browsers";
 import type {
   BrowserHandler,
   BrowserSpecification,
-} from "/Applications/Finicky.app/Contents/Resources/finicky.d.ts";
+} from "~/Applications/Finicky.app/Contents/Resources/finicky.d.ts";
 
 const heidiUrls = [
   "amazonaws.com",

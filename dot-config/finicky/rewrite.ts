@@ -1,4 +1,4 @@
-import { UrlRewriteRule } from "/Applications/Finicky.app/Contents/Resources/finicky";
+import { UrlRewriteRule } from "~/Applications/Finicky.app/Contents/Resources/finicky";
 
 export default [
   {
