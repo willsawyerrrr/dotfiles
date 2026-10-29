@@ -17,6 +17,7 @@ l = "right"
 
 [generator.workspace-apps]
 "net.kovidgoyal.kitty" = 1
+"com.apple.Safari" = 2
 "com.google.Chrome" = 2
 "notion.id" = 2
 "com.linear" = 3
