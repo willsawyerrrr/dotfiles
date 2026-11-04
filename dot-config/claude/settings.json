@@ -47,26 +47,8 @@
     ]
   },
   "defaultShell": "bash",
-  "statusLine": {
-    "type": "command",
-    "command": "/Users/willsawyerrrr/go/bin/claudewatch"
-  },
   "enabledPlugins": {
-    "claudewatch@claudewatch": true,
-    "lua-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "slack@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
-  },
-  "extraKnownMarketplaces": {
-    "claudewatch": {
-      "source": {
-        "source": "github",
-        "repo": "nitintf/claudewatch"
-      }
-    }
+    "swift-lsp@claude-plugins-official": true
   },
   "syntaxHighlightingDisabled": false,
   "tui": "fullscreen",
