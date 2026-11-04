@@ -106,14 +106,16 @@ colliding on git state.
 - Local development loads secrets from 1Password Environments mounted as `.env`
   files, not via `op run`: the shared Environment at `~/willsawyerrrr.dev/.env`,
   Apple Development at `~/willsawyerrrr.dev/.env.apple`, and each project's own
-  at `~/willsawyerrrr.dev/<project>/.env`. Source the files you need
-  (`set -a; . <file>; set +a`), shared first, project last. Environment IDs
+  at `~/willsawyerrrr.dev/<project>/.env`. Run commands under platform's
+  `~/willsawyerrrr.dev/platform/main/scripts/load-env <file>... -- <command>`,
+  shared first, project last; never source the files with `.`, which loads
+  nothing under `sh` and runs multi-line PEM values as commands. Environment IDs
   (used by CI) are not secrets.
 - Each project has its own Environment. Reusable Environments hold secrets
   shared across projects (e.g. Apple Development, a general-purpose one); add a
   new one whenever several projects need the same secrets.
-- Sourced variables merge and, on a name clash, the last one wins, so source the
-  shared Environment before the project's.
+- Variables merge and, on a name clash, the last file wins, so list the shared
+  Environment before the project's.
 
 ### Shared Environments
 
