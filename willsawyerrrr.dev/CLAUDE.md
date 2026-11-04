@@ -126,3 +126,11 @@ colliding on git state.
 
 - When deploying a project to Vercel, add the `<app-name>.willsawyerrrr.dev`
   domain to the Vercel project.
+
+## Claude Code settings
+
+- No repo's `.claude/settings.json` or `.claude/settings.local.json` may set
+  `permissions.defaultMode`. That setting belongs in `~/.claude/settings.json`
+  only; a repo-level `bypassPermissions` or `auto` value is silently ignored
+  and forces the session into Manual mode instead, overriding the global
+  preference.
