@@ -46,7 +46,7 @@
       }
     ]
   },
-  "defaultShell": "bash",
+  "defaultShell": "zsh",
   "enabledPlugins": {
     "swift-lsp@claude-plugins-official": true
   },
