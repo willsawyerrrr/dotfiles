@@ -28,7 +28,7 @@ If the work is tied to a Linear issue, use `<ISSUE-ID>: <Issue title>` (e.g. `SC
    - constraints, prior art, related tickets or commits
    - open questions and assumptions
 2. **Write the agent's findings to `docs/<task-directory>/research.md`.** Sections: _Task statement_, _Findings_, _Open questions_, _Assumptions_. This is the durable record — keep it current as understanding evolves. The research doc is yours to maintain; do not ask the user to review or sign off on it.
-3. **Grill the user** by invoking the `grill-me` skill. Continue until no open questions remain.
+3. **Grill the user** on every open question and assumption in `research.md`: ask one question at a time, include your recommended answer, and explore the codebase instead of asking when it can answer. Continue until no open questions remain.
 4. **Update `research.md` after each round** so it reflects the current shared understanding. Once all open questions are resolved and you're aligned with the user, move directly to Phase 2 — no further confirmation step.
 
 ## Phase 2 — Plan
