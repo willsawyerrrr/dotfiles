@@ -47,9 +47,7 @@ If the work is tied to a Linear issue, use `<ISSUE-ID>: <Issue title>` (e.g. `SC
 
 ## Rules
 
-- Each phase uses a **new** agent. No carry-over.
-- All three phases run inside the worktree created at the start of Phase 1 via `EnterWorktree`. Never operate on the main checkout, never switch branches inside the worktree, and never push. Do not call `ExitWorktree` proactively — only when the user explicitly asks.
-- Transition from Phase 1 to Phase 2 once grilling is complete and you're aligned with the user — no explicit sign-off on `research.md`. Do not start Phase 3 until the user approves the plan in Notion.
+- All three phases run inside the worktree created at the start of Phase 1 via `EnterWorktree`. Never operate on the main checkout, never switch branches inside the worktree, and never push.
 - `research.md` and `plan.md` are the durable record. Keep both current; they outlive the conversation.
 - If the task turns out to be trivial mid-research, surface that and offer to skip the remaining phases rather than going through the motions. If you abandon the work, leave the worktree in place — the user can choose to remove it on session exit or via an explicit `ExitWorktree` request.
 - If Notion MCP tools are unavailable, stop and ask the user how to handle the review step before continuing — do not silently fall back to inline review.
