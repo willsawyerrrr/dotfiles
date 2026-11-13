@@ -68,6 +68,9 @@ defaults write com.apple.dock autohide -bool true
 # Don't rearrange Spaces based on most recent use.
 # https://macos-defaults.com/mission-control/mru-spaces.html
 defaults write com.apple.dock mru-spaces -bool false
+# Don't set up separate spaces for each display.
+# https://macos-defaults.com/mission-control/spans-displays.html
+defaults write com.apple.spaces spans-displays -bool true
 
 ###############################################################################
 # Apply changes
