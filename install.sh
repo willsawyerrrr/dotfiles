@@ -33,6 +33,9 @@ elif [[ "$OSTYPE" == linux* && -n "$WSL_DISTRO_NAME" ]]; then
 [include]
 	path = ~/.config/git/config-wsl
 EOF
+    cat > ~/.config/zsh/env/wsl.sh <<EOF
+for env_file in \${ZDOTDIR}/wsl.d/*; . "\${env_file}"
+EOF
 elif [[ "$OSTYPE" == linux* ]]; then
     # Linux
     :

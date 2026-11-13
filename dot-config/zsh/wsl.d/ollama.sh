@@ -1,0 +1,1 @@
+alias ollama="ollama.exe"
