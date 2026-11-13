@@ -93,9 +93,9 @@ outer.right = 10
 
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
-alt-enter = "exec-and-forget open -n ~/Applications/kitty.app"
-alt-a = "exec-and-forget open -n '/System/Applications/Utilities/Activity Monitor.app'"
-alt-b = "exec-and-forget open /Applications/Safari.app"
+alt-enter = "exec-and-forget open -nb net.kovidgoyal.kitty"
+alt-a = "exec-and-forget open -b com.apple.ActivityMonitor"
+alt-b = "exec-and-forget open -b com.apple.Safari"
 
 alt-t = "exec-and-forget zsh -c ~/.config/todo/toggle.sh"
 
